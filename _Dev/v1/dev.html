@@ -1,0 +1,60 @@
+<?php 
+require_once("_Library/systemMedia.php"); 
+require_once("GLOBAL/head.php"); 
+?>
+
+
+	
+	
+
+
+	
+
+<?php
+	
+	// Generate hidden divs with random images as children	
+
+	$html = "<div id='display' style='position: absolute; top: 0px; left: 0px;'>";
+		
+	$sql    = "SELECT objects.id, wires.fromid, wires.toid, media.object, media.id AS mediaID, media.type, media.caption AS mediaCaption FROM objects, wires, media WHERE (wires.fromid=53 OR wires.fromid=52) AND wires.toid=objects.id AND media.object=wires.toid AND objects.active = 1 AND wires.active=1 ORDER BY RAND() LIMIT 15;";
+
+	//	$sql    = "SELECT media.caption AS mediaCaption, media.type, media.object AS mediaObject, media.id AS mediaID FROM media WHERE media.active=1 ORDER BY RAND() LIMIT 30;";
+	
+	$result =  MYSQL_QUERY($sql);
+
+	while ( $myrow = MYSQL_FETCH_ARRAY($result) ) {
+
+		$w = rand (100, 400); 
+		$x = rand (10, 700); 
+		$y = rand (10, 400); 
+		$z = rand (50, 50); // not random at the moment
+		
+		$mediaFile = "MEDIA/". str_pad($myrow["mediaID"], 5, "0", str_pad_left) .".". $myrow["type"];
+		$mediaCaption = $myrow["mediaCaption"];
+		
+		$html  .= "<div style='position: absolute; top: " . $y . "px; left:  " . $x . "px; width:  " . $w . "px; visibility: hidden; z-index: " . $z . ";'>";
+		$html  .= "<img src='" . $mediaFile . "' border='0' style='width:100%;' />";
+		// $html  .=  "<div class='Caption' style='width: 100%;'>" . $mediaCaption . "</div>";
+		$html  .= "</div>";
+		
+	}
+	
+	$html  .= "</div>";
+	
+	echo $html;	
+?>
+	
+
+	
+	
+	
+	
+
+			
+			
+
+	
+<?php	
+echo "\n\n\n\n\n";
+require_once("GLOBAL/foot.php"); 
+?>

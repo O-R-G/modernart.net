@@ -1,0 +1,9 @@
+# emacs backup files
+*~
+
+# hi-res images, for now
+_HI/
+
+# configuration files
+config.php
+systemDatabase.php

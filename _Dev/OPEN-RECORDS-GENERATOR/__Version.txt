@@ -1,0 +1,13 @@
+OPEN RECORDS GENERATOR 
+Version 2.6
+O-R-G inc.
+Last updated October 2, 2011
+
+--
+
+2.0 -- July 2005: complete overhaul including interface
+2.2 -- January 2006: fixes and incremental improvements
+2.3 -- February 2007: image rank dropdown menu
+2.4 -- April 2011: incremental and register globals htaccess fix
+2.5 -- June 2011: incremental
+2.6 -- October 2011: sort by rank, image resizing (300 >> 72 dpi) using simpleImage extension, added LINK... function

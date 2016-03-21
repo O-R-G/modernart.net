@@ -1,0 +1,157 @@
+<?php 
+require_once("_Library/systemMedia.php"); 
+require_once("GLOBAL/head.php"); 
+if (!$image) $image = 1;
+?>
+
+
+
+	
+	
+	
+	
+	
+	<!--  MAIN  -->
+			
+	<?php
+
+	
+	if ($id || $id != 0) {
+		
+
+		// Get Object 
+		
+		$sql    = "SELECT * FROM objects ";
+		$sql   .= "WHERE objects.id = '$id' AND objects.active = 1 ";
+		$sql   .= "LIMIT 1";
+		$result =  MYSQL_QUERY($sql);
+		$myrow  =  MYSQL_FETCH_ARRAY($result);
+		$object = $myrow['id'];
+		if ($myrow["body"]) $body = $myrow["body"];
+
+		// Display
+				
+		$html   = "\n	<div class = 'bodyContainer Mono Underline'>";
+		$html  .= "\n 		" . nl2br($body) . "<br /><br />";	
+		$html  .= "\n	</div>";
+			
+		echo $html;		
+		
+	}
+	
+	
+	
+	// GET MEDIA
+		
+	$sql    = "SELECT media.caption AS mediaCaption, media.type, media.object AS mediaObject, media.id AS mediaID FROM media ";
+	$sql   .= "WHERE media.object = $object AND media.active = 1 ";
+	$sql   .= "ORDER BY media.rank ASC";
+	$result =  MYSQL_QUERY($sql);
+	$counter = 0;
+	
+	while ($myrow = MYSQL_FETCH_ARRAY($result)) {
+
+		    $counter++;		
+		    // echo $counter;
+
+		if ( $counter == $image ) {
+
+			$mediaFile = "MEDIA/". str_pad($myrow["mediaID"], 5, "0", str_pad_left) .".". $myrow["type"];
+			$mediaCaption = $myrow["mediaCaption"];
+
+			if ($myrow['mediaObject'] == $big) {
+
+				echo "<div class='imageContainerBig'>";
+				echo "<a href = '" . $pageName . ".html?id=" . $id . "'/>";
+
+			} else {
+	
+				echo "<div class='imageContainerSmall'>";
+				echo "<a href = '" . $pageName . ".html?id=" . $id . "&big=" .  $myrow['mediaObject'] . "'/>";
+			}
+			echo "<img src='".$mediaFile."' width='100%' border='0' style='padding: 0px 0px 4px 0px;' />";
+			echo "</a>";
+			echo "<div class='Caption' style='width: 100%'>".$mediaCaption."</div>";
+			echo "</div>";
+		}
+
+	}
+	
+	if ($mediaFile) {
+	
+			echo "\n<br/><br/>";
+			
+			if ($big) {
+
+				$next = $image + 1;
+				$prev = $image - 1;
+				echo "<div class='imageNavContainer Medium'>";
+				echo "<a href = '" . $pageName . ".html?id=" . $id . "&big=" . $big . "&image=" . $prev . "'/>-</a> / ";
+				echo "<a href = '" . $pageName . ".html?id=" . $id . "&big=" . $big . "&image=" . $next . "'/>+</a>";
+				echo "</div>";
+			}
+	}
+	
+
+	
+	
+	echo "\n</div>";
+	
+
+
+
+	
+	?>
+	
+
+	
+	
+	<!--  NAV  -->
+	
+	<?php
+		if ($id || $id == 0 || !$id) {
+	?>
+			<div id='nav' class='navContainer MenuSub'>
+			<div class = 'indent'>
+					<ul>		
+					<?php
+					
+					// echo $ids[0];
+					// echo $idFull;
+		
+						// DisplayNavigation starting only from First Level Objects 
+						// Use exploded $ids to get starting object, always using first
+						// Set $limit parameter = 1 to get 1 level recursion, 0 to get only top level
+
+						$navRange = "0,".$ids[0];
+						displayNavigation($navRange, 0, $idFull, $pageName, 200, 0, $moremenu);
+					?>	
+					</ul>
+				</div>
+			</div>
+	<?php
+		}
+	?>
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+	
+	
+	
+	
+
+	
+
+	
+	
+<?php	
+echo "\n\n\n\n\n";
+require_once("GLOBAL/foot.php"); 
+?>

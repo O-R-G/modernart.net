@@ -1,0 +1,82 @@
+<?php 
+require_once("_Library/displayMedia.php"); 
+require_once("GLOBAL/head.php"); 
+?>
+
+
+	<!-- MAIN -->
+
+<?php
+
+	// displayNavigation
+		
+	$path = "0,1";
+	$limit = 0;
+	$selection = $idFull;
+	$pageName = "main"; 
+	//$stub = TRUE;
+	$breadcrumbsMode = TRUE;
+		
+	displayNavigation($path, $limit , $selection, $pageName, $stub, $breadcrumbsMode);
+		
+	$html  = "\n		</div>";
+	echo $html;		
+
+
+	// Get object plus media
+	
+	$sql    = "SELECT objects.id AS objectsId, objects.name1, objects.deck, objects.body, objects.active, wires.fromid, wires.toid, wires.active, media.id AS mediaId, media.object AS mediaObject, media.type, media.caption, media.active, media.rank FROM objects, wires, media WHERE objects.id = $id AND wires.toid = objects.id AND media.object = objects.id AND objects.active = '1' AND wires.active = '1' AND media.active = '1' ORDER BY media.rank";
+	$result =  MYSQL_QUERY($sql);
+	$imageCount  =  MYSQL_NUM_ROWS($result);
+			
+
+	if ($view) {
+	
+	// if (!$view) $view = 1;
+
+	$hasImage = TRUE;
+	MYSQL_DATA_SEEK($result,$view-1);			
+	$myrow = MYSQL_FETCH_ARRAY($result);
+	$mediaFile = "MEDIA/". STR_PAD($myrow["objectsId"], 5, "0", STR_PAD_LEFT) .".". $myrow["type"];
+	$prevView = $view - 1;
+	$nextView = $view + 1;
+	if ($prevView <= 1) $prevView = 1;
+	if ($nextView > $imageCount) $nextView = $view;
+	
+	$html   = "\n 			<div class = 'menuImageContainer menu static'>";
+	// $html  .= "\n 			<a href='" . $pageName . ".html?id=" . $idFull . "&view=" . $prevView . "'>";
+	// $html  .= "<img src='MEDIA/arrow-left.gif'></a> " . $view . " / " . $imageCount;
+	$html  .= $view . " / " .  $imageCount;
+	$html  .= " <a href='" . $pageName . ".html?id=" . $idFull . "&view=" . $nextView . "'>";
+	$html  .= "<img src='MEDIA/arrow-right.gif'></a>";
+	$html  .= "</div>";
+									
+	$caption = $myrow["name1"];
+	$author = $myrow["deck"];
+	$objectsId = $myrow[objectsId];
+	$mediaId = $myrow["mediaId"];
+	$type = $myrow["type"];
+	$mediaFile = "MEDIA/". STR_PAD($mediaId, 5, "0", STR_PAD_LEFT) .".". $type;	
+			
+				
+	// Display
+	
+	$html  .= "\n	<div class = 'mainContainer'>";	
+	$html  .= "\n		<a href = 'main.html?id=" . $idFull . "' border='0'>";
+	$html  .= "\n				<div class='coverContainer'>";
+	$html  .= "\n					". displayMedia($mediaFile, null, null);
+	$html  .= "\n				</div>";
+	$html  .= "\n			</a>";
+	$html  .= "\n			<div class='captionContainer caption'>". $caption . "</div>";	 
+	$html  .= "\n	</div>";	
+	
+	echo $html;
+	
+	}
+		
+?>
+
+
+<?php
+require_once("GLOBAL/foot.php"); 
+?>

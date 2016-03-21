@@ -1,0 +1,7 @@
+// O-R-G 
+// _ Library version 1.1.1
+//
+// Last updated January 25, 2011
+// 
+// Built on _ Library functions by Stewart Smith while at O-R-G
+// Updated and expanded by David Reinfurt

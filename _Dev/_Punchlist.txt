@@ -1,0 +1,183 @@
+GENERAL
+
++		Body text is clickable: and when clicking on the text, the text disappears. e.g.. in a press release: http://lolmoh.pair.com/~ssma/v3/read.html?id=1,4,259,260,261
+http://lolmoh.pair.com/~ssma/v3/read.html?id=1,3,8,239
+http://lolmoh.pair.com/~ssma/v3/contact.html?id=1,7
+
++		meta description: Stuart Shave Modern Art is a contemporary art gallery in London, representing the work of David Altmejd, Karla Black, Tom Burr, Nigel Cooke, Barnaby Furnas, Tim Gardner, Lothar Hempel, Jacqueline Humphries, Ansel Krut, Phillip Lai, Paul Lee, Linder, Barry McGee, Jonathan Meese, Matthew Monahan, Katy Moran, David Noonan, Eva Rothschild, Bojan Šarčević, Lara Schnitger, Collier Schorr, Steven Shearer, Ricky Swallow, Richard Tuttle, Clare Woods.
+
+keywords: Modern Art, Contemporary Art, Gallery, Stuart Shave, Artist, Exhibition, David Altmejd, Karla Black, Tom Burr, Nigel Cooke, Barnaby Furnas, Tim Gardner, Lothar Hempel, Jacqueline Humphries, Ansel Krut, Phillip Lai, Paul Lee, Linder, Barry McGee, Jonathan Meese,Matthew Monahan, Katy Moran, David Noonan, Eva Rothschild, Bojan Šarčević, Lara Schnitger, Collier Schorr, Steven Shearer, Ricky Swallow, Richard Tuttle, Clare Woods, London
+
++		text display, accents on firefox, but just on firefox:
+it is doing it in a number of versions (I have 4.0.1 at home, and also
+7.0.1, not sure about work, but the gallery computers are doing the same
+thing on various firefox versions).  It's also an issue in the helvetica captions, so maybe it's a general firefox text thing rather than just the computer modern font?
+
++		just one more thing  quickly while I remember: the small + that
+appears by exhibitions etc, links to the homepage rather than the content
+it appears beside. 
+
++		Could these do something rad too?
+
++		Contact page layout, emailer
+
++		These are the most important existing url links that should direct to the relevant sections of the new site:
+
+http://www.modernart.net/artists
+http://www.modernart.net/exhibitions
+http://www.modernart.net/news
+http://www.modernart.net/publications
+http://www.modernart.net/contact
+http://www.modernart.net/artists/nigel-cooke
+http://www.modernart.net/artists/linder
+http://www.modernart.net/artists/katy-moran
+http://www.modernart.net/artists/eva-rothschild
+http://www.modernart.net/artists/paul-lee
+http://www.modernart.net/artists/richard-tuttle
+
+FYI, this is the generic redirect page that we made when the old site
+launched in 2008: http://www.modernart.net/artis
+
++       Cross-browser compatibility: We've noticed the appearance of the site functions slightly differently when viewed in different browsers. Proportional scaling of images to window size is especially the issue. Firefox, Explorer, Safari and Chrome are the top 4 that people use to view our site. We also have an even split of mac/windows (with the occasional linux geek too), and there?s a growing (but still relatively small) number of ipads/iphones regularly accessing our site.
+
++      Typefaces: Please revert to first version of Computer Modern as discussed. It's fantastic.
+
++       Accented characters: we need a solution to the display of accented characters in Computer Modern.
+
++       Image captions: ?Exhibitions?, ?Artists? 1: the vertical line spacing is uneven when the text caption breaks across 2, 3 or more lines. It seems the last line always has too much line height: could the Computer Modern(?) ?x? to close be causing the space to be too high? Do we even need to have a ?close? button?
+
++       Image captions: ?Exhibitions?, ?Artists? 2: captions sometimes drop off the bottom of the browser window, usually when there?s more than one line of text. Could the caption run across more of the width of the browser window to mitigate the amount of text that has to wrap?
+
++       Image captions ?Exhibitions?, ?Artists? 3: can we make sure the captions only wrap at a point where there is a space between words, not where there?s a hyphen? Our reference codes (which appear at the end of each caption) have hypens in them, and it looks odd when the code blocks break across lines.
+
++       Image viewing 1: we need a ?back? arrow.
+
++       Image viewing 2: when clicking on an image it proceeds to the next in the sequence. When clicking on anything else or even blank white space outside the image, the images totally close. This is a bit annoying.
+
++       Time/Datestamp on browser window header: Can we set this to London time now please?
+
+*       Incoming Links: our website is linked-into from sites all over the place. When we launch the new site, all these links will be broken? so we?ll need to either create a system to redirect automatically (hard to do), or have a page that tells people that we have a new site, and then offer a link that?ll redirect to the new homepage (easy to do). (htacess should fix this)
+
++       Google Stats: These are really useful for us for all sorts of reasons, and we want the new site to have google stats functional at launch.
+
+*       Google-ability: we spent a lot of time and energy getting our current/old site to rank well in google for our artist?s names in websearches. This was aided by submitting the site to Google for listing and indexing, but also by adding text in non-visible meta-tags, and external links. We?ll need to make sure that the site does this as well, although we are aware that SEO is a dark and mysterious art that can take a little time to kick-in with real effect.
+
++		also, we've found today that when loading content and viewing the list of artist names, for example, wrap underneath 'Modern Art', it's hard to
+click on them, as unless there's very careful aim, it goes back to the
+homepage.
+
++ 		Artists list: When the names wrap under 'Modern Art' it's still sometimes hard to click on the artists' name, rather than mistakenly being sent back to the homepage.
+
+x 		Image Captions: hyphens and dashes don't display?
+
++ 		Image Sets (Artists and Exhibitions): when the viewer gets to the last
+image (9/9 for example), could we have the image set loop so that the 'next'
+image becomes the first (1/9 for example)?
+
+* 		Where there are long horizontal images, the scaling seems to have a
+vertical priority (?). This means that proportionally very wide images are
+stretched and degrade in quality to a degree that we have to take them down?
+e.g: 
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,20&view=5
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,10&view=5
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,44&view=5
+
+* 		bad image quality. almost all the images on the site look beautiful. some though, are really badly degraded (even when great quality images are
+inputted). Is the ORG engine reducing the pixel-counts of some of these
+occasional files too much? (guess)?
+
+These are the real problem pages:
+
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,10&view=5 
+http://lolmoh.pair.com/~ssma/v3/MEDIA/01529.jpg 
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,13&view=11 
+http://lolmoh.pair.com/~ssma/v3/MEDIA/01535.jpg 
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,14&view=10 
+http://lolmoh.pair.com/~ssma/v3/MEDIA/01537.jpg 
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,20&view=2
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,20&view=5
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,20&view=6
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,381&view=9
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,23&view=15
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,24&view=9
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,26&view=7
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,28&view=5
+http://lolmoh.pair.com/~ssma/v3/view.html?id=1,3,9&view=9
+
++ 		I guess too we should talk about when and how we make the switchover to live but lets do that maybe on Tuesday?
+
+--
+
+HOMEPAGE    
+
+The  homepage is great!    
+
++ 		Spacing of menu text; could the  main menu list please have 1-3 more characters worth of space between menu  items?    
+
++ 		Linking I know the  linking of images isn?t entirely correct yet, but we?re still working on the  image ranking and selection points that these will link to?    
+
++ 		Black images: can we have an option  that we select when adding an image that is black or mostly black that says  something like ?Not Top Left? so that a black image doesn?t display under the  menu text and render it unreadable and un-navigable for a first-time user? We  don?t mind this as a design feature, but     
+
++ 		De-rezzed images: from time to time  some images on the homepage display with a resolution that is too low for the scale it displays at. It doesn?t happen all the time, but it happens on maybe  one in 4 pageloads that there?s an image or two that looks visibly pixellated.    
+
+--     
+
+ARTISTS    
+
++        Artist List: the artist list needs a bigger gap between each  name. I think this should be at least 4-5 characters worth of space. We can  approximate this by adding non-breaking spaces after each artists name, but it  messes with the underlining on roll-over.    
+
++        Accents on artists? names?. (although if it really comes  down to it we can omit the accented characters in menu items for launch, which  I?ve done already as a test. This doesn?t address the accent issue in CVs and  press releases and publications, however)    
+
++		Image Captions: as in the above General notes 
+
+--
+
+EXHIBITIONS    
+
++        Exhibition Year List: the list needs a greater gap between  each entry. This needn?t be as big as the gap in the list of artist names,  maybe just an extra 1-2 characters worth.     
+
++        Exhibtions list under year/future/current: eg: http://lolmoh.pair.com/~ssma/v3/view.html?id=1,4,31&view=0   we need to increase the horizontal and vertical spacing between each entry. At  the moment they butt together too closely. Each one needs to feel like it?s its  own thing?
+
++		Image Captions: as in the above General notes 
+
+--
+
+NEWS    
+
++        Top line multi-line entries: when there is a multi-line entry that  appears in the top line of items, it displaces ?Modern Art? and the row,  dropping them down out of position. Could these items maybe drop down below the  baseline, so that ?Modern Art <- News? stays in position? This is also a  factor throughout the site, especially in places like this: http://lolmoh.pair.com/~ssma/v3/main.html?id=1,5  , this: http://lolmoh.pair.com/~ssma/v3/view.html?id=1,4,33&view=0   and this: http://lolmoh.pair.com/~ssma/v3/publications.html?id=1,6,385    
+
++        Layout of entries: we need to increase the horizontal and vertical spaces between each entry. At the moment they butt together too closely. Each one  needs to feel like it?s its own thing.    
+
++        External Links: how do we make a link open in a new page? I can?t get the ?target =?new?? html tag to work with the ORG ?URL? field?    
+
++        What do you think about doing something outrageous like having the  words ?Current? or ?Upcoming? flash on and off or something?     
+
+--
+
+PUBLICATIONS    
+
++        I know this is still unfinished, but I?m not sure that thumbnails are  the most interesting way to navigate to each artist?s various titles/entries.  Can we try it with the full list of titles for each artist appearing as text in  the first instance (like it was), and have the image of the cover display when  that text is clicked on? The full list could maybe always stay there, and just  the images of the covers could change when the various text entries are clicked  on? We could also set which entry displays as the default opening image? What  do you think?    
+
++        Publication cover images: these images do not need a caption or  arrows, ?1/1? or a close option ? can we omit the caption/image navigation features  when publication cover images are displayed?    
+
+--    
+
+CONTACT    
+
++        This page needs to be built? but it needs to include editable text  information as per the current site, and include:    
+
++        Email sign-up: we need to have a window in which people can  sign-up to the e-mailing list: this needs to have a field for their name, and  their email address, which will then send this info when submitted as an email  to a nominated modern art address. We currently have a fully automated system,  but we want to introduce a human phase in the system so we can see and know  what is going on and who?s signing up.    
+
++        We want the Contact page to look as interesting  as it can, while  being in keeping with the rest of the site?. This page is just information and  is consequently a bit dull, but it?s important, so maybe we can jazz up the  layout a bit?    
+
+--
+
+CMS/ORG    
+
+This is more  of a luxury, as its not really necessary and just aids our back-end working life? we can work with everything as-is until  after the front-end is complete and ready, but we?d like to have:    
+
++        Images to appear  in ranked order on the cms org pages.    
+
++        To be able to  reassign an exhibition from ?Future? to ?Current? and then move to a year, eg. ?2011?.    
+
+x        Lowest of the lowest priority things: By  default, larger field windows in which to enter text  

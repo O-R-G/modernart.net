@@ -1,0 +1,117 @@
+<?php 
+require_once("_Library/displayMedia.php"); 
+require_once("GLOBAL/head.php"); 
+?>
+
+
+<?php
+
+
+	// displayNavigation
+		
+	$path = "0,1";
+	$limit = 0;
+	$selection = $idFull;
+	$pageName = "view"; 
+	//$stub = TRUE;
+	$breadcrumbsMode = TRUE;
+		
+	displayNavigation($path, $limit , $selection, $pageName, $stub, $breadcrumbsMode);
+		
+	$html  = "\n	</div>";		
+	echo $html;
+
+
+	// Get object plus media
+	
+	$sql    = "SELECT objects.id AS objectsId, objects.name1, objects.deck, objects.body, objects.active, wires.fromid, wires.toid, wires.active, media.id AS mediaId, media.object AS mediaObject, media.type, media.caption, media.active, media.rank FROM objects, wires, media WHERE objects.id = $id AND wires.toid = objects.id AND media.object = objects.id AND objects.active = '1' AND wires.active = '1' AND media.active = '1' ORDER BY media.rank";
+	$result =  MYSQL_QUERY($sql);
+	$imageCount  =  MYSQL_NUM_ROWS($result);
+
+	if ( (count($ids) >= 3) && ($view != '0') && ( $imageCount ) ) {
+	
+		$hasImage = TRUE;
+		if (!$view) $view = 1;
+		MYSQL_DATA_SEEK($result,$view-1);			
+		$myrow = MYSQL_FETCH_ARRAY($result);
+		$caption = $myrow["caption"];
+		$pattern = '/\<br\/\>/';
+		$replacement = '';
+		$caption = preg_replace($pattern, $replacement, $caption);
+		// $pattern = '/-/';
+		// $replacement = '&nbsp;';
+		// $caption = preg_replace($pattern, $replacement, $caption);
+		$author = $myrow["deck"];
+		$objectsId = $myrow[objectsId];
+		$mediaId = $myrow["mediaId"];
+		$type = $myrow["type"];
+		$style = "height:95%; padding-top:10px;";
+		$mediaFile = "MEDIA/". STR_PAD($mediaId, 5, "0", STR_PAD_LEFT) .".". $type;	
+		$prevView = $view - 1;
+		$nextView = $view + 1;
+		if ($prevView <= 1) $prevView = 1;
+		if ($nextView > $imageCount) $nextView = 1;
+					
+		// Image
+		
+		// for reference on cross-browser issues see:
+		// http://www.dave-woods.co.uk/index.php/100-height-layout-using-css/
+		// still possibly have an issue with min-height tag for scrolling 
+		// the issue is that for height: 100% to work, then every element 
+		// must know the height of its parent
+		
+		// still have to lock down how captions stay on screen
+		
+		$html   = "<div class = 'viewContainer'>";
+        $html  .= "<a id = 'ex' href='" . $pageName . ".html?id=" . $idFull . "&view=0'><img src='MEDIA/x-10px.gif'></a>";
+        
+        if ( $imageCount > 1 ) {
+        	
+            if ( $view > 1 ) {
+            	
+                $html  .= " <a id = 'leftArrow' href='" . $pageName . ".html?id=" . $idFull . "&view=" . $prevView . "'>";				
+				$html .= "<img src='MEDIA/arrow-left-10px.gif'></a> ";
+			}
+            
+            $html  .= " <a id = 'rightArrow' href='" . $pageName . ".html?id=" . $idFull . "&view=" . $nextView . "'>";
+			$html  .= "<img src='MEDIA/arrow-right-10px.gif'></a>&nbsp;&nbsp;&nbsp;&nbsp;";
+			
+		}
+		$html  .= "<a href='" . $pageName . ".html?id=" . $idFull . "&view=" . $nextView . "'>";
+		$html  .= displayMedia($mediaFile, null, $style );
+		$html  .= "</a>";
+
+		// Counter
+		
+		$html  .= "<div class = 'captionContainer caption'>";
+	
+		if ( $imageCount > 1 ) {
+
+			if ( $view > 1 ) {
+			
+				// $html  .= " <a href='" . $pageName . ".html?id=" . $idFull . "&view=" . $prevView . "'>";				
+				// $html .= "<img src='MEDIA/arrow-left-10px.gif'></a> ";
+			}
+			
+			$html  .= $view . " / " .  $imageCount;
+			// $html  .= " <a href='" . $pageName . ".html?id=" . $idFull . "&view=" . $nextView . "'>";
+			// $html  .= "<img src='MEDIA/arrow-right-10px.gif'>
+            //</a>&nbsp;&nbsp;&nbsp;&nbsp;";
+			
+		}
+
+		$html  .= "<span class = 'caption'>" . $caption . "</span>";
+		//$html  .= "&nbsp;&nbsp;&nbsp;&nbsp;<a href='" . $pageName . ".html?id=" . $idFull . "&view=0'><img src='MEDIA/x-10px.gif'></a>";
+		
+		$html  .= "</div>";
+				
+		echo $html;
+	
+	}
+		
+?>
+
+
+<?php
+require_once("GLOBAL/foot.php"); 
+?>

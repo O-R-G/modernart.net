@@ -1,0 +1,109 @@
+<?php 
+require_once("_Library/systemMedia.php"); 
+require_once("GLOBAL/head.php"); 
+?>
+
+
+	
+	
+
+	
+	<!--  MAIN  -->
+			
+	<?php
+	
+	if ($id || $id != 0 || !$id) {
+		
+		$id = 4; // hack to identify home page
+		
+		// Get Object plus Media
+		
+		$sql    = "SELECT * FROM objects ";
+		$sql   .= "WHERE objects.id = '$id' AND objects.active = 1 ";
+		$sql   .= "LIMIT 1";
+		$result =  MYSQL_QUERY($sql);
+		$myrow  =  MYSQL_FETCH_ARRAY($result);
+		$object = $myrow['id'];
+		if ($myrow["body"]) $bodyTemp = $myrow["body"];
+		if ($myrow["name1"]) $artistName = $myrow["name1"];
+
+		// Parse $bodyTemp to replace <br/> with </p><p> 
+
+		// $bodyTempStripped 	= ereg_replace( "\n", "</p><p>", nl2br($bodyTemp));
+		// $bodyTempParsed 	= "<p>" . $bodyTempStripped;
+		
+		// Display Body
+				
+		$html   = "\n	<div class = 'homeContainer Medium Underline'>";
+		$html  .= "\n 	" . nl2br($bodyTemp);
+		$html  .= "\n	</div>";
+			
+		// echo $html;		
+		
+	}
+	
+	?>
+	
+
+	
+	
+	<!--  NAV  -->
+	
+	<?php
+	
+		if ($id || $id == 0 || !$id) {
+		
+	?>
+	
+			<div id='nav' class='navContainer MenuSub'>
+			<div class = 'indent'>
+					<ul>		
+					<?php
+		
+						// DisplayNavigation starting only from First Level Objects 
+						// Use exploded $ids to get starting object, always using first
+						// Set $limit parameter = 1 to get 1 level recursion, 0 to get only top level
+						// function displayNavigation( $path = "0", $limit = null, $selection = null, $pageName = "main",  $moremenuLimit = null, $moremenuCounter = null, $moremenu = null) {
+
+						if ( $es ) $path = "11";
+						if ( !$es ) $path = "0";
+						$limit = "1";
+						$selection = $id;
+						$pageName = "detail";
+						$moremenuLimit = "100";
+						$moremenuCounter = "0";
+						$moremenu = null;
+						
+						displayNavigation($path, $limit , $selection, $pageName, $moremenuLimit, $moremenuCounter, $moremenu);
+					?>	
+					</ul>
+				</div>
+			</div>
+	<?php
+		}
+	?>
+	
+	
+	
+	<?php
+		if ($cover) {
+	?>
+	
+	<div style="position: relative; top: 100px; left: 240px;">
+		
+		<img src='MEDIA/eight.gif'>		
+	</div>
+	
+	<?php
+		}
+	?>
+	
+
+			
+			
+
+	
+<?php	
+echo "\n\n\n\n\n";
+require_once("GLOBAL/foot.php"); 
+?>
