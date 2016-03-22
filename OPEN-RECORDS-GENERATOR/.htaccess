@@ -1,4 +1,0 @@
-AuthUserFile /usr/www/users/ssma/.htpasswd
-AuthName "OPEN-RECORDS-GENERATOR"
-AuthType Basic
-Require valid-user
