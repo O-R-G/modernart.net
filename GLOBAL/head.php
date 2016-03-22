@@ -1,8 +1,9 @@
 <?php 
-	require_once("_Library/systemDatabase.php"); 
-	require_once("_Library/displayNavigation.php");
-	require_once("_Library/orgEmail.php");	
-	require_once("_Library/systemCookie.php");	
+
+require_once("_Library/systemDatabase.php"); 
+require_once("_Library/displayNavigation.php");
+require_once("_Library/orgEmail.php");	
+require_once("_Library/systemCookie.php");	
 
         // Parse $Id
 
@@ -74,13 +75,14 @@
 	<?php if ($dev) { ?>
 
     <meta name=viewport content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="all" href="/GLOBAL/global-dev.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/static/css/global.css">
+	<link rel="stylesheet" type="text/css" media="all" href="/static/css/fonts.css">
 
 	<?php } else { ?>
 
-	<!--link rel="stylesheet" type="text/css" media="all" href="/GLOBAL/global.css" /-->
 	<meta name=viewport content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="all" href="/GLOBAL/global-dev.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/static/css/global.css">
+	<link rel="stylesheet" type="text/css" media="all" href="/static/css/fonts.css">
 
 	<?php } ?>
 
