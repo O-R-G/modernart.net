@@ -76,3 +76,22 @@ a:active {
 #menu {
 	padding-left: 10px;
 }
+
+.thumb {
+	display: inline-block;
+	width: 25vw;
+	padding: 20px;
+	vertical-align: middle;
+	-webkit-filter: grayscale(100%);
+}
+
+.caption {
+	font-size: 0.5em;
+}
+
+@media screen and (max-width: 568px)
+{
+	.thumb {
+		width: 50vw;
+	}
+}
