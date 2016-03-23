@@ -1,19 +1,24 @@
+Options +FollowSymLinks -Indexes
+# Options +FollowSymLinks +Indexes
+# IndexIgnore */*
 
+ErrorDocument 403 "you don't even *go* here."
+# ErrorDocument 500 "is *this* thing on?"
 
-RewriteEngine  on
-RewriteBase    /
+# Turn on the RewriteEngine
+RewriteEngine On
 
-RewriteRule    ^artists$  view.html?id=1,3 [R]
-RewriteRule    ^artists/$  view.html?id=1,3 [R]
-RewriteRule    ^exhibitions$  view.html?id=1,4 [R]
-RewriteRule    ^exhibitions/$  view.html?id=1,4 [R]
-RewriteRule    ^news$  view.html?id=1,5 [R]
-RewriteRule    ^news/$  view.html?id=1,5 [R]
-RewriteRule    ^publications$  view.html?id=1,6 [R]
-RewriteRule    ^publications/$  view.html?id=1,6 [R]
-RewriteRule    ^contact$  contact.html?id=1,7 [R]
-RewriteRule    ^contact/$  contact.html?id=1,7 [R]
+# delete trailing slash (not sure this works)
+# or maybe it works -- but not for directories?
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
 
-ErrorDocument 404 /404.html
+# remove .php
+# RewriteCond %{REQUEST_FILENAME}.php -f
+# RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [L]
 
-AddType application/x-httpd-php .html .php 
+# direct everything to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.php [L]
