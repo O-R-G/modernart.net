@@ -37,5 +37,6 @@ else
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/static/css/sfc-display.css">
 	</head>
 	<body>
