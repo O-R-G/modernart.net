@@ -14,6 +14,7 @@ else
 {
 	require_once("views/menu.php");
 	require_once("views/images.php");
+	require_once("views/body.php");
 }
 require_once('views/foot.php');
 ?>
