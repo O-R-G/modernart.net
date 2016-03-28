@@ -26,7 +26,7 @@ $item = $oo->get($uu->id);
 $title = $item["name1"];
 $site_name = "Modern Art";
 if ($title)
-	$title = $site_name." | ".$title;
+	$title = $site_name." | ".strip_tags($title);
 else
 	$title = $site_name;
 
