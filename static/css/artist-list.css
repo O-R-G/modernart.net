@@ -1,0 +1,10 @@
+table {
+	border-spacing: 0px;
+}
+td:first-child {
+	text-align: right;
+}
+
+td {
+	padding: 0px 2px;
+}

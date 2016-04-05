@@ -22,10 +22,16 @@ $children = $oo->children($uu->id);
 		}
 	?></div>
 	<div id="menu"><?
-	foreach($children as $c)
+	if($uu->url == "artists")
+		require_once("views/artist-list.php");
+	else
 	{
-		$url = $uu->url."/".$c['url'];
-		?><div><a href='<? echo $url; ?>'><? echo $c['name1']; ?></a></div><?
+		foreach($children as $c)
+		{
+			$url = $uu->url."/".$c['url'];
+			$name = nl2br(trim(strip_tags($c['name1'], '<i><b>')));
+			?><div><a href="<? echo $url; ?>"><? echo $name; ?></a></div><?
+		}
 	}
 	?></div>
 </div><?

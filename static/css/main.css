@@ -5,31 +5,50 @@
 
 html, body {
 	margin: 0px;
-	font-family: sfc-display;
-	font-size: 14px;
-	background-color: #ededed;
+	font-family: ag-light-os;
+	font-size: 10pt;
+	background-color: rgba(250, 250, 245, 1.0);
+	color: rgba(10, 10, 10, 1.0);
 }
 
 h1 {
 	position: fixed;
-	top: 25%;
-	z-index: 1;
+	
+	font-family: ag-medium;
 	
 	margin: 0px;
+	height: 12.5vh;
 	width: 100%;
 	padding: 0.25em;
 
 	font-size: 4em;
-	font-weight: normal;
 	text-align: center;
-	color: #222;
-	background-color: #eee;
 }
 
+h1 a {
+	vertical-align: -webkit-baseline-middle;
+}
 img {
 	width: 100%;
 }
 
+.img-container {
+	background-color: rgba(255, 255, 150, 1.0);
+}
+
+.img-container img,
+#splash {
+	-webkit-filter: grayscale(100%);
+	filter: gray;
+    opacity: .95;
+    vertical-align: top;
+}
+
+#splash img {
+	object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
 /* links */
 a {
 	text-decoration: none;
@@ -55,6 +74,7 @@ a:active {
 }
 
 #splash {
+	/*
     position: fixed;
     top: 0px;
     z-index: 0;
@@ -64,18 +84,41 @@ a:active {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    width: 75%;
+    height: 75%;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
     
     -webkit-filter: grayscale(100%);
     filter: gray;
 }
 
-#main,
-#body {
+#main {
 	margin: 20px;
 }
 
+#images {
+	width: 50vw;
+}
+
 #body {
-	max-width: 500px;
+	width: 50vw;
+	padding: 20px;
+}
+
+#images, 
+#body {
+	display: inline-block;
+	vertical-align: top;
 }
 
 #menu {
@@ -87,10 +130,10 @@ a:active {
 	width: 200px;
 	padding: 20px;
 	vertical-align: middle;
-	-webkit-filter: grayscale(100%);
 }
 
 .caption {
+	padding-top: 5px;
 }
 
 .hidden {
@@ -110,9 +153,23 @@ a:active {
 	max-width: 100%;
 	max-height: 100%;
 }
+
 @media screen and (max-width: 568px)
 {
 	.thumb {
 		width: 50vw;
+	}
+	
+	#images {
+		width: 100vw;
+	}
+
+	#body {
+		width: 100vw;
+	}
+
+	#images, 
+	#body {
+		display: block;
 	}
 }
