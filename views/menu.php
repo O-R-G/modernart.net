@@ -21,14 +21,22 @@ $children = $oo->children($uu->id);
 			$url.="/";
 		}
 	?></div--><?
-	if($children[0]['name1'] != "CV" && $children[0]['name1'] != "Press Release")
+	if($children[0]['name1'] != "CV" && $children[0]['name1'] != "Press Release" && $children[0]['name1'] != "Press Release Text")
 	{
 	?><div id="children"><?
 		foreach($children as $c)
 		{
 			$url = $uu->url."/".$c['url'];
-			$name = nl2br(trim(strip_tags($c['name1'], '<i><b>')));
+			$tmp = trim(strip_tags($c['name1'], '<i><b>'));
+			$name = nl2br($tmp);
+			if($tmp == $name)
+			{
 			?><div><a href="<? echo $url; ?>"><? echo $name; ?></a></div><?
+			}
+			else
+			{
+			?><div><p><a href="<? echo $url; ?>"><? echo $name; ?></a></p></div><?
+			}
 		}
 	?></div><?
 	}

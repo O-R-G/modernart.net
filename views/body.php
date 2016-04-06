@@ -20,7 +20,7 @@ $image_urls = array();
 $body = $item['body'];
 $children = $oo->children($uu->id);
 
-if($children[0]['name1'] == "CV" || $children[0]['name1'] == "Press Release")
+if($children[0]['name1'] == "CV" || $children[0]['name1'] == "Press Release" || $children[0]['name1'] == "Press Release Text")
 {
 ?><section id="body">
 	<header><? echo $item['name1']; ?></header>

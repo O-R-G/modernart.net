@@ -15,7 +15,7 @@ h1 {
 	font-family: ag-medium;
 	
 	margin: 0px;
-	height: 12.5vh;
+	min-height: 12.5vh;
 	width: 100%;
 	padding: 0.25em;
 
@@ -29,7 +29,9 @@ h1 a {
 img {
 	width: 100%;
 }
-
+p {
+	margin-top: 0px;
+}
 .img-container {
 	background-color: rgba(255, 255, 150, 1.0);
 }
@@ -103,10 +105,7 @@ a:active {
 #main {
 	padding: 0px 20px;
     line-height: 1.25rem;
-}
-
-#children > div {
-	padding-bottom: 1.25rem;
+    text-align: center;
 }
 
 #images {
@@ -126,6 +125,10 @@ a:active {
 
 #menu {
 	padding-left: 10px;
+}
+
+#children p {
+	text-align: left;
 }
 
 .thumb {
@@ -174,5 +177,8 @@ a:active {
 	#images, 
 	#body {
 		display: block;
+	}
+	
+	#main {
 	}
 }
