@@ -2,6 +2,7 @@ order deny,allow
 deny from all
 allow from 127.0.0.1
 allow from 108.27.144.235
+allow from 24.189.240.69
 
 Options +FollowSymLinks -Indexes
 # Options +FollowSymLinks +Indexes
