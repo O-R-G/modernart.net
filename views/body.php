@@ -24,7 +24,7 @@ if($children[0]['name1'] == "CV" || $children[0]['name1'] == "Press Release")
 {
 ?><section id="body">
 	<header><? echo $item['name1']; ?></header>
-	<? echo nl2br($c['body']); ?>
+	<? echo nl2br($children[0]['body']); ?>
 </section><?
 }
 else

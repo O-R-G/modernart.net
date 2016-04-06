@@ -12,8 +12,6 @@ html, body {
 }
 
 h1 {
-	position: fixed;
-	
 	font-family: ag-medium;
 	
 	margin: 0px;
@@ -103,7 +101,12 @@ a:active {
 }
 
 #main {
-	margin: 20px;
+	padding: 0px 20px;
+    line-height: 1.25rem;
+}
+
+#children > div {
+	padding-bottom: 1.25rem;
 }
 
 #images {

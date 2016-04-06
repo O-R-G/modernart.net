@@ -2,7 +2,7 @@
 $children = $oo->children($uu->id);
 ?>
 <div id="main">
-	<div>
+	<!-- div>
 		<a href="/">Modern Art</a><?
 		$url = "/";
 		for($i = 0; $i < count($uu->ids); $i++)
@@ -20,18 +20,16 @@ $children = $oo->children($uu->id);
 			}
 			$url.="/";
 		}
-	?></div>
-	<div id="menu"><?
-	if($uu->url == "artists")
-		require_once("views/artist-list.php");
-	else
+	?></div--><?
+	if($children[0]['name1'] != "CV" && $children[0]['name1'] != "Press Release")
 	{
+	?><div id="children"><?
 		foreach($children as $c)
 		{
 			$url = $uu->url."/".$c['url'];
 			$name = nl2br(trim(strip_tags($c['name1'], '<i><b>')));
 			?><div><a href="<? echo $url; ?>"><? echo $name; ?></a></div><?
 		}
+	?></div><?
 	}
-	?></div>
-</div><?
+?></div><?

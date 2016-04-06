@@ -8,6 +8,7 @@ else
 	$view.="menu.php";
 
 require_once('views/head.php');
+require_once('views/logo.php');
 if(empty($uri[0]))
 	require_once("views/splash.php");
 else
