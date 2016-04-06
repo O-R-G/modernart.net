@@ -103,9 +103,8 @@ a:active {
 }
 
 #main {
-	padding: 0px 20px;
+	padding: 0px 25vw;
     line-height: 1.25rem;
-    text-align: center;
 }
 
 #images {
@@ -114,6 +113,7 @@ a:active {
 
 #body {
 	width: 50vw;
+	max-width: 450px;
 	padding: 20px;
 }
 
@@ -158,6 +158,13 @@ a:active {
 	width: initial;
 	max-width: 100%;
 	max-height: 100%;
+}
+
+@media screen and (max-width: 799px)
+{
+	.thumb { 
+		width: 25vw;
+	}
 }
 
 @media screen and (max-width: 568px)
