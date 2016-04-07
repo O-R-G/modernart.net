@@ -198,8 +198,10 @@ a:active {
 	position: fixed;
 	top: 10rem;
 	left: 10rem;
+	/*
 	animation: blink 1s steps(5,start) infinite;
 	-webkit-animation: blink 1s steps(5,start) infinite;
+	*/
 	z-index:99;
 }
 
