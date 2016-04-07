@@ -12,5 +12,5 @@ $url = m_url($m);
 
 ?><!-- div id="splash" style="background-image: url('<? echo $url; ?>')"></div-->
 <div id="splash">
-	<img src="<? echo $url; ?>">
+	<a href="/main"><img src="<? echo $url; ?>"></a>
 </div>

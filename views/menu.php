@@ -2,7 +2,7 @@
 $children = $oo->children($uu->id);
 ?>
 <div id="main">
-	<!-- div>
+	<div id="menu">
 		<a href="/">Modern Art</a><?
 		$url = "/";
 		for($i = 0; $i < count($uu->ids); $i++)
@@ -14,30 +14,7 @@ $children = $oo->children($uu->id);
 			{
 			?> / <a href="<? echo $url; ?>"><? echo $o['name1']; ?></a><?
 			}
-			else
-			{
-			?> / <? echo $o['name1'];
-			}
 			$url.="/";
 		}
-	?></div--><?
-	if($children[0]['name1'] != "CV" && $children[0]['name1'] != "Press Release" && $children[0]['name1'] != "Press Release Text")
-	{
-	?><div id="children"><?
-		foreach($children as $c)
-		{
-			$url = $uu->url."/".$c['url'];
-			$tmp = trim(strip_tags($c['name1'], '<i><b>'));
-			$name = nl2br($tmp);
-			if($tmp == $name)
-			{
-			?><div><a href="<? echo $url; ?>"><? echo $name; ?></a></div><?
-			}
-			else
-			{
-			?><div><p><a href="<? echo $url; ?>"><? echo $name; ?></a></p></div><?
-			}
-		}
-	?></div><?
-	}
-?></div><?
+	?></div>
+</div><?

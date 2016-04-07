@@ -55,11 +55,12 @@ p {
 /* links */
 a {
 	text-decoration: none;
+	text-transform: lowercase;
 }
 
 a:link,
 a:visited {
-	color: #555;
+	color: #FF1744;
 }
 
 a:hover {
@@ -106,7 +107,7 @@ a:active {
 }
 
 #main {
-	padding: 0px 25vw;
+	/*padding: 0px 25vw;*/
     line-height: 1.25rem;
 }
 
@@ -127,7 +128,7 @@ a:active {
 }
 
 #menu {
-	padding-left: 10px;
+    padding: 20px 0px;
 }
 
 #children p {
@@ -141,8 +142,16 @@ a:active {
 	vertical-align: middle;
 }
 
+#exhibition > .thumb {
+	width: 70%;
+    padding: 0px;
+    display: block;
+    margin: 4rem auto;
+}
+
 .caption {
 	padding-top: 5px;
+	font-size: 8pt;
 }
 
 .hidden {
@@ -161,6 +170,17 @@ a:active {
 	width: initial;
 	max-width: 100%;
 	max-height: 100%;
+}
+
+#exhibition, 
+#children,
+#main {
+	max-width: 500px;
+	margin: 5rem auto;
+}
+
+#main {
+	margin: 0rem auto;
 }
 
 @media screen and (max-width: 799px)
@@ -190,5 +210,11 @@ a:active {
 	}
 	
 	#main {
+	}
+	
+	#exhibition {
+		width: 100%;
+		padding: 20px;
+		margin: 0px;
 	}
 }

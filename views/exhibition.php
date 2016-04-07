@@ -1,31 +1,34 @@
 <?
 $media = $oo->media($uu->id);
 $image_urls = array();
-?><div id="images" class="visible"><?
-	$i = 0;
-	foreach($media as $m)
-	{
-		$url = m_url($m);
-		$image_urls[] = $url;
-		$caption = $m['caption'];
-		
+$i = 0;
+foreach($media as $m)
+{
+	$url = m_url($m);
+	$image_urls[] = $url;
+	$caption = $m['caption'];
+}
+$body = $item['body'];
+$children = $oo->children($uu->id);
+
+if($children)
+{
+?><section id="exhibition" class="visible">
+	<header><? echo nl2br($item['name1']); ?></header><?
+	$url = $image_urls[0];
+	$caption = $media[0]['caption'];
 	?><div class="thumb">
 		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
-	</div><?
-	}
-?></div><?
-$body = $item['body'];
-$children = $oo->children($uu->id);
-
-if($children[0]['name1'] == "CV" || $children[0]['name1'] == "Press Release" || $children[0]['name1'] == "Press Release Text")
-{
-?><section id="body" class="visible">
-	<header><? echo $item['name1']; ?></header>
-	<? echo nl2br($children[0]['body']); ?>
-</section><?
+	</div><? 
+	$cbody = $children[0]['body'];
+	$cbody = trim($cbody);
+	$cbody = strip_tags($cbody, "<i><b><a>");
+	$cbody = nl2br($cbody);
+	echo $cbody;
+?></section><?
 }
 else
 {
