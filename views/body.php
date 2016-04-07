@@ -1,6 +1,7 @@
 <?
 $media = $oo->media($uu->id);
 $image_urls = array();
+$captions = array();
 ?><div id="images" class="visible"><?
 	$i = 0;
 	foreach($media as $m)
@@ -8,6 +9,7 @@ $image_urls = array();
 		$url = m_url($m);
 		$image_urls[] = $url;
 		$caption = $m['caption'];
+		$captions[] = $caption;
 		
 	?><div class="thumb">
 		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
@@ -32,15 +34,18 @@ else
 ?><div id="body" class="visible"><? echo nl2br($body); ?></div><?
 }
 ?><div id="gallery" class="hidden" onclick="close_gallery();">
-	<img id="gallery-img" class="centre">
+	<img id="gallery-img">
+	<div id="caption-div"></div>
 </div>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
 	var images = <? echo json_encode($image_urls); ?>;
+	var captions = <? echo json_encode($captions); ?>;
 	var gallery_id = "gallery";
 	var gallery = document.getElementById(gallery_id);
 	var gallery_img = "gallery-img";
+	var caption_div = "caption-div";
 	var attached = false;
 	var index = 0;
 	var in_gallery = false;
