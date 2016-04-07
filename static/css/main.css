@@ -11,6 +11,9 @@ html, body {
 	color: rgba(10, 10, 10, 1.0);
 }
 
+.cream {
+}
+
 h1 {
 	font-family: ag-medium;
 	
@@ -117,8 +120,8 @@ a:active {
 	padding: 20px;
 }
 
-#images, 
-#body {
+#images.visible, 
+#body.visible {
 	display: inline-block;
 	vertical-align: top;
 }
@@ -151,7 +154,7 @@ a:active {
     top: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: #ededed;
+    background-color: rgba(10, 10, 10, 1.0);
 }
 
 #gallery-img {

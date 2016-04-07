@@ -1,7 +1,7 @@
 <?
 $media = $oo->media($uu->id);
 $image_urls = array();
-?><div id="images"><?
+?><div id="images" class="visible"><?
 	$i = 0;
 	foreach($media as $m)
 	{
@@ -22,16 +22,16 @@ $children = $oo->children($uu->id);
 
 if($children[0]['name1'] == "CV" || $children[0]['name1'] == "Press Release" || $children[0]['name1'] == "Press Release Text")
 {
-?><section id="body">
+?><section id="body" class="visible">
 	<header><? echo $item['name1']; ?></header>
 	<? echo nl2br($children[0]['body']); ?>
 </section><?
 }
 else
 {
-?><div id="body"><? echo nl2br($body); ?></div><?
+?><div id="body" class="visible"><? echo nl2br($body); ?></div><?
 }
-?><div id="gallery" class="hidden" onclick="close_gallery();">
+?><div id="gallery" class="hidden cream" onclick="close_gallery();">
 	<img id="gallery-img" class="centre">
 </div>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
@@ -44,7 +44,7 @@ else
 	var attached = false;
 	var index = 0;
 	var in_gallery = false;
-	var non_gallery = ["main", "images"];
+	var non_gallery = ["main", "images", "body"];
 	
 	var els = document.getElementsByClassName('fullscreen');
 	for(j = 0; j < els.length; j++)
@@ -55,4 +55,14 @@ else
 			}
 		});
 	}
+	
+	document.addEventListener(screenfull.raw.fullscreenchange, on_fs_toggle, false);
+	
+	function on_fs_toggle()
+    {
+    	if(!(screenfull.isFullscreen))
+    	{
+    		close_gallery();
+    	}
+    }
 </script>
