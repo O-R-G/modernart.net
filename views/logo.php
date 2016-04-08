@@ -1,1 +1,3 @@
-<!--h1><a href="/main">modern art</a></h1-->
+<div id='modernart'>
+	<a href='/'>Modern Art</a>
+</div>

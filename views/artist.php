@@ -1,16 +1,16 @@
 <?
+// collect media and captions
 $media = $oo->media($uu->id);
-$image_urls = array();
-$captions = array();
+$media_urls = array();
+$media_captions = array();
 ?><div id="images" class="visible"><?
 	$i = 0;
 	foreach($media as $m)
 	{
 		$url = m_url($m);
-		$image_urls[] = $url;
 		$caption = $m['caption'];
-		$captions[] = $caption;
-		
+		$media_urls[] = $url;
+		$media_captions[] = $caption;
 	?><div class="thumb">
 		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
 			<img src="<? echo $url; ?>" class="fullscreen">
@@ -19,29 +19,33 @@ $captions = array();
 	</div><?
 	}
 ?></div><?
+
 $body = $item['body'];
 $children = $oo->children($uu->id);
-
-if($children[0]['name1'] == "CV" || $children[0]['name1'] == "Press Release" || $children[0]['name1'] == "Press Release Text")
-{
 ?><section id="body" class="visible">
-	<header><? echo $item['name1']; ?></header>
-	<? echo nl2br($children[0]['body']); ?>
-</section><?
-}
-else
-{
-?><div id="body" class="visible"><? echo nl2br($body); ?></div><?
-}
-?><div id="gallery" class="hidden" onclick="close_gallery();">
+	<header><? echo $item['name1']; ?></header><?
+	if($children)
+	{
+		$cbody = $children[0]['body'];
+		$cbody = trim($cbody);
+		$cbody = strip_tags($cbody, "<i><b><a>");
+		$cbody = nl2br($cbody);
+		echo $cbody;
+	}
+	else
+	{
+		echo nl2br($body);
+	}
+?></section>
+<div id="gallery" class="hidden" onclick="close_gallery();">
 	<img id="gallery-img">
 	<div id="caption-div"></div>
 </div>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
-	var images = <? echo json_encode($image_urls); ?>;
-	var captions = <? echo json_encode($captions); ?>;
+	var images = <? echo json_encode($media_urls); ?>;
+	var captions = <? echo json_encode($media_captions); ?>;
 	var gallery_id = "gallery";
 	var gallery = document.getElementById(gallery_id);
 	var gallery_img = "gallery-img";

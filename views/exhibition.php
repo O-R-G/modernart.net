@@ -1,21 +1,21 @@
 <?
+// collect media and captions
 $media = $oo->media($uu->id);
-$image_urls = array();
+$media_urls = array();
+$media_captions = array();
 $i = 0;
 foreach($media as $m)
 {
-	$url = m_url($m);
-	$image_urls[] = $url;
-	$caption = $m['caption'];
+	$media_urls[] = m_url($m);
+	$media_captions[] = $m['caption'];	
 }
 $body = $item['body'];
 $children = $oo->children($uu->id);
 
-
 ?><section id="exhibition" class="visible">
 	<header><? echo nl2br($item['name1']); ?></header><?
-	$url = $image_urls[0];
-	$caption = $media[0]['caption'];
+	$url = $media_urls[0];
+	$caption = $media_captions[0];
 	if($url)
 	{
 	?><div class="thumb">
@@ -40,14 +40,17 @@ $children = $oo->children($uu->id);
 ?></section>
 <div id="gallery" class="hidden" onclick="close_gallery();">
 	<img id="gallery-img" class="centre">
+	<div id="caption-div"></div>
 </div>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
-	var images = <? echo json_encode($image_urls); ?>;
+	var images = <? echo json_encode($media_urls); ?>;
+	var captions = <? echo json_encode($media_captions); ?>;
 	var gallery_id = "gallery";
 	var gallery = document.getElementById(gallery_id);
 	var gallery_img = "gallery-img";
+	var caption_div = "caption-div";
 	var attached = false;
 	var index = 0;
 	var in_gallery = false;
