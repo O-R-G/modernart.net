@@ -1,11 +1,19 @@
 
 // open the image gallery, starting at image i
 function launch(i) {
-	show(gallery_id);
-	for(j = 0; j < non_gallery.length; j++)
+	
+	for(j = 0; j < nodes.length; j++)
 	{
-		hide(non_gallery[j]);
+		n = nodes[j];
+		if(n.tagName && n.tagName != "SCRIPT")
+		{
+			if(n.id != gallery_id)
+				hide(n);
+			else
+				show(n);
+		}
 	}
+
 	setsrc(gallery_img, images[i]);
 	setcontents(caption_div, captions[i]);
 	index = i; // store current image index
@@ -15,14 +23,14 @@ function launch(i) {
 		// document.addEventListener("click", gallery_listener);
 	}
 	// this is such a cheat
-	// the setting of inGallery needs to happen *after* the 
+	// the setting of in_gallery needs to happen *after* the 
 	// above eventListner is added to the document. URGH
 	// setTimeout(function(){gallery_listener_set();}, 1000);
-	inGallery = true;
+	in_gallery = true;
 }
 
 function gallery_listener_set() {
-	inGallery = true;
+	// in_gallery = true;
 }
 
 function prev() {
@@ -42,11 +50,18 @@ function next() {
 }
 
 function close_gallery() {
-	inGallery = false;
-	hide(gallery_id);
-	for(j = 0; j < non_gallery.length; j++)
+	in_gallery = false;
+	
+	for(j = 0; j < nodes.length; j++)
 	{
-		show(non_gallery[j]);
+		n = nodes[j];
+		if(n.tagName && n.tagName != "SCRIPT")
+		{
+			if(n.id == gallery_id)
+				hide(n);
+			else
+				show(n);
+		}
 	}
 	if(attached)
 	{
@@ -57,7 +72,7 @@ function close_gallery() {
 
 // use arrow keys for navigation within the gallery
 document.onkeydown = function(e) {
-	if(inGallery) {
+	if(in_gallery) {
 		e = e || window.event;
 		switch(e.which || e.keyCode) {
 			case 37: // left
@@ -95,16 +110,14 @@ function setcontents(id, val) {
 	el.innerHTML = val;
 }
 
-function hide(id)
+function hide(el)
 {
-	el = document.getElementById(id);
 	el.classList.remove("visible");
 	el.classList.add("hidden");
 }
 
-function show(id)
+function show(el)
 {
-	el = document.getElementById(id);
 	el.classList.remove("hidden");
 	el.classList.add("visible");
 }

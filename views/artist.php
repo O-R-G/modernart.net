@@ -37,23 +37,28 @@ $children = $oo->children($uu->id);
 		echo nl2br($body);
 	}
 ?></section>
-<div id="gallery" class="hidden" onclick="close_gallery();">
+<section id="gallery" class="hidden" onclick="close_gallery();">
 	<img id="gallery-img">
 	<div id="caption-div"></div>
-</div>
+</section>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
 	var images = <? echo json_encode($media_urls); ?>;
 	var captions = <? echo json_encode($media_captions); ?>;
+	
 	var gallery_id = "gallery";
-	var gallery = document.getElementById(gallery_id);
 	var gallery_img = "gallery-img";
 	var caption_div = "caption-div";
-	var attached = false;
-	var index = 0;
+	
 	var in_gallery = false;
-	var non_gallery = ["main", "images", "body"];
+	var attached = false;
+	
+	var index = 0;
+	
+	var nodes = document.body.childNodes;
+		
+	var els = document.getElementsByClassName('fullscreen');
 	
 	var els = document.getElementsByClassName('fullscreen');
 	for(j = 0; j < els.length; j++)
@@ -71,7 +76,7 @@ $children = $oo->children($uu->id);
     {
     	if(!(screenfull.isFullscreen))
     	{
-    		close_gallery();
+    	 	close_gallery();
     	}
     }
 </script>
