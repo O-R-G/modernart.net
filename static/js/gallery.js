@@ -4,7 +4,7 @@ function launch(i) {
 	for(j = 0; j < nodes.length; j++)
 	{
 		n = nodes[j];
-		if(n.tagName && n.tagName != "SCRIPT")
+		if(n.nodeType == Node.ELEMENT_NODE && n.tagName != "SCRIPT")
 		{
 			if(n.id != gallery_id)
 				hide(n);
@@ -26,7 +26,7 @@ function close_gallery()
 	for(j = 0; j < nodes.length; j++)
 	{
 		n = nodes[j];
-		if(n.tagName && n.tagName != "SCRIPT")
+		if(n.nodeType == Node.ELEMENT_NODE && n.tagName != "SCRIPT")
 		{
 			if(n.id == gallery_id)
 				hide(n);

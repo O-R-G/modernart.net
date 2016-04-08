@@ -18,12 +18,12 @@ $children = $oo->children($uu->id);
 	$caption = $media_captions[0];
 	if($url)
 	{
-	?><div class="thumb">
+	?><figure>
 		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
-	</div><?
+	</figure><?
 	}
 	if($children)
 	{

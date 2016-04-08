@@ -3,7 +3,9 @@
 $media = $oo->media($uu->id);
 $media_urls = array();
 $media_captions = array();
-?><div id="images" class="visible"><?
+?><section id="artist" class="visible">
+	<header><? echo $item['name1']; ?></header>
+	<figure><?
 	$i = 0;
 	foreach($media as $m)
 	{
@@ -11,34 +13,34 @@ $media_captions = array();
 		$caption = $m['caption'];
 		$media_urls[] = $url;
 		$media_captions[] = $caption;
-	?><div class="thumb">
+	?>
+	<div class="thumb">
 		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
 	</div><?
 	}
-?></div><?
+	?></figure><?
 
 $body = $item['body'];
 $children = $oo->children($uu->id);
-?><section id="body" class="visible">
-	<header><? echo $item['name1']; ?></header><?
-	if($children)
-	{
-		$cbody = $children[0]['body'];
-		$cbody = trim($cbody);
-		$cbody = strip_tags($cbody, "<i><b><a>");
-		$cbody = nl2br($cbody);
-		echo $cbody;
-	}
-	else
-	{
-		echo nl2br($body);
-	}
+
+if($children)
+{
+	$cbody = $children[0]['body'];
+	$cbody = trim($cbody);
+	$cbody = strip_tags($cbody, "<i><b><a>");
+	$cbody = nl2br($cbody);
+	echo $cbody;
+}
+else
+{
+	echo nl2br($body);
+}
 ?></section>
 <section id="gallery" class="hidden" onclick="">
-	<img id="gallery-img">
+	<img id="gallery-img" class="centre">
 	<div id="caption-div"></div>
 </section>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
