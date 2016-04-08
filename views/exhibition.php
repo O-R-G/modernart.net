@@ -53,7 +53,6 @@ $children = $oo->children($uu->id);
 	var caption_div = "caption-div";
 	
 	var in_gallery = false;
-	var attached = false;
 	
 	var index = 0;
 	

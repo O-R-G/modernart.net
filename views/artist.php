@@ -37,7 +37,7 @@ $children = $oo->children($uu->id);
 		echo nl2br($body);
 	}
 ?></section>
-<section id="gallery" class="hidden" onclick="close_gallery();">
+<section id="gallery" class="hidden" onclick="">
 	<img id="gallery-img">
 	<div id="caption-div"></div>
 </section>
@@ -52,7 +52,6 @@ $children = $oo->children($uu->id);
 	var caption_div = "caption-div";
 	
 	var in_gallery = false;
-	var attached = false;
 	
 	var index = 0;
 	

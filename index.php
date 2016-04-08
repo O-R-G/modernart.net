@@ -19,7 +19,10 @@ else
 	elseif($uri[1] == "artists" && count($uri) > 2)
 		require_once("views/artist.php");
 	else
+	{
+		require_once("views/contact.php");
 		require_once("views/children.php");
+	}
 	
 	// bottom menu
 	require_once("views/menu.php");
