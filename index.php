@@ -5,7 +5,8 @@ $uri = explode('/', trim($_SERVER['REQUEST_URI'], "/"));
 require_once('views/head.php');
 
 
-// require_once('views/logo.php');
+require_once('views/logo.php');
+require_once("views/clock.php");
 
 // splash page
 if(empty($uri[0]))

@@ -1,3 +1,3 @@
-<div id='modernart' class="blink">
-	<a href='/'>Modern Art</a>
+<div id="modernart">
+	<a href="/">MODERN ART</a>
 </div>

@@ -32,12 +32,14 @@ if($children)
 	$cbody = trim($cbody);
 	$cbody = strip_tags($cbody, "<i><b><a>");
 	$cbody = nl2br($cbody);
+	echo "— <br /><br/>";
 	echo $cbody;
 }
 else
 {
 	echo nl2br($body);
 }
-?></section><?
+?></section>
+<?
 require_once("gallery.php")
 ?>

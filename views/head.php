@@ -40,8 +40,10 @@ if($rr->style)
 	set_cookie("style", $rr->style);
 }
 else
+{
 	$rr->style = get_cookie("style");
-
+}
+$style = $rr->style;
 ?><!DOCTYPE html>
 <html>
 	<head>
@@ -50,9 +52,8 @@ else
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/static/css/hnr.css">
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
 		<script type="text/javascript" src="/static/js/clock.js"></script>
 	</head>
-	<body><?
-	require_once("clock.php");
-	?>
+	<body>

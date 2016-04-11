@@ -14,6 +14,9 @@ $children = $oo->children($uu->id);
 
 ?><section id="exhibition" class="visible">
 	<header><? echo nl2br($item['name1']); ?></header><?
+        
+	echo "<br /><br /><br />";
+
 	$url = $media_urls[0];
 	$caption = $media_captions[0];
 	if($url)
@@ -37,6 +40,7 @@ $children = $oo->children($uu->id);
 	{
 		echo nl2br($body);
 	}
-?></section><?
-require_once("gallery.php");
+?></section>
+<?
+require_once("gallery.php")
 ?>
