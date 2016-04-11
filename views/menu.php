@@ -3,7 +3,8 @@ $children = $oo->children($uu->id);
 ?>
 <div id="main">
 	<div id="menu">
-		<a href="/">Modern Art</a><?
+		<!-- <a href="/">Modern Art</a> -->
+		<?
 		$url = "/";
 		for($i = 0; $i < count($uu->ids); $i++)
 		{
