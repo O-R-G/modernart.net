@@ -4,7 +4,6 @@ $uri = explode('/', trim($_SERVER['REQUEST_URI'], "/"));
 // only html head -- no content
 require_once('views/head.php');
 
-
 require_once('views/logo.php');
 require_once("views/clock.php");
 
