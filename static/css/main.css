@@ -124,6 +124,12 @@ figure {
 	text-align: left;
 }
 
+#clock {
+	font-family: menlo, monospace;
+    font-size: 10px;
+    padding: 20px;
+}
+
 /*----------------------------------------------- 
   fullscreen stuff
 -----------------------------------------------*/

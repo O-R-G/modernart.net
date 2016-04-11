@@ -51,5 +51,8 @@ else
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
+		<script type="text/javascript" src="/static/js/clock.js"></script>
 	</head>
-	<body>
+	<body><?
+	require_once("clock.php");
+	?>
