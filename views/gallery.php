@@ -25,16 +25,6 @@
 	
 	var els = document.getElementsByClassName('fullscreen');
 	var e = document.getElementById(gallery_id);
-	for(j = 0; j < els.length; j++)
-	{
-		els[j].addEventListener('click', function() {
-			if(screenfull.enabled) {
-				// screenfull.toggle(els[j]);
-				//screenfull.toggle(e);
-				screenfull.toggle();
-			}
-		});
-	}
 	
 	document.addEventListener(screenfull.raw.fullscreenchange, on_fs_toggle, false);
 	

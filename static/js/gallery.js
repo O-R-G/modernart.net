@@ -1,6 +1,8 @@
+// dependent on: screenfull.js
+
 // open the image gallery, starting at image i
 function launch(i) {
-	
+	screenfull.toggle();
 	for(j = 0; j < nodes.length; j++)
 	{
 		n = nodes[j];
