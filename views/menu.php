@@ -15,8 +15,6 @@ $children = $oo->children($uu->id);
 			{
 				?> / <a href="<? echo $url; ?>"><? echo $o['name1']; ?></a><?
 			}
-			?></div>
-			</div><?
 			$url.="/";
 		}
 ?></div>

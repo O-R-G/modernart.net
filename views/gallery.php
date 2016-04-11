@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	var images = <? echo json_encode($media_urls); ?>;
 	var captions = <? echo json_encode($media_captions); ?>;
-	
+
 	var gallery_id = "gallery";
 	var gallery_img = "gallery-img";
 	var caption_div = "caption-div";
@@ -22,14 +22,16 @@
 	var index = 0;
 	
 	var nodes = document.body.childNodes;
-		
-	var els = document.getElementsByClassName('fullscreen');
 	
+	var els = document.getElementsByClassName('fullscreen');
+	var e = document.getElementById(gallery_id);
 	for(j = 0; j < els.length; j++)
 	{
 		els[j].addEventListener('click', function() {
 			if(screenfull.enabled) {
-				screenfull.toggle(els[j]);
+				// screenfull.toggle(els[j]);
+				screenfull.toggle(e);
+				// screenfull.toggle();
 			}
 		});
 	}
