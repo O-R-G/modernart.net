@@ -1,55 +1,65 @@
 <?
+// collect media and captions
 $media = $oo->media($uu->id);
-$image_urls = array();
-$captions = array();
-?><div id="images" class="visible"><?
+$media_urls = array();
+$media_captions = array();
+?><section id="artist" class="visible">
+	<header><? echo $item['name1']; ?></header>
+	<figure><?
 	$i = 0;
 	foreach($media as $m)
 	{
 		$url = m_url($m);
-		$image_urls[] = $url;
 		$caption = $m['caption'];
-		$captions[] = $caption;
-		
-	?><div class="thumb">
+		$media_urls[] = $url;
+		$media_captions[] = $caption;
+	?>
+	<div class="thumb">
 		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
 	</div><?
 	}
-?></div><?
+	?></figure><?
+
 $body = $item['body'];
 $children = $oo->children($uu->id);
 
-if($children[0]['name1'] == "CV" || $children[0]['name1'] == "Press Release" || $children[0]['name1'] == "Press Release Text")
+if($children)
 {
-?><section id="body" class="visible">
-	<header><? echo $item['name1']; ?></header>
-	<? echo nl2br($children[0]['body']); ?>
-</section><?
+	$cbody = $children[0]['body'];
+	$cbody = trim($cbody);
+	$cbody = strip_tags($cbody, "<i><b><a>");
+	$cbody = nl2br($cbody);
+	echo $cbody;
 }
 else
 {
-?><div id="body" class="visible"><? echo nl2br($body); ?></div><?
+	echo nl2br($body);
 }
-?><div id="gallery" class="hidden" onclick="close_gallery();">
-	<img id="gallery-img">
+?></section>
+<section id="gallery" class="hidden" onclick="">
+	<img id="gallery-img" class="centre">
 	<div id="caption-div"></div>
-</div>
+</section>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
-	var images = <? echo json_encode($image_urls); ?>;
-	var captions = <? echo json_encode($captions); ?>;
+	var images = <? echo json_encode($media_urls); ?>;
+	var captions = <? echo json_encode($media_captions); ?>;
+	
 	var gallery_id = "gallery";
-	var gallery = document.getElementById(gallery_id);
 	var gallery_img = "gallery-img";
 	var caption_div = "caption-div";
-	var attached = false;
-	var index = 0;
+	
 	var in_gallery = false;
-	var non_gallery = ["main", "images", "body"];
+	
+	var index = 0;
+	
+	var nodes = document.body.childNodes;
+		
+	var els = document.getElementsByClassName('fullscreen');
 	
 	var els = document.getElementsByClassName('fullscreen');
 	for(j = 0; j < els.length; j++)
@@ -67,7 +77,7 @@ else
     {
     	if(!(screenfull.isFullscreen))
     	{
-    		close_gallery();
+    	 	close_gallery();
     	}
     }
 </script>

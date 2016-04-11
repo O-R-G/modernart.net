@@ -3,59 +3,29 @@
 	box-sizing: border-box;
 }
 
+/*----------------------------------------------- 
+  elements 
+-----------------------------------------------*/
+
 html, body {
 	margin: 0px;
+	background-color: rgba(250, 250, 245, 1.0);
+	
 	font-family: ag-light-os;
 	font-size: 10pt;
-	background-color: rgba(250, 250, 245, 1.0);
 	color: rgba(10, 10, 10, 1.0);
 }
 
-.cream {
-}
-
-h1 {
-	font-family: ag-medium;
-	
-	margin: 0px;
-	min-height: 12.5vh;
-	width: 100%;
-	padding: 0.25em;
-
-	font-size: 4em;
-	text-align: center;
-}
-
-h1 a {
-	vertical-align: -webkit-baseline-middle;
-}
-img {
-	width: 100%;
-}
 p {
 	margin-top: 0px;
 }
-.img-container {
-	background-color: rgba(255, 255, 150, 1.0);
-}
 
-.img-container img,
-#splash {
-	-webkit-filter: grayscale(100%);
-	filter: gray;
-    opacity: .95;
-    vertical-align: top;
-}
+/*----------------------------------------------- 
+  links 
+-----------------------------------------------*/
 
-#splash img {
-	object-fit: contain;
-    width: 100%;
-    height: 100%;
-}
-/* links */
 a {
 	text-decoration: none;
-	/* text-transform: uppercase; */
 }
 
 a:link,
@@ -70,100 +40,98 @@ a:hover {
 a:active {
 }
 
-.centre {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+/*----------------------------------------------- 
+  images and image-containers 
+-----------------------------------------------*/
+
+img {
+	width: 100%;
+}
+
+.img-container {
+	background-color: rgba(255, 255, 150, 1.0);
+}
+
+.img-container img,
+#splash {
+	-webkit-filter: grayscale(100%);
+	filter: gray;
+    opacity: .95;
+    vertical-align: top;
 }
 
 #splash {
-	/*
-    position: fixed;
-    top: 0px;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 0;
     width: 75%;
     height: 75%;
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    
-    
-    -webkit-filter: grayscale(100%);
-    filter: gray;
 }
 
-#main {
-	/*padding: 0px 25vw;*/
-    line-height: 1.25rem;
+#splash img {
+	object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
-#images {
-	width: 50vw;
+.thumb {
+	display: inline-block;
+	width: 32%;
+	padding: 5px;
+	vertical-align: bottom;
+	margin: 0px;
 }
+
+figure {
+    margin: 3rem auto;
+}
+
+.caption {
+	padding-top: 5px;
+	font-size: 7pt;
+}
+
+/*----------------------------------------------- 
+  containers 
+-----------------------------------------------*/
 
 #body {
-	width: 50vw;
-	max-width: 450px;
 	padding: 20px;
-}
-
-#images.visible, 
-#body.visible {
-	display: inline-block;
-	vertical-align: top;
+	max-width: 450px;
 }
 
 #menu {
     padding: 20px 0px;
 }
 
+#exhibition, 
+#artist,
+#children,
+#menu {
+	max-width: 500px;
+	margin: 4rem auto;
+}
+
+#modernart a {
+	color: #111;
+	position: fixed;
+	top: 10rem;
+	left: 10rem;
+	z-index:99;
+}
+
 #children p {
 	text-align: left;
 }
 
-.thumb {
-	display: inline-block;
-	width: 200px;
-	padding: 20px;
-	vertical-align: middle;
-}
-
-#exhibition > .thumb {
-	width: 70%;
-    padding: 0px;
-    display: block;
-    margin: 1rem auto;
-}
-
-.caption {
-	padding-top: 5px;
-	font-size: 8pt;
-}
-
-.hidden {
-	display: none;
-}
+/*----------------------------------------------- 
+  fullscreen stuff
+-----------------------------------------------*/
 
 #gallery {
 	position: absolute;
     top: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(10, 10, 10, 1.0);
+    background-color: #0a0a0a;
 }
 
 #gallery-img {
@@ -174,17 +142,6 @@ a:active {
 	margin: 0 auto;
 }
 
-#exhibition, 
-#children,
-#main {
-	max-width: 500px;
-	margin: 4rem auto;
-}
-
-#main {
-	margin: 0rem auto;
-}
-
 #caption-div {
 	position: fixed;
     bottom: 0px;
@@ -193,16 +150,31 @@ a:active {
     color: rgba(250, 250, 240, 1);
 }
 
-#modernart a {
-	color: #111;
-	position: fixed;
-	top: 10rem;
-	left: 10rem;
-	/*
+/*----------------------------------------------- 
+  utilities 
+-----------------------------------------------*/
+
+.centre {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.half-size {
+	width: 50vw;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.hidden {
+	display: none;
+}
+
+/* blink */
+.blink {
 	animation: blink 1s steps(5,start) infinite;
 	-webkit-animation: blink 1s steps(5,start) infinite;
-	*/
-	z-index:99;
 }
 
 @keyframes blink {
@@ -217,36 +189,25 @@ a:active {
 	}	
 }
 
+/*----------------------------------------------- 
+  mobil-ify
+-----------------------------------------------*/
+
 @media screen and (max-width: 799px) {
-	.thumb { 
-		width: 25vw;
-	}
 }
 
 @media screen and (max-width: 568px)
-{
-	.thumb {
-		width: 50vw;
-	}
-	
-	#images {
-		width: 100vw;
-	}
-
+{	
+	#images,
 	#body {
 		width: 100vw;
-	}
-
-	#images, 
-	#body {
 		display: block;
 	}
 	
-	#main {
-	}
-	
 	#exhibition,
-	#main {
+	#artist,
+	#children,
+	#menu {
 		width: 100%;
 		padding: 20px;
 		margin: 0px;

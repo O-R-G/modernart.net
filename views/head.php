@@ -41,6 +41,3 @@ else
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
 	</head>
 	<body>
-		<div id='modernart'>
-			<a href='/'>Modern Art</a>
-		</div>

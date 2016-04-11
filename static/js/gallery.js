@@ -1,31 +1,47 @@
-
 // open the image gallery, starting at image i
 function launch(i) {
-	show(gallery_id);
-	for(j = 0; j < non_gallery.length; j++)
+	
+	for(j = 0; j < nodes.length; j++)
 	{
-		hide(non_gallery[j]);
+		n = nodes[j];
+		if(n.nodeType == Node.ELEMENT_NODE && n.tagName != "SCRIPT")
+		{
+			if(n.id != gallery_id)
+				hide(n);
+			else
+				show(n);
+		}
 	}
+
 	setsrc(gallery_img, images[i]);
 	setcontents(caption_div, captions[i]);
 	index = i; // store current image index
+	in_gallery = true;
+}
+
+function close_gallery()
+{
+	in_gallery = false;
 	
-	if(!attached)
+	for(j = 0; j < nodes.length; j++)
 	{
-		// document.addEventListener("click", gallery_listener);
+		n = nodes[j];
+		if(n.nodeType == Node.ELEMENT_NODE && n.tagName != "SCRIPT")
+		{
+			if(n.id == gallery_id)
+				hide(n);
+			else
+				show(n);
+		}
 	}
-	// this is such a cheat
-	// the setting of inGallery needs to happen *after* the 
-	// above eventListner is added to the document. URGH
-	// setTimeout(function(){gallery_listener_set();}, 1000);
-	inGallery = true;
 }
 
-function gallery_listener_set() {
-	inGallery = true;
-}
+// ----------------------------------------------
+// navigation functions
+// ----------------------------------------------
 
-function prev() {
+function prev()
+{
 	if(index == 0)
 		index = images.length;
 	index--;
@@ -33,7 +49,8 @@ function prev() {
 	setcontents(caption_div, captions[index]);
 }
 
-function next() {
+function next()
+{
 	if(index == images.length-1)
 		index = -1;
 	index++;
@@ -41,23 +58,9 @@ function next() {
 	setcontents(caption_div, captions[index]);
 }
 
-function close_gallery() {
-	inGallery = false;
-	hide(gallery_id);
-	for(j = 0; j < non_gallery.length; j++)
-	{
-		show(non_gallery[j]);
-	}
-	if(attached)
-	{
-		// document.removeEventListener("click", gallery_listener);
-	}
-	attached = false;
-}
-
 // use arrow keys for navigation within the gallery
 document.onkeydown = function(e) {
-	if(inGallery) {
+	if(in_gallery) {
 		e = e || window.event;
 		switch(e.which || e.keyCode) {
 			case 37: // left
@@ -75,7 +78,12 @@ document.onkeydown = function(e) {
 	}
 }
 
-function setbg(id, url) {
+// ----------------------------------------------
+// utilities
+// ----------------------------------------------
+
+function setbg(id, url)
+{
 	// get element
 	el = document.getElementById(id);
 	
@@ -84,41 +92,27 @@ function setbg(id, url) {
 	el.style.backgroundImage = bi;
 }
 
-function setsrc(id, url) {
+function setsrc(id, url)
+{
 	// get element
 	el = document.getElementById(id);
 	el.src = url;
 }
 
-function setcontents(id, val) {
+function setcontents(id, val) 
+{
 	el = document.getElementById(id);
 	el.innerHTML = val;
 }
 
-function hide(id)
+function hide(el)
 {
-	el = document.getElementById(id);
 	el.classList.remove("visible");
 	el.classList.add("hidden");
 }
 
-function show(id)
+function show(el)
 {
-	el = document.getElementById(id);
 	el.classList.remove("hidden");
 	el.classList.add("visible");
-}
-
-function gallery_listener(e)
-{
-	var level = 0;
-	attached = true;
-  	for(var element = e.target; element; element = element.parentNode) {
-		if(element.id === 'img-gallery') {
-			next();
-			return;
-		}
-		level++;
-	}
-  	console.log("not img-gallery clicked");
 }

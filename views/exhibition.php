@@ -1,29 +1,29 @@
 <?
+// collect media and captions
 $media = $oo->media($uu->id);
-$image_urls = array();
+$media_urls = array();
+$media_captions = array();
 $i = 0;
 foreach($media as $m)
 {
-	$url = m_url($m);
-	$image_urls[] = $url;
-	$caption = $m['caption'];
+	$media_urls[] = m_url($m);
+	$media_captions[] = $m['caption'];	
 }
 $body = $item['body'];
 $children = $oo->children($uu->id);
 
-
 ?><section id="exhibition" class="visible">
 	<header><? echo nl2br($item['name1']); ?></header><?
-	$url = $image_urls[0];
-	$caption = $media[0]['caption'];
+	$url = $media_urls[0];
+	$caption = $media_captions[0];
 	if($url)
 	{
-	?><div class="thumb">
+	?><figure>
 		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
-	</div><?
+	</figure><?
 	}
 	if($children)
 	{
@@ -38,22 +38,28 @@ $children = $oo->children($uu->id);
 		echo nl2br($body);
 	}
 ?></section>
-<div id="gallery" class="hidden" onclick="close_gallery();">
+<section id="gallery" class="hidden" onclick="screenfull.toggle(); close_gallery(); ">
 	<img id="gallery-img" class="centre">
-</div>
+	<div id="caption-div"></div>
+</section>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
-	var images = <? echo json_encode($image_urls); ?>;
-	var gallery_id = "gallery";
-	var gallery = document.getElementById(gallery_id);
-	var gallery_img = "gallery-img";
-	var attached = false;
-	var index = 0;
-	var in_gallery = false;
-	var non_gallery = ["exhibition", "main"];
+	var images = <? echo json_encode($media_urls); ?>;
+	var captions = <? echo json_encode($media_captions); ?>;
 	
+	var gallery_id = "gallery";
+	var gallery_img = "gallery-img";
+	var caption_div = "caption-div";
+	
+	var in_gallery = false;
+	
+	var index = 0;
+	
+	var nodes = document.body.childNodes;
+		
 	var els = document.getElementsByClassName('fullscreen');
+	
 	for(j = 0; j < els.length; j++)
 	{
 		els[j].addEventListener('click', function() {
@@ -69,7 +75,7 @@ $children = $oo->children($uu->id);
     {
     	if(!(screenfull.isFullscreen))
     	{
-    		close_gallery();
+    	 	close_gallery();
     	}
     }
 </script>
