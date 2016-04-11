@@ -15,8 +15,6 @@ $children = $oo->children($uu->id);
 			{
 				?><a href="<? echo $url; ?>"><? echo "Go back . . . "; ?></a><?
 			}
-			?></div>
-			</div><?
 			$url.="/";
 		}
 ?></div>
