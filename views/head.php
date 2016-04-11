@@ -50,7 +50,17 @@ $style = $rr->style;
 		<title><? echo $title; ?></title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css">
+		<? 
+		if ($style=="1") {
+			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>";
+		} else if ($style=="2") {
+			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-ags.css'>";
+		} else if ($style=="3") {
+			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-bell.css'>";
+		} else {
+			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>";
+		}
+		?>
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/hnr.css">
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
