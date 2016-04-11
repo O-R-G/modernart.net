@@ -63,6 +63,7 @@ $style = $rr->style;
 		?>
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/hnr.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/static/css/bg.css">
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
 		<script type="text/javascript" src="/static/js/clock.js"></script>
 	</head>
