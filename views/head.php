@@ -38,6 +38,10 @@ else
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css">
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/static/css/hnr.css">
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
 	</head>
 	<body>
+	<div id="modernart">
+        <a href="/">MODERN ART</a>
+	</div>
