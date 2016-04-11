@@ -54,7 +54,7 @@ $style = $rr->style;
 		if ($style=="1") {
 			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>";
 		} else if ($style=="2") {
-			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-ags.css'>";
+			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-ag.css'>";
 		} else if ($style=="3") {
 			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-bell.css'>";
 		} else {
