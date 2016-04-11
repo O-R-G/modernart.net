@@ -14,6 +14,8 @@ html, body {
 	font-family: ag-light-os;
 	font-size: 10pt;
 	color: rgba(10, 10, 10, 1.0);
+	-webkit-font-smoothing: subpixel-antialiased;
+/* 	-webkit-font-smoothing: subpixel-antialiased; */
 }
 
 p {

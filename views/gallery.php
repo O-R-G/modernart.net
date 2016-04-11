@@ -30,8 +30,8 @@
 		els[j].addEventListener('click', function() {
 			if(screenfull.enabled) {
 				// screenfull.toggle(els[j]);
-				screenfull.toggle(e);
-				// screenfull.toggle();
+				//screenfull.toggle(e);
+				screenfull.toggle();
 			}
 		});
 	}
