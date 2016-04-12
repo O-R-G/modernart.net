@@ -58,7 +58,7 @@ $style = $rr->style;
 		} else if ($style=="3") {
 			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-bell.css'>";
 		} else {
-			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>";
+			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-.css'>";
 		}
 		?>
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">
