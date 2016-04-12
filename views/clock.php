@@ -15,9 +15,8 @@ $dt_fmt = "F d, Y H:i:s";
 <script type="text/javascript">
 	var start_time = '<? echo date($dt_fmt);?>';
 	var server_date = new Date(start_time);
-	window.onload = function()
-	{
-		display_time();
-		setInterval(display_time, 1000);
-	}
+	
+	// previously these were in an onload event -- is that necessary?
+	display_time();
+	setInterval(display_time, 1000);
 </script>
