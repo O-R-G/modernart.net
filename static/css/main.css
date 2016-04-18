@@ -185,10 +185,12 @@ figure {
 #clock {
     font-family: menlo, monospace;
     font-size: 10px;
-    position: fixed;
+    /* position: fixed; */
+/* 
     bottom: 0px;
     right: 0px;
     padding: 20px;
+ */
 }
 
 /*----------------------------------------------- 

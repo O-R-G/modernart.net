@@ -4,8 +4,6 @@ $uri = explode('/', trim($_SERVER['REQUEST_URI'], "/"));
 // only html head -- no content
 require_once('views/head.php');
 
-require_once("views/clock.php");
-
 // splash page
 if(empty($uri[0]))
 {
@@ -33,6 +31,8 @@ else
 	// bottom menu
 	require_once("views/menu.php");
 }
+
+require_once("views/clock.php");
 
 // close body, close html
 require_once('views/foot.php');
