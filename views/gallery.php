@@ -5,7 +5,7 @@
 
 ?><section id="gallery" class="hidden" onclick="screenfull.toggle(); close_gallery();">
 	<img id="gallery-img" class="centre">
-	<div id="caption-div"></div>
+	<!-- div id="caption-div"></div -->
 </section>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
@@ -15,7 +15,7 @@
 
 	var gallery_id = "gallery";
 	var gallery_img = "gallery-img";
-	var caption_div = "caption-div";
+	// var caption_div = "caption-div";
 	
 	var in_gallery = false;
 	

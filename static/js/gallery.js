@@ -16,7 +16,7 @@ function launch(i) {
 	}
 
 	setsrc(gallery_img, images[i]);
-	setcontents(caption_div, captions[i]);
+	// setcontents(caption_div, captions[i]);
 	index = i; // store current image index
 	in_gallery = true;
 }
@@ -48,7 +48,7 @@ function prev()
 		index = images.length;
 	index--;
 	setsrc(gallery_img, images[index]);
-	setcontents(caption_div, captions[index]);
+	// setcontents(caption_div, captions[index]);
 }
 
 function next()
@@ -57,7 +57,7 @@ function next()
 		index = -1;
 	index++;
 	setsrc(gallery_img, images[index]);
-	setcontents(caption_div, captions[index]);
+	// setcontents(caption_div, captions[index]);
 }
 
 // use arrow keys for navigation within the gallery

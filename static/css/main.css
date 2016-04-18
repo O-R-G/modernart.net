@@ -18,6 +18,11 @@ html, body {
 /*  -webkit-font-smoothing: subpixel-antialiased; */
 }
 
+body {
+    max-width: 500px;
+    padding: 20px;
+    margin: 0px auto;
+}
 p {
     margin-top: 0px;
 }
@@ -83,6 +88,7 @@ img {
     height: 100%;
     
     position: fixed;
+    left: 0px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -131,15 +137,24 @@ figure {
     padding: 20px 0px;
 }
 
-#exhibition, 
 #artist,
 #children,
 #menu {
-    max-width: 500px;
     /*margin: 4rem auto;*/
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    padding-top: 20px;
+}
+
+#children div {
+    padding: .5em 0;
+}
+
+#children header {
+    padding-top: 3em;
+    padding-bottom: 0.5em;
+}
+
+#name {
+    padding-top: 100px;
 }
 
 #modernart a {
@@ -153,6 +168,7 @@ figure {
 #logo a {
     color: #111;
     position: fixed;
+    left: 0px;
     z-index:5;
     font-size: 50px;
     line-height: 60px;
@@ -182,6 +198,7 @@ figure {
 #gallery {
     position: absolute;
     top: 0px;
+    left: 0px;
     width: 100vw;
     height: 100vh;
     background-color: #0a0a0a;
@@ -257,12 +274,8 @@ figure {
         display: block;
     }
     
-    #exhibition,
-    #artist,
-    #children,
-    #menu {
+    body {
         width: 100%;
-        padding: 20px;
-        margin: 0px;
+        margin 0px;
     }
 }

@@ -12,11 +12,10 @@ foreach($media as $m)
 $body = $item['body'];
 $children = $oo->children($uu->id);
 
-?><section id="exhibition" class="visible">
-	<header><? echo nl2br($item['name1']); ?></header><?
-        
-	echo "<br /><br /><br />";
-
+?><section id="name" class="visible">
+	<header><? echo nl2br($item['name1']); ?></header>
+</section>
+<section class="visible"><?
 	$url = $media_urls[0];
 	$caption = $media_captions[0];
 	if($url)
