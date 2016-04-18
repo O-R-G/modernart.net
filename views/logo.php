@@ -1,3 +1,3 @@
 <div id="modernart">
-	<a href="/">MODERN ART</a>
+	<a href="/">Modern Art</a>
 </div>
