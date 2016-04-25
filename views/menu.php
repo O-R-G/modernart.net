@@ -13,7 +13,7 @@ $children = $oo->children($uu->id);
 			$url.= $o['url'];
 			if($i < count($uu->ids) - 1)
 			{
-				?><a href="<? echo $url; ?>"><? echo "Go back . . . "; ?></a><?
+				?><a href="<? echo $url; ?>" id="go-back"><? echo "<< "; ?></a><?
 			}
 			$url.="/";
 		}
