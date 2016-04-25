@@ -44,6 +44,7 @@ else
 	$rr->style = get_cookie("style");
 }
 $style = $rr->style;
+if ($style == null) $style=1;
 ?><!DOCTYPE html>
 <html>
 	<head>
