@@ -15,7 +15,8 @@ $media_captions = array();
 		$media_captions[] = $caption;
 	?>
 	<div class="thumb">
-		<div class="img-container" onclick="launch(<? echo $i++; ?>);">
+		<!-- div class="img-container" onclick="launch(<? echo $i++; ?>);"-->
+		<div class="img-container">
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
