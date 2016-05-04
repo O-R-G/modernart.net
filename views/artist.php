@@ -3,8 +3,9 @@
 $media = $oo->media($uu->id);
 $media_urls = array();
 $media_captions = array();
-?><section id="artist" class="visible">
-	<header><? echo $item['name1']; ?></header>
+?>
+<section id="artist-detail">
+	<header id="artist-name"><? echo trim($item['name1']); ?></header>
 	<figure><?
 	$i = 0;
 	foreach($media as $m)
@@ -15,7 +16,6 @@ $media_captions = array();
 		$media_captions[] = $caption;
 	?>
 	<div class="thumb">
-		<!-- div class="img-container" onclick="launch(<? echo $i++; ?>);"-->
 		<div class="img-container">
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
@@ -25,22 +25,20 @@ $media_captions = array();
 	?></figure><?
 
 $body = $item['body'];
-$children = $oo->children($uu->id);
+$cv = $oo->children($uu->id)[0];
 
-if($children)
+if($cv)
 {
-	$cbody = $children[0]['body'];
+	$cbody = $cv['body'];
 	$cbody = trim($cbody);
 	$cbody = strip_tags($cbody, "<i><b><a>");
 	$cbody = nl2br($cbody);
-	echo "— <br /><br/>";
+	echo "— <br /><br/>"; // can this be done in css?
 	echo $cbody;
 }
 else
 {
 	echo nl2br($body);
 }
-?></section>
-<?
 require_once("gallery.php")
-?>
+?></section>

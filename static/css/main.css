@@ -36,11 +36,15 @@ a {
 
 a:link,
 a:visited {
-    color: #999;
+/*     color: #999; */
+    color: #111;
 }
 
 a:hover {
+/* 
     color: #111;
+ */
+    text-decoration: underline;
 }
 
 a:active {
@@ -74,29 +78,24 @@ img {
 }
 
 .img-container img,
-#splash {
+#splash-img {
     -webkit-filter: grayscale(100%);
     filter: gray;
     opacity: .95;
     vertical-align: top;
 }
 
-#splash {
+#splash-img {
     z-index: 0;
     width: 100%;
     height: 100%;
     
     position: fixed;
     left: 0px;
+    
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-}
-
-#splash img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
 }
 
 #arrow {
@@ -133,55 +132,50 @@ figure {
     max-width: 450px;
 }
 
-#menu {
-    padding: 20px 0px;
-}
-
-#artist,
-#children,
-#menu {
+#artist-detail,
+#exhibition-detail,
+#exhibition-list,
+#children {
     /*margin: 4rem auto;*/
-	text-align: center;
-    padding-top: 20px;
+    padding-top: 4em;
 }
 
-#children div {
-    /* padding: .5em 0; */
+#exhibition-detail,
+#artist-detail {
+    padding-bottom: 3em;
 }
 
-#children header {
-    padding-top: 3em;
-    padding-bottom: 0.5em;
+#exhibition-name,
+#artist-name,
+#children {
+    text-align: center;
+}
+.exhibition-year {
+    padding-bottom: 3em;
+    text-align: center;
 }
 
-#name {
-    padding-top: 100px;
-	visibility: hidden;
+.exhibition-year header::before {
+    content: "- ";
 }
 
-#artist-name {
-    padding-top: 40px;
-	text-align: center;
+.exhibition-year header::after {
+    content: " -";
+}
+
+#exhibition-list .exhibition-year header,
+#exhibition-list .exhibition {
+    padding-bottom: 1em;
+}
+
+#back {
 	position: fixed;
-	top: 0px;
-	left: auto;
+	top: 0;
+	left: 0;
+	padding: 20px;
 }
 
-#go-back {
-	position: fixed;
-	top: 20px;
-	left: 20px;
-}
-
-#modernart a {
-    color: #111;
-    position: fixed;
-    z-index:5;
-    top: 10rem;
-    left: 10rem;
-}
-
-#logo a {
+#splash-logo a {
     color: #111;
     position: fixed;
     left: 0px;
@@ -194,19 +188,16 @@ figure {
     text-align: center;
 }
 
-#children p {
-    text-align: left;
-}
 
 #clock {
-    font-family: menlo, monospace;
-    font-size: 10px;
-    /* position: fixed; */
-/* 
-    bottom: 0px;
-    right: 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
     padding: 20px;
- */
+    
+    font-family: menlo, monospace;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 /*----------------------------------------------- 
@@ -243,17 +234,6 @@ figure {
 }
 
 .img-container:-webkit-full-screen {
-/*
-  position: fixed;
-  top: 0; 
-  right: 0; 
-  bottom: 0; 
-  left: 0;
-  margin: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-*/
   object-fit:contain;
   background-color: black;
 }
@@ -320,5 +300,12 @@ figure {
     body {
         width: 100%;
         margin 0px;
+    }
+    
+    #artist-detail,
+    #exhibition-detail,
+    #exhibition-list {
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }

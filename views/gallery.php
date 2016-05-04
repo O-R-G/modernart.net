@@ -1,15 +1,8 @@
-<?
-
-// requires:
-// php arrays $media_urls and $media_captions
-
-?><section id="gallery" class="hidden" onclick="screenfull.toggle(); close_gallery();">
+<section id="gallery" class="hidden" onclick="screenfull.toggle(); close_gallery();">
 	<img id="gallery-img" class="centre">
-	<!-- div id="caption-div"></div -->
 </section>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
-
     var els;
     els = document.getElementsByClassName('img-container');
     for (var i = 0; i < els.length; i++)
