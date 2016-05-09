@@ -14,11 +14,24 @@
             var e = els[i];
             e.addEventListener('click', function() {
                 if (screenfull.enabled) {
+                    e.classList.add("colour");
                     screenfull.toggle(e);
                 }
             });
         }());
     }
+    
+    if (screenfull.enabled) {
+        document.addEventListener(screenfull.raw.fullscreenchange, () => {
+            if (!screenfull.isFullscreen)
+            {
+                coloured = document.getElementsByClassName('colour');
+                for (var i = coloured.length-1; i >= 0; i--)
+                    coloured[i].classList.remove("colour");
+            }
+        });
+    }
+
     // get rid visible yellow box behind images
     window.onload = function(){
     	var img_containers = document.getElementsByClassName("img-container");

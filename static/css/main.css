@@ -236,12 +236,17 @@ figure {
 .img-container:-webkit-full-screen {
   object-fit:contain;
   background-color: black;
+
 }
 
 .img-container:-ms-fullscreen {
     width: auto;
     height: auto;
     margin: auto;
+}
+
+.colour > .fullscreen{
+    -webkit-filter: none;
 }
 /*----------------------------------------------- 
   utilities 
