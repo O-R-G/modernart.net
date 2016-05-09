@@ -143,6 +143,18 @@ figure {
     padding-top: 4em;
 }
 
+#artist-detail,
+#exhibition-detail {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+#artist-detail header,
+#exhibition-detail header {
+    font-size: 16pt;
+    line-height: 22pt;
+}
+
 .news-story {
     display: inline-block;
     width: 33%;
