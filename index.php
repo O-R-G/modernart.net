@@ -19,11 +19,15 @@ else
 		require_once("views/artist.php");
 	else
 	{
-		require_once("views/body.php");
+		// require_once("views/body.php");
 		if($uri[1] == "exhibitions" && count($uri) == 2)
 		    require_once("views/exhibition-list.php");
 		elseif($uri[1] == "books" && count($uri) == 2)
 		    require_once("views/book-list.php");
+		elseif($uri[1] == "news" && count($uri) == 2)
+		    require_once("views/news.php");
+		elseif($uri[1] == "contact" && count($uri) == 2)
+		    require_once("views/contact.php");
 		else
 		    require_once("views/children.php");
 	}
