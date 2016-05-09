@@ -22,7 +22,7 @@
     }
     
     if (screenfull.enabled) {
-        document.addEventListener(screenfull.raw.fullscreenchange, () => {
+        document.addEventListener(screenfull.raw.fullscreenchange, function() {
             if (!screenfull.isFullscreen)
             {
                 coloured = document.getElementsByClassName('colour');

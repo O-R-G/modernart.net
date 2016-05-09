@@ -80,7 +80,7 @@ img {
 .img-container img,
 #splash-img {
     -webkit-filter: grayscale(100%);
-    filter: gray;
+    filter: grayscale(100%);
     opacity: .95;
     vertical-align: top;
 }
@@ -247,6 +247,7 @@ figure {
 
 .colour > .fullscreen{
     -webkit-filter: none;
+    filter: none;
 }
 /*----------------------------------------------- 
   utilities 
