@@ -22,6 +22,8 @@ else
 		require_once("views/body.php");
 		if($uri[1] == "exhibitions" && count($uri) == 2)
 		    require_once("views/exhibition-list.php");
+		elseif($uri[1] == "books" && count($uri) == 2)
+		    require_once("views/book-list.php");
 		else
 		    require_once("views/children.php");
 	}

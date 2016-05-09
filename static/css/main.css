@@ -135,6 +135,7 @@ figure {
 #artist-detail,
 #exhibition-detail,
 #exhibition-list,
+#book-list,
 #children {
     /*margin: 4rem auto;*/
     padding-top: 4em;
@@ -166,6 +167,17 @@ figure {
 #exhibition-list .exhibition-year header,
 #exhibition-list .exhibition {
     padding-bottom: 1em;
+}
+
+.book {
+    display: inline-block;
+    width: 33%;
+    padding: 10px;
+}
+
+.book img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 #back {
