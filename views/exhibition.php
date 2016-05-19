@@ -3,44 +3,47 @@
 $media = $oo->media($uu->id);
 $media_urls = array();
 $media_captions = array();
-$i = 0;
-foreach($media as $m)
-{
-	$media_urls[] = m_url($m);
-	$media_captions[] = $m['caption'];	
-}
-$body = $item['body'];
-$children = $oo->children($uu->id);
-
 ?>
-<div id="exhibition-detail">
-    <section id="exhibition-name">
-	    <header><? echo nl2br($item['name1']); ?></header>
-    </section>
-    <section><?
-        $url = $media_urls[0];
-        $caption = $media_captions[0];
-        if($url)
-        {
-        ?><figure>
-            <div class="img-container">
-                <img src="<? echo $url; ?>" class="fullscreen">
-            </div>
-            <div class="caption"><? echo $caption; ?></div>
-        </figure><?
-        }
-        if($children)
-        {
-            $cbody = $children[0]['body'];
-            $cbody = trim($cbody);
-            $cbody = strip_tags($cbody, "<i><b><a>");
-            $cbody = nl2br($cbody);
-            echo $cbody;
-        }
-        else
-        {
-            echo nl2br($body);
-        }
-    ?></section><?
+<section id="exhibition-detail">
+	<header id="exhibition-name"><? echo nl2br(trim($item['name1'])); ?></header>
+	<figure><?
+	$i = 0;
+	foreach($media as $m)
+	{
+		$url = m_url($m);
+		$caption = $m['caption'];
+		$media_urls[] = $url;
+		$media_captions[] = $caption;
+	?>
+	<div class="exhibition-img">
+		<div class="img-container">
+			<img src="<? echo $url; ?>" class="fullscreen">
+		</div>
+		<div class="caption"><? echo $caption; ?></div>
+	</div><?
+	}
+	?></figure><?
+
+$body = $item['body'];
+$cv = $oo->children($uu->id)[0];
+
+if($cv)
+{
+    $url = implode("/", $uu->urls);
+    $url = "/".$url."/".$cv['url'];
+    ?><a href="<? echo $url; ?>"><? echo $cv['name1']; ?></a><?
+/*
+	$cbody = $cv['body'];
+	$cbody = trim($cbody);
+	$cbody = strip_tags($cbody, "<i><b><a>");
+	$cbody = nl2br($cbody);
+	echo "— <br /><br/>"; // can this be done in css?
+	echo $cbody;
+*/
+}
+else
+{
+	echo nl2br($body);
+}
 require_once("gallery.php")
-?></div>
+?></section>

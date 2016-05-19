@@ -5,7 +5,7 @@ $media_urls = array();
 $media_captions = array();
 ?>
 <section id="artist-detail">
-	<header id="artist-name"><? echo trim($item['name1']); ?></header>
+	<header id="artist-name"><? echo nl2br(trim($item['name1'])); ?></header>
 	<figure><?
 	$i = 0;
 	foreach($media as $m)
@@ -32,7 +32,7 @@ if($cv)
 {
     $url = implode("/", $uu->urls);
     $url = "/".$url."/".$cv['url'];
-    ?><a href="<? echo $url; ?>">C.V.</a><?
+    ?><a href="<? echo $url; ?>"><? echo $cv['name1']; ?></a><?
 /*
 	$cbody = $cv['body'];
 	$cbody = trim($cbody);
