@@ -17,6 +17,7 @@ $media_captions = array();
 	?>
 	<div class="thumb">
 		<div class="img-container">
+		    <div class="background-img" style="background-image:url('<? echo $url; ?>')"></div>
 			<img src="<? echo $url; ?>" class="fullscreen">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
@@ -29,12 +30,17 @@ $cv = $oo->children($uu->id)[0];
 
 if($cv)
 {
+    $url = implode("/", $uu->urls);
+    $url = "/".$url."/".$cv['url'];
+    ?><a href="<? echo $url; ?>">C.V.</a><?
+/*
 	$cbody = $cv['body'];
 	$cbody = trim($cbody);
 	$cbody = strip_tags($cbody, "<i><b><a>");
 	$cbody = nl2br($cbody);
 	echo "— <br /><br/>"; // can this be done in css?
 	echo $cbody;
+*/
 }
 else
 {

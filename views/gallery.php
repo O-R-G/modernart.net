@@ -12,6 +12,7 @@
         // to the top of the function scope
         (function () {
             var e = els[i];
+            var cns = e.childNodes;
             e.addEventListener('click', function() {
                 if (screenfull.enabled) {
                     e.classList.add("colour");

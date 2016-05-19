@@ -28,6 +28,8 @@ else
 		    require_once("views/news.php");
 		elseif($uri[1] == "contact" && count($uri) == 2)
 		    require_once("views/contact.php");
+		elseif(count($uri) == 1)
+		    require_once("views/main-list.php");
 		else
 		    require_once("views/children.php");
 	}
