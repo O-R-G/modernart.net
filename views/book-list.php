@@ -18,7 +18,7 @@ $children = $oo->children($uu->id);
 		        $m_url = m_url($m[0]);
                 ?><div class="book">
                     <img src="<? echo $m_url; ?>">
-                    <div class="caption"><? echo $gc['name1']; ?></div>
+                    <div class="caption"><? echo $name; ?></div>
                 </div><?
 		    }
 		?></section><?
