@@ -208,6 +208,7 @@ figure {
     display: inline-block;
     width: 33%;
     padding: 10px;
+    vertical-align: top;
 }
 
 .book img {
@@ -316,7 +317,7 @@ figure {
     margin: auto;
 }
 
-.img-container > .fullscreen {
+.img-container > .tile {
     display: none;
 }
 
@@ -330,15 +331,15 @@ figure {
     display: none;
 }
 
-.img-container:-webkit-full-screen > .fullscreen {
+.img-container:-webkit-full-screen > .tile {
     display: inherit;
 }
 
-.img-container:-moz-full-screen > .fullscreen {
+.img-container:-moz-full-screen > .tile {
     display: inherit;
 }
 
-.img-container:-ms-fullscreen > .fullscreen {
+.img-container:-ms-fullscreen > .tile {
     display: inherit;
 }
 

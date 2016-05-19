@@ -18,7 +18,7 @@ $media_captions = array();
 	<div class="thumb">
 		<div class="img-container">
 		    <div class="background-img" style="background-image:url('<? echo $url; ?>')"></div>
-			<img src="<? echo $url; ?>" class="fullscreen">
+			<img src="<? echo $url; ?>" class="fullscreen tile">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
 	</div><?

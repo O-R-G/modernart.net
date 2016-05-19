@@ -20,6 +20,7 @@ $children = $oo->children($uu->id);
                     <a href="<? echo $m_url ; ?>">
                         <img src="<? echo $m_url; ?>">
                     </a>
+                    <div class="caption"><? echo $gc['name1']; ?></div>
                 </div><?
 		    }
 		?></section><?
