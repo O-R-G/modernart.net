@@ -36,7 +36,7 @@ else
 	
 	// bottom menu
 	require_once("views/menu.php");
-	require_once("views/clock.php");
+	// require_once("views/clock.php");
 }
 
 // close body, close html
