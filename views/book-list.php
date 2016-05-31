@@ -17,7 +17,8 @@ $children = $oo->children($uu->id);
 		        $m = $oo->media($gc['id']);
 		        $m_url = m_url($m[0]);
                 ?><div class="book">
-                    <img src="<? echo $m_url; ?>">
+                    <div class="background-img" style="background-image:url('<? echo $m_url; ?>')"></div>
+                    <!-- img src="<? echo $m_url; ?>" -->
                     <div class="caption"><? echo $name; ?></div>
                 </div><?
 		    }
