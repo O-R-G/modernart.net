@@ -9,9 +9,9 @@ if ($_POST['action'] != "update")
     </ul>
     <ul>
         <li>Colouring: </li>
-        <li><input type="radio" name="style" value="bw">Black and White</li>
-        <li><input type="radio" name="style" value="light">Light Cream</li>
-        <li><input type="radio" name="style" value="mid">Mid-Cream</li>
+        <li><input type="radio" name="style" value="mid">A. Mid-Cream</li>
+        <li><input type="radio" name="style" value="bw">B. Black and White</li>
+        <li><input type="radio" name="style" value="light">C. Light Cream</li>
     </ul>
     <input type='hidden' name='action' value='update'>	
     <input type="submit" name="submit" value="Update">
