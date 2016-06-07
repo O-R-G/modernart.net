@@ -1,11 +1,19 @@
 <?
 $children = $oo->children($uu->id);
 ?><div id="news-list"><?
-	foreach($children as $c)
+for ($i = 0; $i < 2; $i++)
+{
+    $child = $children[$i];
+    $grandchildren = $oo->children($child['id']);
+?><div class="col">
+    <header><? echo $child['name1']; ?></header><?
+	foreach($grandchildren as $gc)
 	{
-		$url = $uu->url."/".$c['url'];
+		$url = $uu->url."/".$child['url']."/".$gc['url'];
 		// $tmp = trim(strip_tags($c['name1'], '<i><b>'));
-		$name = nl2br($c['name1']);
-		?><div class="news-story"><a href="<? echo $url; ?>"><? echo $name; ?></a></div><?
+		$name = nl2br($gc['name1']);
+		?><div class="news-story"><? echo $name; ?></div><?
 	}
+?></div><?
+}
 ?></div>

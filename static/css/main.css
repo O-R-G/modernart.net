@@ -147,6 +147,13 @@ figure {
     padding: 4em 0;
 }
 
+#children {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #news-list {
     font-size: 14pt;
     line-height: 19pt;
@@ -182,9 +189,8 @@ figure {
 
 .news-story {
     display: inline-block;
-    width: 50%;
     vertical-align: top;
-    padding: 10px;
+    padding: 10px 0px;
     text-align: left;
 }
 
@@ -452,6 +458,13 @@ figure {
      {
         padding-left: 1em;
         padding-right: 1em;
+    }
+    
+    #children {
+        position: relative;
+        top: initial;
+        left:initial;
+        transform: initial;
     }
     .col {
         display: block;

@@ -6,7 +6,7 @@ $vars = array("name1", "deck", "body", "notes",  "url", "rank", "begin", "end");
 $var_info = array();
 
 $var_info["input-type"] = array();
-$var_info["input-type"]["name1"] = "text";
+$var_info["input-type"]["name1"] = "textarea";
 $var_info["input-type"]["deck"] = "textarea";
 $var_info["input-type"]["body"] = "textarea";
 $var_info["input-type"]["notes"] = "textarea";
