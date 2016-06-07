@@ -152,6 +152,7 @@ figure {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 568px;
 }
 
 #news-list {
@@ -163,6 +164,7 @@ figure {
     display: inline-block;
     vertical-align: top;
     width: 49%;
+    padding: 20px;
 }
 
 .col > header {
@@ -469,11 +471,13 @@ figure {
         top: initial;
         left:initial;
         transform: initial;
+        width: initial;
     }
     .col {
         display: block;
         vertical-align: top;
         width: 100%;
+        padding: 0px;
     }
     
     .col:last-of-type{
