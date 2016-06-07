@@ -9,6 +9,10 @@ if(empty($uri[0]))
 {
 	require_once("views/splash.php");
 }
+else if ($uri[0] == "options")
+{
+    require_once("views/options.php");
+}
 // everything else
 else
 {

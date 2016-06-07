@@ -35,31 +35,34 @@ else
 	$title = $site_name;
 
 // get / set cookies
-if($rr->style)
-{
-	set_cookie("style", $rr->style);
-}
-else
-{
-	$rr->style = get_cookie("style");
-}
-$style = $rr->style;
-if ($style == null) $style=1;
+// if($rr->style)
+// {
+// 	// set_cookie("style", $rr->style);
+// }
+// else
+// {
+// 	$rr->style = get_cookie("style");
+// }
+// $style = $rr->style;
+$style = get_cookie("style");
+$font = get_cookie("font");
+if ($style == null)
+    $style = 1;
 ?><!DOCTYPE html>
 <html>
 	<head>
 		<title><? echo $title; ?></title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<? 
-		if ($style=="1") {
-			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>";
-		} else if ($style=="2") {
-			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-ag.css'>";
-		} else if ($style=="3") {
-			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-bell.css'>";
-		} else {
-			echo "<link rel='stylesheet' type='text/css' media='all' href='/static/css/main-.css'>";
+		<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>
+		<?
+		if ($font == "bg") {
+		    ?><link rel='stylesheet' type='text/css' media='all' href='/static/css/bell.css'><?
+		}
+		if ($style == "bw") {
+			?><link rel='stylesheet' type='text/css' media='all' href='/static/css/bw.css'><?
+		} else if ($style == "light") {
+			?><link rel='stylesheet' type='text/css' media='all' href='/static/css/light.css'><?
 		}
 		?>
 		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">

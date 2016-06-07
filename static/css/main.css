@@ -484,3 +484,17 @@ figure {
         width: 100%;
     }
 }
+
+/* form stuff */
+ul {
+    list-style-type: none;
+    padding-left: 0px; 
+}
+
+input {
+    margin-right: 10px;
+}
+
+#settings {
+    padding: 50px; 
+}
