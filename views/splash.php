@@ -18,4 +18,6 @@ $url = m_url($m);
 <div id="splash-logo">
 	<a href="/main">Modern Art</a>
 </div>
-<div id="splash-img" style="background-image: url('<? echo $url; ?>')"></div>
+<a href="/main">
+    <div id="splash-img" style="background-image: url('<? echo $url; ?>')"></div>
+</a>

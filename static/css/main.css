@@ -259,8 +259,7 @@ figure {
     position: fixed;
     left: 0px;
     z-index:5;
-    font-size: 72px;
-    line-height: 60px;
+    font-size: 48pt;
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
