@@ -1,10 +1,9 @@
-<!-- section id="gallery" class="hidden" onclick="screenfull.toggle(); close_gallery();">
-	<img id="gallery-img" class="centre">
-</section -->
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
     var els;
-    var curr_img;
+    var index;
+    var gl;
+    var o_src;
     
     els = document.getElementsByClassName('img-container');
     for (var i = 0; i < els.length; i++)
@@ -20,8 +19,13 @@
                 if (screenfull.enabled) {
                     e.classList.add("colour");
                     screenfull.toggle(e);
-                    curr_img = j;
-                    e.id = "gallery";
+                    index = j;
+                    for (var k = 0; k < cns.length; k++) {
+                        if (cns[k].tagName == "IMG") {
+                            gl = cns[k];
+                            o_src = gl.src;
+                        }
+                    }
                 }
             });
         }());
@@ -31,13 +35,13 @@
         document.addEventListener(screenfull.raw.fullscreenchange, function() {
             if (!screenfull.isFullscreen)
             {
-                var fs = document.getElementById("gallery");
                 coloured = document.getElementsByClassName('colour');
                 for (var i = coloured.length-1; i >= 0; i--)
                     coloured[i].classList.remove("colour");
                 // no image selected
-                curr_img = -1;
-                fs.id = "";
+                index = -1;
+                gl.src = o_src;
+                gl = null;
             }
         });
     }
@@ -52,30 +56,19 @@
     };
     
     function next() {
-        var gallery = document.getElementById("gallery");
-        var gallery_bg = gallery.childNodes[3];
-        
-        if (curr_img == images.length - 1)
-            curr_img = -1;
-
-        curr_img++;
-        gallery_bg.src = images[curr_img];
+        index++;
+        // wrap around to the beginning
+        if (index == images.length)
+            index = 0;
+        gl.src = images[index];
     }
     
     function prev() {
-        var gallery = document.getElementById("gallery");
-        var gallery_bg = gallery.childNodes[3];
-        
-        if (curr_img == 0)
-            curr_img = images.length;
-
-        curr_img--;
-        gallery_bg.src = images[curr_img];
-    }
-    
-    function set_bg(el, url) {
-        bi = "url('/".concat(url).concat("')");
-        el.style.backgroundImage = bi;    
+        index--;
+        // wrap around to the end
+        if (index == -1)
+            index = images.length - 1;
+        gl.src = images[index];
     }
     
     document.onkeydown = function(e) {

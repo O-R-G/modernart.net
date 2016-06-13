@@ -47,3 +47,6 @@ else
 }
 require_once("gallery.php")
 ?></section>
+<script>
+    var images = <? echo json_encode($media_urls); ?>;
+</script>
