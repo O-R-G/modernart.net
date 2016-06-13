@@ -10,6 +10,8 @@
 html, body {
     margin: 0px;
     
+    /* FONT IS BEING SET IN HEAD.PHP RIGHT NOW. */ 
+    
     font-size: 16pt;
     line-height: 22pt;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -273,6 +275,7 @@ figure {
   fullscreen stuff
 -----------------------------------------------*/
 
+/*
 #gallery {
     position: absolute;
     top: 0px;
@@ -281,7 +284,7 @@ figure {
     height: 100vh;
     background-color: #0a0a0a;
 }
-
+*/
 #gallery-img {
     width: initial;
     max-width: 100%;
