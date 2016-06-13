@@ -35,12 +35,12 @@
         document.addEventListener(screenfull.raw.fullscreenchange, function() {
             if (!screenfull.isFullscreen)
             {
+                gl.src = o_src;
                 coloured = document.getElementsByClassName('colour');
                 for (var i = coloured.length-1; i >= 0; i--)
                     coloured[i].classList.remove("colour");
                 // no image selected
                 index = -1;
-                gl.src = o_src;
                 gl = null;
             }
         });
