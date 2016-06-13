@@ -34,20 +34,10 @@ if ($title)
 else
 	$title = $site_name;
 
-// get / set cookies
-// if($rr->style)
-// {
-// 	// set_cookie("style", $rr->style);
-// }
-// else
-// {
-// 	$rr->style = get_cookie("style");
-// }
-// $style = $rr->style;
-$style = get_cookie("style");
 $font = get_cookie("font");
-if ($style == null)
-    $style = 1;
+if ($font == null)
+    $font = "hnr-medium";
+    
 ?><!DOCTYPE html>
 <html>
 	<head>
@@ -55,19 +45,12 @@ if ($style == null)
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>
-		<?
-		if ($font == "bg") {
-		    ?><link rel='stylesheet' type='text/css' media='all' href='/static/css/bell.css'><?
-		}
-		if ($style == "bw") {
-			?><link rel='stylesheet' type='text/css' media='all' href='/static/css/bw.css'><?
-		} else if ($style == "light") {
-			?><link rel='stylesheet' type='text/css' media='all' href='/static/css/light.css'><?
-		}
-		?>
-		<link rel="stylesheet" type="text/css" media="all" href="/static/css/ag.css">
-		<link rel="stylesheet" type="text/css" media="all" href="/static/css/hnr.css">
-		<link rel="stylesheet" type="text/css" media="all" href="/static/css/bg.css">
+		<link rel="stylesheet" href="/static/css/<? echo $font; ?>.css">
+        <style type="text/css">		    
+            html, body {
+                font-family: <? echo $font; ?>; 
+            }
+		</style>
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
 		<script type="text/javascript" src="/static/js/clock.js"></script>
 	</head>

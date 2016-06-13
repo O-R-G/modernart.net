@@ -9,20 +9,16 @@
 
 html, body {
     margin: 0px;
-    background-color: rgba(250, 245, 235, 1.0);
-    font-family: hnr-medium, ag-light-os; 
+    
     font-size: 16pt;
     line-height: 22pt;
-    color: rgba(70, 70, 70, 1.0);
     -webkit-font-smoothing: subpixel-antialiased;
-/*  -webkit-font-smoothing: subpixel-antialiased; */
+    
+    background-color: #fff;
+    color: #000;
 }
 
 body {
-/*
-    max-width: 500px;
-    margin: 0px auto;
-*/
     max-width: 700px;
     margin: 0 auto;
 }
@@ -40,15 +36,10 @@ a {
 
 a:link,
 a:visited {
-/*     color: #999; */
-    /*color: #111;*/
-    color: rgba(70, 70, 70, 1.0);
+    color: #000;
 }
 
 a:hover {
-/* 
-    color: #111;
- */
     text-decoration: underline;
 }
 
