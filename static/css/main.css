@@ -24,6 +24,7 @@ body {
     max-width: 700px;
     margin: 0 auto;
 }
+
 p {
     margin-top: 0px;
 }
@@ -56,30 +57,10 @@ img {
     width: 100%;
 }
 
-.img-container {
-    /* some bug with -webkit-filter: grayscale(100%);
-       causes the image in this container to be clipped,
-       leaving a sliver of yellow (bg colour) on the left side. 
-       this is eliminated by insetting, then expanding the image.
-       bug seems to only be in chrome, btw.
-       
-       useful clip-path demo:
-       http://bennettfeely.com/clippy/
-    */
-    -webkit-clip-path: inset(2px 2px 2px 2px);
-    clip-path: inset(2px 2px 2px 2px);
-    margin: -2px;
-}
-
-.yellow-bg {
-    /* background-color: rgba(255, 255, 150, 1.0); */
-}
-
 .img-container img,
 #splash-img {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    opacity: .95;
     vertical-align: top;
 }
 

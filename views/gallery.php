@@ -45,15 +45,6 @@
             }
         });
     }
-
-    // get rid visible yellow box behind images
-    window.onload = function(){
-    	var img_containers = document.getElementsByClassName("img-container");
-    	for(i = 0; i < img_containers.length; i++)
-    	{
-    		img_containers[i].classList.add("yellow-bg");
-    	}
-    };
     
     function next() {
         index++;
