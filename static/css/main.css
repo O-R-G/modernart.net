@@ -25,7 +25,7 @@ body {
     margin: 0 auto;
 }
 
-p {
+p { 
     margin-top: 0px;
 }
 
@@ -117,7 +117,6 @@ figure {
 #news-list,
 #children,
 #contact {
-    /*margin: 4rem auto;*/
     padding: 4em 0;
 }
 
@@ -147,6 +146,7 @@ figure {
 
 #main-list {
 }
+
 #artist-detail,
 #exhibition-detail {
     font-size: 14px;
@@ -201,7 +201,6 @@ figure {
     height: 50px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    /* opacity: 0.95; */
 }
 
 #exhibition-list .exhibition-year header,
@@ -256,16 +255,6 @@ figure {
   fullscreen stuff
 -----------------------------------------------*/
 
-/*
-#gallery {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    background-color: #0a0a0a;
-}
-*/
 #gallery-img {
     width: initial;
     max-width: 100%;
@@ -329,9 +318,11 @@ figure {
 .img-container:-webkit-full-screen > .background-img {
     display: none;
 }
+
 .img-container:-moz-full-screen > .background-img {
     display: none;
 }
+
 .img-container:-ms-fullscreen > .background-img {
     display: none;
 }
@@ -403,6 +394,7 @@ figure {
     .book {
         width: 50%;
     }
+    
     #children {
         width: 100%;
     }
@@ -430,8 +422,7 @@ figure {
     #exhibition-list,
     #book-list,
     #news-list,
-    #contact
-     {
+    #contact {
         padding-left: 1em;
         padding-right: 1em;
     }
@@ -450,7 +441,7 @@ figure {
         padding: 0px;
     }
     
-    .col:last-of-type{
+    .col:last-of-type {
         padding-top 0;
     }
     

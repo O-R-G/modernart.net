@@ -33,12 +33,15 @@
     
     if (screenfull.enabled) {
         document.addEventListener(screenfull.raw.fullscreenchange, function() {
-            if (!screenfull.isFullscreen)
-            {
+            if (!screenfull.isFullscreen) {
+                // set the image source back to original
                 gl.src = o_src;
+                
+                // de-colourise
                 coloured = document.getElementsByClassName('colour');
                 for (var i = coloured.length-1; i >= 0; i--)
                     coloured[i].classList.remove("colour");
+                
                 // no image selected
                 index = -1;
                 gl = null;
@@ -48,17 +51,23 @@
     
     function next() {
         index++;
+        
         // wrap around to the beginning
-        if (index == images.length)
+        if (index >= images.length)
             index = 0;
+        
+        // set 'gallery' source to new images
         gl.src = images[index];
     }
     
     function prev() {
         index--;
+        
         // wrap around to the end
-        if (index == -1)
+        if (index < 0)
             index = images.length - 1;
+
+        // set 'gallery' source to new images
         gl.src = images[index];
     }
     
