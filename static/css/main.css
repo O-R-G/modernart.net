@@ -356,6 +356,22 @@ figure {
     -webkit-filter: none;
     filter: none;
 }
+
+/*----------------------------------------------- 
+  !screenfull (iOS) *dev* 
+-----------------------------------------------*/
+
+.fullwindow {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background-color: #0F0;
+    z-index:+1;
+    -webkit-filter: none;
+    filter: none;
+}
+
 /*----------------------------------------------- 
   utilities 
 -----------------------------------------------*/
