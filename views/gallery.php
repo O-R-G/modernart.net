@@ -16,9 +16,29 @@
             var e = els[i];
             var cns = e.childNodes;
             e.addEventListener('click', function() {
-                if (screenfull.enabled) {
+                // if (screenfull.enabled) {
+                if (!screenfull.enabled) {
                     e.classList.add("colour");
                     screenfull.toggle(e);
+                    index = j;
+                    for (var k = 0; k < cns.length; k++) {
+                        if (cns[k].tagName == "IMG") {
+                            gl = cns[k];
+                            o_src = gl.src;
+                        }
+                    }
+                } else {
+                    // mostly for iOS
+                    // show image max in one dimension with a black background
+                    // this is in process
+                    // prob change style of the element
+                    // and still change to gallery view, just not in fullscreen
+                    // perhaps use the loop above to populate gl.src
+                    // just have to work out where gl is displayed
+
+                    console.log("sorry, screenfull not possible on this platform");
+
+                    e.classList.add("colour");
                     index = j;
                     for (var k = 0; k < cns.length; k++) {
                         if (cns[k].tagName == "IMG") {

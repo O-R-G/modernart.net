@@ -11,9 +11,11 @@ html, body {
     margin: 0px;
     
     /* FONT IS BEING SET IN HEAD.PHP RIGHT NOW. */ 
+    /* FONTSIZE IS BEING SET IN HEAD.PHP RIGHT NOW. */ 
+    /* LINEHEIGHT IS BEING SET IN HEAD.PHP RIGHT NOW. */ 
     
-    font-size: 16pt;
-    line-height: 22pt;
+    /* font-size: 16pt; */
+    /* line-height: 22pt; */
     -webkit-font-smoothing: subpixel-antialiased;
     
     background-color: #fff;
@@ -43,7 +45,9 @@ a:visited {
 }
 
 a:hover {
-    text-decoration: underline;
+    border: 2px;
+
+    /* text-decoration: underline; */
 }
 
 a:active {

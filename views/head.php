@@ -37,7 +37,12 @@ else
 $font = get_cookie("font");
 if ($font == null)
     $font = "hnr-medium";
-    
+
+$fontsize = get_cookie("fontsize");
+if ($fontsize == null)
+    $fontsize = "16/22";
+$fontsizewithleading = explode("/", $fontsize);
+
 ?><!DOCTYPE html>
 <html>
 	<head>
@@ -49,6 +54,8 @@ if ($font == null)
         <style type="text/css">		    
             html, body {
                 font-family: <? echo $font; ?>; 
+                font-size: <? echo $fontsizewithleading[0]; ?>pt; 
+                line-height: <? echo $fontsizewithleading[1]; ?>pt; 
             }
 		</style>
 		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
