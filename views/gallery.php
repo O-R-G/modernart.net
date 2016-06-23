@@ -16,8 +16,8 @@
             var e = els[i];
             var cns = e.childNodes;
             e.addEventListener('click', function() {
-                // if (screenfull.enabled) {
-                if (!screenfull.enabled) {
+                if (screenfull.enabled) {
+                // if (!screenfull.enabled) {
                     e.classList.add("colour");
                     screenfull.toggle(e);
                     index = j;
