@@ -4,7 +4,7 @@
     var index;
     var gl;
     var o_src;
-    var debug = true;
+    var debug;
     var windowfull;
     
     els = document.getElementsByClassName('img-container');
