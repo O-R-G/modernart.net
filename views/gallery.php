@@ -5,6 +5,7 @@
     var gl;
     var o_src;
     var debug = true;
+    var windowfull;
     
     els = document.getElementsByClassName('img-container');
     for (var i = 0; i < els.length; i++)
@@ -28,57 +29,61 @@
                         }
                     }
                 } else {
-
-                    // mostly for iOS
+                    // iOS
                     // show image max in one dimension with a black background
-                    // this is in process
-                    // prob change style of the element
-                    // and still change to gallery view, just not in fullscreen
-                    // perhaps use the loop above to populate gl.src
-                    // just have to work out where gl is displayed
+                    // ** todo ** size image dynamically h/w: 100%                    
 
-                    // maybe just a matter of changing the style on click w/js
-                    // or just add a class?
+                    windowfull = !windowfull;
+                    if (debug) console.log("screenfull not possible on this platform, using windowfull");
+                    if (debug) console.log("windowfull = " + windowfull);
+                    if (windowfull) {
+                        // show big, hide thumb
+                        e.className = "fullwindow";
+                        e.getElementsByTagName("DIV")[0].className = "";
 
-                    // may have to have another div behind in fullwindow mode and write that in dynamically (yuck)
-                    // or maybe better to just hide the background img etc
-                    
-                    console.log("Sorry, screenfull is not possible on this platform");
-                    
-                    // right now this is on the container element and need to go lower to get the element we want (use children)
+                        // populate
+                        index = j;
+                        for (var k = 0; k < cns.length; k++) {
+                            if (cns[k].tagName == "IMG") {
+                                gl = cns[k];
+                                o_src = gl.src;
+                            }
+                        } 
+                    } else {
+                        // back to b/w and original source
+                        resetthumbnail();   // not working?
 
-                    e.className = "fullwindow";
-
-                    index = j;
-                    for (var k = 0; k < cns.length; k++) {
-                        if (cns[k].tagName == "IMG") {
-                            gl = cns[k];
-                            o_src = gl.src;
-                        }
+                        // hide big, show thumb
+                        e.className = "img-container";
+                        e.getElementsByTagName("DIV")[0].className = "background-img";
                     }
                 }
             });
         }());
     }
     
-    if (screenfull.enabled || debug) {
+    if (screenfull.enabled) {
         document.addEventListener(screenfull.raw.fullscreenchange, function() {
             if (!screenfull.isFullscreen) {
-                // set the image source back to original
-                gl.src = o_src;
-                
-                // de-colourise
-                coloured = document.getElementsByClassName('colour');
-                for (var i = coloured.length-1; i >= 0; i--)
-                    coloured[i].classList.remove("colour");
-                
-                // no image selected
-                index = -1;
-                gl = null;
+                resetthumbnail();
             }
         });
     }
-    
+
+    function resetthumbnail() {                
+        // set the image source back to original
+        gl.src = o_src;
+                    
+        // de-colourise
+        coloured = document.getElementsByClassName('colour');
+        for (var i = coloured.length-1; i >= 0; i--)
+            coloured[i].classList.remove("colour");
+        
+        // no image selected
+        index = -1;
+        gl = null;
+    }
+
     function next() {
         index++;
         
@@ -102,7 +107,7 @@
     }
     
     document.onkeydown = function(e) {
-        if(screenfull.isFullscreen || debug) {
+        if(screenfull.isFullscreen || windowfull) {
             e = e || window.event;
             switch(e.which || e.keyCode) {
                 case 37: // left
