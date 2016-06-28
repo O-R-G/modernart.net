@@ -31,15 +31,18 @@
                 } else {
                     // iOS
                     // show image max in one dimension with a black background
-                    // ** todo ** size image dynamically h/w: 100%                    
+                    // ** todo ** size image dynamically h/w: 100%
 
                     windowfull = !windowfull;
                     if (debug) console.log("screenfull not possible on this platform, using windowfull");
                     if (debug) console.log("windowfull = " + windowfull);
                     if (windowfull) {
                         // show big, hide thumb
+                        // for centering to work, needs to be wrapped in another div
+                        // but for now, leaving *as is* with style directly applied to img
                         e.className = "fullwindow";
                         e.getElementsByTagName("DIV")[0].className = "";
+                        e.getElementsByTagName("IMG")[0].className += " wide";
 
                         // populate
                         index = j;
