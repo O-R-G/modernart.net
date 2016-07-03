@@ -10,14 +10,18 @@ $media_captions = array();
 	$i = 0;
 	foreach($media as $m)
 	{
-		$url = m_url($m);
-		$caption = $m['caption'];
-		$media_urls[] = $url;
-		$media_captions[] = $caption;
+        $url = m_url($m);
+        $caption = $m['caption'];
+        $media_urls[] = $url;
+        $media_captions[] = $caption;
+        $relative_url = "media/" . m_pad($m['id']).".".$m['type'];
+        $size = getimagesize($relative_url);
+        $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
+        $media_dims[] = $wide_tall;
 	?>
 	<div class="exhibition-img">
 		<div class="img-container">
-			<img src="<? echo $url; ?>" class="fullscreen">
+			<img src="<? echo $url; ?>" class="fullscreen wide">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
 	</div><?
@@ -49,4 +53,6 @@ require_once("gallery.php")
 ?></section>
 <script>
     var images = <? echo json_encode($media_urls); ?>;
+    var dimensions = <? echo json_encode($media_dims); ?>;
+    var fullwindow = <? echo $fullwindow; ?>;
 </script>

@@ -18,6 +18,12 @@ if ($_POST['action'] != "update")
         <li><input type="radio" name="fontsize" value="16/22">16 pt</li>
     </ul>
 
+    <ul>
+        <li>Oz: </li>
+        <li><input type="radio" name="fullwindow" value="true">full window</li>
+        <li><input type="radio" name="fullwindow" value="false">full screen</li>
+    </ul>
+
     <input type='hidden' name='action' value='update'>
     <input type="submit" name="submit" value="Update">
 </form><?
@@ -34,14 +40,18 @@ else
 <script>
     function store_cookies()
     {
-        var font, style, fontsize;
+        var font, style, fontsize, fullwindow;
         var form = document.getElementById("settings");
         font = form.elements.namedItem("font").value;
         fontsize = form.elements.namedItem("fontsize").value;
+        fullwindow = form.elements.namedItem("fullwindow").value;
+
         if (font)
             set_cookie("font", font);
         if (fontsize)
             set_cookie("fontsize", fontsize);
+        if (fullwindow)
+            set_cookie("fullwindow", fullwindow);
     }
     
     function set_cookie(cname, cvalue)

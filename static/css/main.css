@@ -45,8 +45,7 @@ a:visited {
 }
 
 a:hover {
-    border: 2px;
-
+    border-bottom:2px solid black;
     /* text-decoration: underline; */
 }
 
@@ -58,11 +57,10 @@ a:active {
 -----------------------------------------------*/
 
 img {
-    width: 100%;
+    /* width: 100%; */
 }
 
-.img-container img,
-#splash-img {
+.img-container img, #splash-img {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     vertical-align: top;
@@ -285,7 +283,7 @@ figure {
 }
 
 .img-container {
-    height: auto;
+    position: relative;  
 }
 
 .img-container:-moz-full-screen {
@@ -324,76 +322,61 @@ figure {
     margin: auto;
 }
 
-.img-container > .tile {
-    display: none;
-}
-
-.img-container:-webkit-full-screen > .background-img {
-    display: none;
-}
-
-.img-container:-moz-full-screen > .background-img {
-    display: none;
-}
-
-.img-container:-ms-fullscreen > .background-img {
-    display: none;
-}
-
-.img-container:-webkit-full-screen > .tile {
-    display: inherit;
-}
-
-.img-container:-moz-full-screen > .tile {
-    display: inherit;
-}
-
-.img-container:-ms-fullscreen > .tile {
-    display: inherit;
-}
-
 .colour > .fullscreen{
     -webkit-filter: none;
     filter: none;
 }
 
 /*----------------------------------------------- 
-  !screenfull (iOS) *dev* 
+  !screenfull (iOS)
 -----------------------------------------------*/
 
-.fullwindow {
+.img-container-fullwindow {
     position: fixed;
     top: 0px;
     left: 0px;
     height: 100%;
     width: 100%;
-    background-color: #000;
-    z-index:+1;
+    z-index: +1;
     -webkit-filter: none;
     filter: none;
+    background-color: #000;
 }
 
-.wide {
-    margin: auto;
-    width: 100%;
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
-.wide-dev {
-    margin: auto;
-    width: 100%;
-    border: 3px solid green;
-    padding: 10px;
+.square {
+    /* margin is calculated based on parent width, so
+    this auto-squares a div that contains it */
+    margin-top: 100%;
 }
 
-.tall-img-dev {
-    margin: auto;
-    width: 100%;
-    border: 3px solid red;
+.bottom {
+    position: absolute;
+    bottom: 0px;
+}
+
+.tall {
+    height: 100%;
+    width: auto;
 }
 
 .wide {
     height: auto;
     width: 100%;
+}
+
+/* dev */
+/* truly bizarre! safari and chrome seem to need this second class on img-container */
+/* maybe something in the gallery.php js i would expect */
+
+.dev {
+    border:1px solid white;
 }
 
 /*----------------------------------------------- 

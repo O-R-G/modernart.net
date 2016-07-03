@@ -3,6 +3,7 @@
 $media = $oo->media($uu->id);
 $media_urls = array();
 $media_captions = array();
+$media_dims = array();
 ?>
 <section id="artist-detail">
 	<header id="artist-name"><? echo nl2br(trim($item['name1'])); ?></header>
@@ -14,11 +15,15 @@ $media_captions = array();
 		$caption = $m['caption'];
 		$media_urls[] = $url;
 		$media_captions[] = $caption;
+        $relative_url = "media/" . m_pad($m['id']).".".$m['type'];
+        $size = getimagesize($relative_url);
+        $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
+        $media_dims[] = $wide_tall;
 	?>
 	<div class="thumb">
-		<div class="img-container">
-		    <div class="background-img" style="background-image:url('<? echo $url; ?>')"></div>
-			<img src="<? echo $url; ?>" class="fullscreen tile">
+		<div class="img-container dev">        
+            <div class="square"></div>
+            <img src="<? echo $url; ?>" class="fullscreen bottom <? echo $wide_tall; ?>">
 		</div>
 		<div class="caption"><? echo $caption; ?></div>
 	</div><?
@@ -50,4 +55,6 @@ require_once("gallery.php")
 ?></section>
 <script>
     var images = <? echo json_encode($media_urls); ?>;
+    var dimensions = <? echo json_encode($media_dims); ?>;
+    var fullwindow = <? echo $fullwindow; ?>;
 </script>

@@ -43,6 +43,10 @@ if ($fontsize == null)
     $fontsize = "16/22";
 $fontsizewithleading = explode("/", $fontsize);
 
+$fullwindow = get_cookie("fullwindow");
+if ($fullwindow == null)
+    $fullwindow = "true";
+
 ?><!DOCTYPE html>
 <html>
 	<head>
