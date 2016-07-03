@@ -50,6 +50,8 @@ a:hover {
 }
 
 a:active {
+    color: #FFF;
+    border-bottom:2px solid black;
 }
 
 /*----------------------------------------------- 
