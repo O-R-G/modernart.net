@@ -16,7 +16,7 @@ $m = $res->fetch_assoc();
 $url = m_url($m);
 ?>
     <div id="splash-logo">
-	    <a href="/main">Modern Art</a>
+	    <a href="/main">MODERN ART</a>
     </div>
 <a href="/main">
     <div id="splash-img" style="background-image: url('<? echo $url; ?>')"></div>
