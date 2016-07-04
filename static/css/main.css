@@ -241,6 +241,7 @@ figure {
 
 #splash-logo a {
     font-size: 48pt;
+    line-height: 42pt;
     text-align: center;
     display: inline-block;
     padding-bottom: 14px; /* change this based on font */

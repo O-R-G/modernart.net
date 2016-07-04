@@ -24,6 +24,12 @@ if ($_POST['action'] != "update")
         <li><input type="radio" name="fullwindow" value="false">full screen</li>
     </ul>
 
+    <ul>
+        <li>Splash: </li>
+        <li><input type="radio" name="caps" value="true">Caps</li>
+        <li><input type="radio" name="caps" value="false">Upper & lower </li>
+    </ul>
+
     <input type='hidden' name='action' value='update'>
     <input type="submit" name="submit" value="Update">
 </form><?
@@ -33,18 +39,19 @@ else
 ?>
 <section id="settings">
     <p>Thank you. Your changes have been recorded.</p>
-    <p><a href="/main">Main Menu</a></p>
+    <p><a href="/">Home</a></p>
 </section><?
 }
 ?>
 <script>
     function store_cookies()
     {
-        var font, style, fontsize, fullwindow;
+        var font, style, fontsize, fullwindow, caps;
         var form = document.getElementById("settings");
         font = form.elements.namedItem("font").value;
         fontsize = form.elements.namedItem("fontsize").value;
         fullwindow = form.elements.namedItem("fullwindow").value;
+        caps = form.elements.namedItem("caps").value;
 
         if (font)
             set_cookie("font", font);
@@ -52,6 +59,8 @@ else
             set_cookie("fontsize", fontsize);
         if (fullwindow)
             set_cookie("fullwindow", fullwindow);
+        if (caps)
+            set_cookie("caps", caps);
     }
     
     function set_cookie(cname, cvalue)

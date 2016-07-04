@@ -15,8 +15,12 @@ $res = $db->query($sql);
 $m = $res->fetch_assoc();
 $url = m_url($m);
 ?>
-    <div id="splash-logo">
-	    <a href="/main">MODERN ART</a>
+    <div id="splash-logo"><?
+    if ($caps == "true") {
+        ?><a href="/main">MODERN ART</a><?
+    } else {
+        ?><a href="/main">Modern Art</a><?
+    }?>
     </div>
 <a href="/main">
     <div id="splash-img" style="background-image: url('<? echo $url; ?>')"></div>

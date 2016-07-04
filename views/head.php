@@ -47,6 +47,10 @@ $fullwindow = get_cookie("fullwindow");
 if ($fullwindow == null)
     $fullwindow = "true";
 
+$caps = get_cookie("caps");
+if ($caps == null)
+    $caps = "true";
+
 ?><!DOCTYPE html>
 <html>
 	<head>
