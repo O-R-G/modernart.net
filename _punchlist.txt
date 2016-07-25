@@ -1,9 +1,14 @@
 + type (14/16 pt)
 + iOS oz
 + set fullscreen in options as cookie
-x screenfull image scrolling arrows
-x zoom to oz
 + css underline / bottom border
 + exhibitions image oz
 - .dev css class?! ** bug! **
   required to draw "tall" images in thumbnail view on artist.php
+/ screenfull image scrolling arrows
+/ zoom to oz
+- rm Back on menu page
+- change "Back" to title of "Artists" etc. *or* just to "Menu"
+- add mailing list subscribe to Contact
+- rm News
+- rm Books

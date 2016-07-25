@@ -10,6 +10,7 @@
     var windowfull;
 
     elements = document.getElementsByClassName('img-container');
+
     for (var i = 0; i < elements.length; i++)
     {
         // for some reason this has to be in a closure?

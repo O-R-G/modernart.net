@@ -38,10 +38,12 @@ $font = get_cookie("font");
 if ($font == null)
     $font = "hnr-medium";
 
+/*
 $fontsize = get_cookie("fontsize");
 if ($fontsize == null)
     $fontsize = "16/22";
 $fontsizewithleading = explode("/", $fontsize);
+*/
 
 $fullwindow = get_cookie("fullwindow");
 if ($fullwindow == null)
@@ -59,6 +61,7 @@ if ($caps == null)
 		<meta name="viewport" content="width=device-width">
 		<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>
 		<link rel="stylesheet" href="/static/css/<? echo $font; ?>.css">
+        <!-- 
         <style type="text/css">		    
             html, body {
                 font-family: <? echo $font; ?>; 
@@ -66,7 +69,8 @@ if ($caps == null)
                 line-height: <? echo $fontsizewithleading[1]; ?>pt; 
             }
 		</style>
-		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
+        -->
+   		<link rel="shortcut icon" type="image/png" href="/media/png/icon.png"/>
 		<script type="text/javascript" src="/static/js/clock.js"></script>
 	</head>
 	<body>
