@@ -293,6 +293,7 @@ figure {
 
 .img-container {
     position: relative;  
+    display: none; 
 }
 
 .img-container:-moz-full-screen {

@@ -3,7 +3,7 @@
 + set fullscreen in options as cookie
 + css underline / bottom border
 + exhibitions image oz
-- .dev css class?! ** bug! **
++ .dev css class?! ** bug! **
   required to draw "tall" images in thumbnail view on artist.php
 / screenfull image scrolling arrows
 / zoom to oz
@@ -12,3 +12,4 @@
 - add mailing list subscribe to Contact
 - rm News
 - rm Books
+- rm artists thumbs

@@ -1,72 +1,113 @@
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
-    var elements;
+    var thumbs = [];
+    var images = [];
     var index;
-    var gl;
     var o_src;
-    var debug = true;
-    // temporary, set in artist.php read from a cookie to show fullwindow
-    // var fullwindow;
+    // var fullwindow;      // temp set in artist.php read from a cookie
     var windowfull;
+    var debug = false;
 
-    elements = document.getElementsByClassName('img-container');
+    // ** todo ** if iOS --> windowfull, else screenfull
+    // use screenfull.enabled to branch to windowfull
+    // see https://github.com/readium/readium-js-viewer/issues/423
 
-    for (var i = 0; i < elements.length; i++)
-    {
-        // for some reason this has to be in a closure?
-        // something about variable hoisting and var declarations get pulled
-        // to the top of the function scope
-        (function () {
-            var j = i;
-            var e = elements[i];
-            var cns = e.childNodes;
-            e.addEventListener('click', function() {
-                if (screenfull.enabled && !fullwindow) {
-                    e.classList.add("colour");
-                    screenfull.toggle(e);
+    // assign handlers
+
+    thumbs = document.getElementsByClassName('thumb');
+    for (var i = 0; i < thumbs.length; i++) {
+        ( function () {
+            // ( closure ) -- retains state of local variables
+            var imgcontainer = thumbs[i].children[0];
+            var caption = thumbs[i].children[1];
+            var img = imgcontainer.children[1];
+            var j = i;    
+
+            imgcontainer.addEventListener('click', function() {                
                     index = j;
-                    for (var k = 0; k < cns.length; k++) {
-                        if (cns[k].tagName == "IMG") {
-                            gl = cns[k];
-                            o_src = gl.src;
-                        }
-                    }
-                } else {
-                    // show image in browser window max h | w on black bg
+                    gallery = img;
+                    thiscaption = this.nextElementSibling;
+                    thiscaption.style.display="block";
+                    this.style.display="none";
+                    screenfull.exit();
+            }); 
 
-                    windowfull = !windowfull;
-                    if (debug) console.log("screenfull not possible on this platform, using windowfull");
-                    if (debug) console.log("windowfull = " + windowfull);
-                    if (windowfull) {
-                        e.className = "img-container-fullwindow";
-
-                        // wide or tall?
-                        wide_tall = dimensions[j];
-                        e.getElementsByTagName("IMG")[0].className = "centered " + wide_tall;
-
-                        // populate
-                        index = j;
-                        for (var k = 0; k < cns.length; k++) {
-                            if (cns[k].tagName == "IMG") {
-                                gl = cns[k];
-                                o_src = gl.src;
-                            }
-                        } 
-                    } else {
-                        resetthumbnail();
-
-                        // hide big, show thumb
-                        e.className = "img-container dev";
-
-                        // wide or tall?
-                        wide_tall = dimensions[j];
-                        e.getElementsByTagName("IMG")[0].className = "fullscreen bottom " + wide_tall;
-                    }
-                }
+            caption.addEventListener('click', function() {
+                    index = j;
+                    gallery = img;
+                    thisimgcontainer = this.previousElementSibling;
+                    thisimgcontainer.style.display="block";
+                    this.style.display="none";
+                    screenfull.request(thisimgcontainer);      
             });
+            images.push(img);
         }());
     }
+
+    // navigation 
+
+    function next() {
+        index++;
+        if (index >= images.length)
+            index = 0;
+        gallery.src = images[index];
+        debuglog();
+    }
     
+    function prev() {
+        index--;
+        if (index < 0)
+            index = images.length - 1;
+        gallery.src = images[index];
+        debuglog();
+    }
+
+    // ** fix ** catch escape key, refs not working
+
+    document.onkeydown = function(e) {
+        if(screenfull.isFullscreen || windowfull) {
+            e = e || window.event;
+            switch(e.which || e.keyCode) {
+                case 37: // left
+                    prev();
+                    break;
+                case 39: // right
+                    next();
+                    break;
+                case 27: // esc
+                    // "this" is ambiguous
+                    // and might be better to have a reset function ()
+                    // as will be used by the "x" close box
+                    thiscaption.style.display="block";
+                    // thiscaption = this.nextElementSibling;
+                    // thisimgcontainer.style.display="none";
+                    // this.style.display="none";
+                    screenfull.exit();
+                    debuglog();
+                    break;
+                default: return; // exit this handler for other keys
+            }
+            e.preventDefault();
+         }
+    }
+
+    function debuglog() {
+        if (debug) {
+            console.log("index = " + index + " / " + images.length);
+            console.log("thisimgcontainer.innerHTML = " + thisimgcontainer.innerHTML);   
+            console.log(gallery);   
+            console.log(gallery.tagName);   
+            console.log("gallery.src = " + gallery.src);   
+            console.log("images[index] = " + images[index]);   
+            console.log("+");
+        }
+    }
+
+
+
+
+
+/*    
     if (screenfull.enabled) {
         document.addEventListener(screenfull.raw.fullscreenchange, function() {
             if (!screenfull.isFullscreen) {
@@ -89,53 +130,6 @@
         gl = null;
     }
 
-    function next() {
-        index++;
-                
-        // wrap around to the beginning
-        if (index >= images.length)
-            index = 0;
+*/
 
-        // set 'gallery' source to new images
-        gl.src = images[index];
-
-        // wide or tall?
-        if (windowfull) {
-            wide_tall = dimensions[index];
-            gl.className = "centered " + wide_tall;
-        }
-    }
-    
-    function prev() {
-        index--;
-
-        // wrap around to the end
-        if (index < 0)
-            index = images.length - 1;
-
-        // set 'gallery' source to new images
-        gl.src = images[index];
-
-        // wide or tall?
-        if (windowfull) {
-            wide_tall = dimensions[index];
-            gl.className = "centered " + wide_tall;
-        }
-    }
-    
-    document.onkeydown = function(e) {
-        if(screenfull.isFullscreen || windowfull) {
-            e = e || window.event;
-            switch(e.which || e.keyCode) {
-                case 37: // left
-                    prev();
-                break;
-                case 39: // right
-                    next();
-                break;
-                default: return; // exit this handler for other keys
-            }
-            e.preventDefault();
-        }
-    }
 </script>
