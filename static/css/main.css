@@ -381,17 +381,39 @@ figure {
     width: 100%;
 }
 
-/* dev */
-/* truly bizarre! safari and chrome seem to need this second class on img-container */
-/* maybe something in the gallery.php js i would expect */
-
-.dev {
-    border:1px solid white;
+.controls {
+    position: absolute;
+    z-index: 100;
+    margin: 10px;
+    padding: 10px;
 }
+
+.next {
+    top: 50%;
+    right: 0px;
+    transform: translate(0, -50%);
+}
+
+.prev {
+    top: 50%;
+    left: 0px;
+    transform: translate(0, -50%);
+}
+
+.close {
+    top: 0px;
+    right: 0px;
+    margin: 10px;
+}
+
 
 /*----------------------------------------------- 
   utilities 
 -----------------------------------------------*/
+
+.dev {
+    border:1px solid red;
+}
 
 .centre {
     position: absolute;
@@ -408,6 +430,12 @@ figure {
 
 .hidden {
     display: none;
+}
+
+.white {
+    color: #FFF;
+    background-color: #999;
+    opacity: 0.5;
 }
 
 /* blink */

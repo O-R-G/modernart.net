@@ -21,8 +21,12 @@ $media_dims = array();
         $media_dims[] = $wide_tall;
 	?>
 	<div class="thumb">
-		<div class="img-container colour">        
-            <div class="square"></div>
+		<div class="img-container colour">
+            <div class="square">
+                <div class="controls next white">></div>
+                <div class="controls prev white"><</div>
+                <div class="controls close white">x</div>
+            </div>
             <img src="<? echo $url; ?>" class="fullscreen bottom <? echo $wide_tall; ?>">
 		</div>
 		<div class="caption">> <? echo $caption; ?></div>

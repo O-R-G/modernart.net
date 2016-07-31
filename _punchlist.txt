@@ -5,8 +5,10 @@
 + exhibitions image oz
 + .dev css class?! ** bug! **
   required to draw "tall" images in thumbnail view on artist.php
++ screenfull 
 / screenfull image scrolling arrows
-/ zoom to oz
+- fix esc key in screenfull exit
+- iOS windowfull
 - rm Back on menu page
 - change "Back" to title of "Artists" etc. *or* just to "Menu"
 - add mailing list subscribe to Contact
