@@ -21,7 +21,7 @@ $media_dims = array();
         $media_dims[] = $wide_tall;
 	?>
 	<div class="thumb">
-		<div class="img-container colour">
+		<div class="img-container">
             <div class="square">
                 <div class="controls next white">></div>
                 <div class="controls prev white"><</div>
@@ -60,5 +60,5 @@ require_once("gallery.php")
 <script>
     var images = <? echo json_encode($media_urls); ?>;
     var dimensions = <? echo json_encode($media_dims); ?>;
-    var fullwindow = <? echo $fullwindow; ?>;
+    /* var fullwindow = <? echo $fullwindow; ?>; */
 </script>

@@ -3,12 +3,16 @@
 + set fullscreen in options as cookie
 + css underline / bottom border
 + exhibitions image oz
-+ .dev css class?! ** bug! **
-  required to draw "tall" images in thumbnail view on artist.php
++ .dev css class bug
+
 + screenfull 
-/ screenfull image scrolling arrows
++ screenfull navigation
 - fix esc key in screenfull exit
-- iOS windowfull
+x add caption (info i btn toggle) to screenfull
+/ iOS windowfull
+    fix wide/tall centered logic so adds to className
+x iOS swipe
+
 - rm Back on menu page
 - change "Back" to title of "Artists" etc. *or* just to "Menu"
 - add mailing list subscribe to Contact

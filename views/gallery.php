@@ -4,68 +4,57 @@
     var images = [];
     var index;
     var o_src;
-    // var fullwindow;      // temp set in artist.php read from a cookie
-    var windowfull;
+    var fullscreen;
+    var fullwindow = true;
     var debug = true;
 
-    // ** todo ** 
-    // add next, prev, close
-    // add ios fullwindow
+    // desktop or mobile
+    if (screenfull.enabled && !fullwindow) 
+        fullscreen = true;
+    else 
+        fullwindow = true;
 
-    if (screenfull.enabled) {
-        // desktop (screenfull)
-        // see https://github.com/readium/readium-js-viewer/issues/423
-
-        // assign handlers    
-        thumbs = document.getElementsByClassName('thumb');
-        for (var i = 0; i < thumbs.length; i++) {
-            ( function () {
-                // ( closure ) -- retains state of local variables
-                var imgcontainer = thumbs[i].children[0];
-                var caption = thumbs[i].children[1];
-                var img = imgcontainer.children[1];          
-                var controlsnext = imgcontainer.children[0].children[0];
-                var controlsprev = imgcontainer.children[0].children[1];
-                var controlsclose = imgcontainer.children[0].children[2];
-                var j = i;
-
-                /*
-                imgcontainer.addEventListener('click', function() {                
-                        index = j;
-                        gallery = img;
-                        thiscaption = this.nextElementSibling;
-                        thiscaption.style.display="block";
-                        this.style.display="none";
-                        screenfull.exit();
-                });
-                */ 
-                caption.addEventListener('click', function() {
-                        index = j;
-                        gallery = img;
-                        thisimgcontainer = this.previousElementSibling;
-                        thisimgcontainer.style.display="block";
-                        this.style.display="none";
-                        screenfull.request(thisimgcontainer);      
-                });
-                controlsnext.addEventListener('click', next); 
-                controlsprev.addEventListener('click', prev); 
-                controlsclose.addEventListener('click', function() {                
-                        index = j;
-                        gallery = img;
-                        thiscaption = thisimgcontainer.nextElementSibling;
-                        thiscaption.style.display="block";
-                        thisimgcontainer = this.parentElement.parentElement;
-                        thisimgcontainer.style.display="none";
-                        screenfull.exit();
-                        debuglog();
-                });
-                images.push(img);
-            }());
-        }
-    } else {
-        // mobile (windowfull)
+    // assign handlers    
+    thumbs = document.getElementsByClassName('thumb');
+    for (var i = 0; i < thumbs.length; i++) {
+        ( function () {
+            // ( closure ) -- retains state of local variables
+            var imgcontainer = thumbs[i].children[0];
+            var caption = thumbs[i].children[1];
+            var img = imgcontainer.children[1];          
+            var controlsnext = imgcontainer.children[0].children[0];
+            var controlsprev = imgcontainer.children[0].children[1];
+            var controlsclose = imgcontainer.children[0].children[2];
+            var j = i;
+    
+            caption.addEventListener('click', function() {
+                index = j;
+                gallery = img;
+                thisimgcontainer = this.previousElementSibling;
+                thisimgcontainer.style.display="block";
+                this.style.display="none";
+                if (fullscreen)
+                    screenfull.request(thisimgcontainer);
+                else
+                    imgcontainer.className = "img-container-fullwindow";
+            });
+            controlsnext.addEventListener('click', next); 
+            controlsprev.addEventListener('click', prev); 
+            controlsclose.addEventListener('click', function() {                
+                index = j;
+                gallery = img;
+                thiscaption = thisimgcontainer.nextElementSibling;
+                thiscaption.style.display="block";
+                thisimgcontainer = this.parentElement.parentElement;
+                thisimgcontainer.style.display="none";
+                if (fullscreen)
+                    screenfull.exit();
+                debuglog();
+            });
+            images.push(img);
+        }());
     }
-
+    
     // navigation 
     function next() {
         index++;
@@ -85,7 +74,7 @@
     // ** fix ** catch escape key, refs not working
 
     document.onkeydown = function(e) {
-        if(screenfull.isFullscreen || windowfull) {
+        if(screenfull.isFullscreen || fullwindow) {
             e = e || window.event;
             switch(e.which || e.keyCode) {
                 case 37: // left
