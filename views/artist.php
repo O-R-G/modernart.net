@@ -27,7 +27,8 @@ $media_dims = array();
                 <div class="controls prev white"><</div>
                 <div class="controls close white">x</div>
             </div>
-            <img src="<? echo $url; ?>" class="fullscreen bottom <? echo $wide_tall; ?>">
+            <!-- <img src="<? echo $url; ?>" class="fullscreen bottom <? echo $wide_tall; ?>"> -->
+            <img src="<? echo $url; ?>" class="centered <? echo $wide_tall; ?>">
 		</div>
 		<div class="caption">> <? echo $caption; ?></div>
 	</div><?

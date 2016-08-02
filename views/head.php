@@ -25,6 +25,10 @@ else
 	$item = $oo->get(0);
 $name = ltrim(strip_tags($item["name1"]), ".");
 
+
+// print_r($item);
+// print_r($name);
+
 // document title
 $item = $oo->get($uu->id);
 $title = $item["name1"];
@@ -34,16 +38,15 @@ if ($title)
 else
 	$title = $site_name;
 
+/*
 $font = get_cookie("font");
 if ($font == null)
     $font = "hnr-medium";
 
-/*
 $fontsize = get_cookie("fontsize");
 if ($fontsize == null)
     $fontsize = "16/22";
 $fontsizewithleading = explode("/", $fontsize);
-*/
 
 $fullwindow = get_cookie("fullwindow");
 if ($fullwindow == null)
@@ -52,6 +55,7 @@ if ($fullwindow == null)
 $caps = get_cookie("caps");
 if ($caps == null)
     $caps = "true";
+*/
 
 ?><!DOCTYPE html>
 <html>
@@ -60,7 +64,7 @@ if ($caps == null)
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>
-		<link rel="stylesheet" href="/static/css/<? echo $font; ?>.css">
+		<link rel="stylesheet" href="/static/css/hnr-medium.css">
         <!-- 
         <style type="text/css">		    
             html, body {

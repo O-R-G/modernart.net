@@ -1,13 +1,13 @@
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript">
     var thumbs = [];
-    var images = [];
+    var imgs = [];
     var index;
     var o_src;
+    var gallery;
     var fullscreen;
     var fullwindow;
-    // var fullwindow = true;  // dev
-    var debug = false;
+    var debug;
 
     // desktop or mobile
     if (screenfull.enabled && !fullwindow) 
@@ -34,16 +34,10 @@
                 thisimgcontainer = this.previousElementSibling;
                 thisimgcontainer.style.display="block";
                 this.style.display="none";
-                if (fullscreen) {
+                if (fullscreen)
                     screenfull.request(thisimgcontainer);
-                } else {
+                else 
                     imgcontainer.className = "img-container-fullwindow";
-                    wide_tall = dimensions[j];
-                    img.className = "centered " + wide_tall;
-                    // ** fix ** update wide_tall in next
-                    // but may be a simpler way of doing this and making it work
-                    // console.log("img.className = " + img.className);
-                }
             });
             controlsnext.addEventListener('click', next); 
             controlsprev.addEventListener('click', prev); 
@@ -58,23 +52,25 @@
                     screenfull.exit();
                 debuglog();
             });
-            images.push(img);
+            imgs.push(img);
         }());
     }
     
     // navigation 
     function next() {
         index++;
-        if (index >= images.length)
+        if (index >= imgs.length)
             index = 0;
-        gallery.src = images[index];
+        gallery.src = imgs[index].src;
+        gallery.className = imgs[index].className;
         debuglog();
     }
     function prev() {
         index--;
         if (index < 0)
-            index = images.length - 1;
-        gallery.src = images[index];
+            index = imgs.length - 1;
+        gallery.src = imgs[index].src;
+        gallery.className = imgs[index].className;
         debuglog();
     }
 
@@ -109,13 +105,14 @@
 
     function debuglog() {
         if (debug) {
-            console.log("index = " + index + " / " + images.length);
+            console.log("index = " + index + " / " + imgs.length);
             console.log("thisimgcontainer.innerHTML = " + thisimgcontainer.innerHTML);   
-            console.log(gallery);   
-            console.log(gallery.tagName);   
+            console.log("gallery = " + gallery);   
             console.log("gallery.src = " + gallery.src);   
-            console.log("images[index] = " + images[index]);   
-            console.log("this.innerHTML = " + this.innerHTML);
+            console.log("gallery.className = " + gallery.className);   
+            console.log("imgs[index] = " + imgs[index]);   
+            console.log("imgs[index].src = " + imgs[index].src);   
+            console.log("imgs[index].className = " + imgs[index].className);   
             console.log("+");
         }
     }

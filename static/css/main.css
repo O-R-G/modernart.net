@@ -65,8 +65,8 @@ img {
 }
 
 .img-container img, #splash-img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    /* -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); */
     vertical-align: top;
 }
 
