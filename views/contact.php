@@ -9,7 +9,7 @@ if($body)
     $subscribe = $_POST['subscribe'];
     $message = $_POST['message'];
     if (!$subscribe) {
-        ?><br /><br />Mailing list<br />
+        ?><br /><br /><br />Mailing list<br />
         <form enctype='multipart/form-data' action='contact' method='post'>
         <textarea name='message' cols='30' rows='2'></textarea><br />
         <input name='subscribe' type='submit' value='Subscribe'>
@@ -20,7 +20,7 @@ if($body)
         $body = "Please subscribe " . $message . ".";
         $headers = "From: subscribe@modernart.net";
         mail($to,$subject,$body,$headers);
-        ?><br /><br />Thanks.<?
+        ?><br /><br /><br />Thanks.<?
     }
 ?></section><?
 }
