@@ -5,8 +5,8 @@
     var index;
     var o_src;
     var fullscreen;
-    // var fullwindow;
-    var fullwindow = true;  // dev
+    var fullwindow;
+    // var fullwindow = true;  // dev
     var debug = false;
 
     // desktop or mobile
