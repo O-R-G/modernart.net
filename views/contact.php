@@ -5,6 +5,7 @@ if($body)
 ?><section id="contact"><?
     echo nl2br($body);
 
+    // subscribe form
     $subscribe = $_POST['subscribe'];
     $message = $_POST['message'];
     if (!$subscribe) {
@@ -14,7 +15,11 @@ if($body)
         <input name='subscribe' type='submit' value='Subscribe'>
         </form><?
     } else {
-        mail("reinfurt@o-r-g.com", "Mailing list subcription request", "Please subscribe " . $message . ".");
+        $to = "reinfurt@o-r-g.com";
+        $subject = "Mailing list subcription request";
+        $body = "Please subscribe " . $message . ".";
+        $headers = "From: webmaster@example.com";
+        mail($to,$subject,$body,$headers);
         ?><br /><br />Thanks.<?
     }
 ?></section><?
