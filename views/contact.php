@@ -18,7 +18,7 @@ if($body)
         $to = "reinfurt@o-r-g.com";
         $subject = "Mailing list subcription request";
         $body = "Please subscribe " . $message . ".";
-        $headers = "From: webmaster@example.com";
+        $headers = "From: subscribe@modernart.net";
         mail($to,$subject,$body,$headers);
         ?><br /><br />Thanks.<?
     }
