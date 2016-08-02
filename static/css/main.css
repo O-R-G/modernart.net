@@ -434,8 +434,8 @@ figure {
 
 .white {
     color: #FFF;
-    background-color: #999;
-    opacity: 0.5;
+    /* background-color: #999; */
+    /* opacity: 0.5; */
 }
 
 /* blink */

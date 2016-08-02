@@ -9,8 +9,10 @@
 + screenfull navigation
 - fix esc key in screenfull exit
 x add caption (info i btn toggle) to screenfull
++ modernart.local.*.xip.ip
 / iOS windowfull
     fix wide/tall centered logic so adds to className
+    may not even need to wide_tall 
 x iOS swipe
 
 - rm Back on menu page

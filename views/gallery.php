@@ -5,8 +5,9 @@
     var index;
     var o_src;
     var fullscreen;
-    var fullwindow = true;
-    var debug = true;
+    // var fullwindow;
+    var fullwindow = true;  // dev
+    var debug = false;
 
     // desktop or mobile
     if (screenfull.enabled && !fullwindow) 
@@ -33,10 +34,16 @@
                 thisimgcontainer = this.previousElementSibling;
                 thisimgcontainer.style.display="block";
                 this.style.display="none";
-                if (fullscreen)
+                if (fullscreen) {
                     screenfull.request(thisimgcontainer);
-                else
+                } else {
                     imgcontainer.className = "img-container-fullwindow";
+                    wide_tall = dimensions[j];
+                    img.className = "centered " + wide_tall;
+                    // ** fix ** update wide_tall in next
+                    // but may be a simpler way of doing this and making it work
+                    // console.log("img.className = " + img.className);
+                }
             });
             controlsnext.addEventListener('click', next); 
             controlsprev.addEventListener('click', prev); 
