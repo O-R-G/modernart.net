@@ -19,7 +19,9 @@ x add caption (info i btn toggle) to screenfull
 + rm News
 + rm Books
 + change "Back" to title of "Artists" etc. *or* just to "Menu"
-/ add mailing list subscribe to Contact
-
++ add mailing list subscribe to Contact
+- exhibitions img display
+/ exhibitions menu nav
+  see index.php, adjust exhibitions view, make one column
 
 
