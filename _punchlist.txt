@@ -9,19 +9,18 @@
 + screenfull
 + screenfull navigation
 + rm artists thumbs
-- fix esc key in screenfull exit
 x add caption (info i btn toggle) to screenfull
 + modernart.local.*.xip.ip
 + iOS windowfull
 - iOS swipe (see km logic)
-- controls size, feedback css
+/ controls size, feedback css
+- fix esc key in screenfull exit
+- iOS rotate screen instruction?
 + rm Back on menu page
 + rm News
 + rm Books
 + change "Back" to title of "Artists" etc. *or* just to "Menu"
 + add mailing list subscribe to Contact
-- exhibitions img display
 / exhibitions menu nav
   see index.php, adjust exhibitions view, make one column
-
-
++ exhibitions img display

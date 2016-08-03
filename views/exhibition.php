@@ -3,6 +3,7 @@
 $media = $oo->media($uu->id);
 $media_urls = array();
 $media_captions = array();
+$media_dims = array();
 ?>
 <section id="exhibition-detail">
 	<header id="exhibition-name"><? echo nl2br(trim($item['name1'])); ?></header>
@@ -10,21 +11,29 @@ $media_captions = array();
 	$i = 0;
 	foreach($media as $m)
 	{
-        $url = m_url($m);
-        $caption = $m['caption'];
-        $media_urls[] = $url;
-        $media_captions[] = $caption;
+		$url = m_url($m);
+		$caption = $m['caption'];
+		$media_urls[] = $url;
+		$media_captions[] = $caption;
         $relative_url = "media/" . m_pad($m['id']).".".$m['type'];
         $size = getimagesize($relative_url);
         $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
         $media_dims[] = $wide_tall;
 	?>
 	<div class="exhibition-img">
+	<div class="thumb">
 		<div class="img-container">
-			<img src="<? echo $url; ?>" class="fullscreen wide">
+            <div class="square">
+                <div class="controls next white">></div>
+                <div class="controls prev white"><</div>
+                <div class="controls close white">x</div>
+            </div>
+            <!-- <img src="<? echo $url; ?>" class="fullscreen bottom <? echo $wide_tall; ?>"> -->
+            <img src="<? echo $url; ?>" class="centered <? echo $wide_tall; ?>">
 		</div>
-		<div class="caption"><? echo $caption; ?></div>
-	</div><?
+		<div class="caption">> <? echo $caption; ?></div>
+	</div>
+    </div><?
 	}
 	?></figure><?
 
@@ -54,5 +63,5 @@ require_once("gallery.php")
 <script>
     var images = <? echo json_encode($media_urls); ?>;
     var dimensions = <? echo json_encode($media_dims); ?>;
-    var fullwindow = <? echo $fullwindow; ?>;
+    // var fullwindow = <? echo $fullwindow; ?>; 
 </script>

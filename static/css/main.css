@@ -105,7 +105,9 @@ figure {
     font-size: 7pt;
     line-height: 8.5pt;
 	text-align: left;
+    cursor: pointer;
 }
+
 
 /*----------------------------------------------- 
   containers 
@@ -172,11 +174,16 @@ figure {
 }
 
 .exhibition-img {
-    padding: 30px 0;
+    padding: 0px;
 }
 
 .exhibition-img > .img-container {
     margin: 5px 0;
+}
+
+.exhibition-img > .thumb {
+    width: 100%;
+    padding: 0px;
 }
 
 .news-story {
@@ -386,23 +393,32 @@ figure {
     z-index: 100;
     margin: 10px;
     padding: 10px;
+    cursor: pointer;
+    width: 50%;
 }
 
 .next {
     top: 50%;
     right: 0px;
+    text-align: right;
+    padding-top: 200px;
+    padding-bottom: 200px;
     transform: translate(0, -50%);
 }
 
 .prev {
     top: 50%;
     left: 0px;
+    text-align: left;
+    padding-top: 200px;
+    padding-bottom: 200px;
     transform: translate(0, -50%);
 }
 
 .close {
     top: 0px;
     right: 0px;
+    text-align: right;
     margin: 10px;
 }
 

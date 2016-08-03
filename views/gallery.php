@@ -6,7 +6,7 @@
     var o_src;
     var gallery;
     var fullscreen;
-    var fullwindow;
+    var fullwindow=true;
     var debug;
 
     // desktop or mobile
@@ -16,7 +16,7 @@
         fullwindow = true;
 
     // assign handlers    
-    thumbs = document.getElementsByClassName('thumb');
+    var thumbs = document.getElementsByClassName('thumb');
     for (var i = 0; i < thumbs.length; i++) {
         ( function () {
             // ( closure ) -- retains state of local variables
@@ -31,8 +31,7 @@
             caption.addEventListener('click', function() {
                 index = j;
                 gallery = img;
-                thisimgcontainer = this.previousElementSibling;
-                thisimgcontainer.style.display="block";
+                this.previousElementSibling.style.display="block";
                 this.style.display="none";
                 if (fullscreen)
                     screenfull.request(thisimgcontainer);
@@ -42,12 +41,8 @@
             controlsnext.addEventListener('click', next); 
             controlsprev.addEventListener('click', prev); 
             controlsclose.addEventListener('click', function() {                
-                index = j;
-                gallery = img;
-                thiscaption = thisimgcontainer.nextElementSibling;
-                thiscaption.style.display="block";
-                thisimgcontainer = this.parentElement.parentElement;
-                thisimgcontainer.style.display="none";
+                this.parentElement.parentElement.style.display="none";
+                this.parentElement.parentElement.nextElementSibling.style.display="block";
                 if (fullscreen)
                     screenfull.exit();
                 debuglog();
@@ -57,6 +52,7 @@
     }
     
     // navigation 
+
     function next() {
         index++;
         if (index >= imgs.length)
@@ -65,6 +61,7 @@
         gallery.className = imgs[index].className;
         debuglog();
     }
+
     function prev() {
         index--;
         if (index < 0)
@@ -73,8 +70,6 @@
         gallery.className = imgs[index].className;
         debuglog();
     }
-
-    // ** fix ** catch escape key, refs not working
 
     document.onkeydown = function(e) {
         if(screenfull.isFullscreen || fullwindow) {
@@ -87,14 +82,10 @@
                     next();
                     break;
                 case 27: // esc
-                    // "this" is ambiguous
-                    // and might be better to have a reset function ()
-                    // as will be used by the "x" close box
-                    thiscaption.style.display="block";
-                    // thiscaption = this.nextElementSibling;
-                    // thisimgcontainer.style.display="none";
-                    // this.style.display="none";
-                    screenfull.exit();
+                    //thiscaption.style.display="block";
+                    // console.log(thumbs);
+                    // thumbs.children[0].style.display="none";
+                    // screenfull.exit();
                     debuglog();
                     break;
                 default: return; // exit this handler for other keys

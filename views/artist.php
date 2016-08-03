@@ -61,5 +61,5 @@ require_once("gallery.php")
 <script>
     var images = <? echo json_encode($media_urls); ?>;
     var dimensions = <? echo json_encode($media_dims); ?>;
-    /* var fullwindow = <? echo $fullwindow; ?>; */
+    // var fullwindow = <? echo $fullwindow; ?>; 
 </script>
