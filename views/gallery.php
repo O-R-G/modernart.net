@@ -6,7 +6,7 @@
     var o_src;
     var gallery;
     var fullscreen;
-    var fullwindow=true;
+    var fullwindow;
     var debug;
 
     // desktop or mobile
