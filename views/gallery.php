@@ -6,7 +6,7 @@
     var o_src;
     var gallery;
     var fullscreen;
-    var fullwindow;
+    var fullwindow=true;
     var debug;
 
     // desktop or mobile
@@ -37,10 +37,12 @@
                 var thisimgcontainer = this.previousElementSibling;
                 thisimgcontainer.style.display="block";
                 this.style.display="none"; 
-                if (fullscreen)
+                if (fullscreen) {
                     screenfull.request(thisimgcontainer);
-                else 
+                } else { 
                     imgcontainer.className = "img-container-fullwindow";
+                    readdeviceorientation();
+                }
             });
             controlsnext.addEventListener('click', next); 
             controlsprev.addEventListener('click', prev); 
@@ -88,18 +90,10 @@
                     next();
                     break;
                 case 27: // esc
-                    // e.preventDefault();
                     var thisimgcontainer = gallery.parentElement;
                     var thiscaption = thisimgcontainer.nextElementSibling;
                     thisimgcontainer.style.display="none";
                     thiscaption.style.display="block";   
-                    /*
-                    // this is taken care of in event handler screenfull.raw.fullscreenchange
-                    if (fullscreen) {
-                        resetthumbnail();
-                        screenfull.exit();
-                    }
-                    */
                     debuglog();
                     break;
                 default: return; // exit this handler for other keys
@@ -115,6 +109,23 @@
             }
         });
     }
+
+    // iOS device orientation
+
+    function readdeviceorientation() {
+        var thisimgcontainer = gallery.parentElement;
+        if (Math.abs(window.orientation) === 90) {
+            thisimgcontainer.style.display="block";
+            document.getElementById("orientation").innerHTML = "LANDSCAPE";
+        } else {
+            thisimgcontainer.style.display="none";
+            document.getElementById("orientation").innerHTML = "PORTRAIT";
+        }
+    }
+
+    window.onorientationchange = readdeviceorientation;
+
+    // utility
 
     function resetthumbnail() {
         imgcontainers = document.getElementsByClassName('img-container');

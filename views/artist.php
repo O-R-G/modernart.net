@@ -26,6 +26,7 @@ $media_dims = array();
                 <div class="controls next white">></div>
                 <div class="controls prev white"><</div>
                 <div class="controls close white">x</div>
+                <!-- <p id="orientation" class="controls centered white">Rotate device to determine orientation</p> -->
             </div>
             <!-- <img src="<? echo $url; ?>" class="fullscreen bottom <? echo $wide_tall; ?>"> -->
             <img src="<? echo $url; ?>" class="centered <? echo $wide_tall; ?>">
