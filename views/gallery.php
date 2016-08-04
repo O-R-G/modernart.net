@@ -6,17 +6,20 @@
     var o_src;
     var gallery;
     var fullscreen;
-    var fullwindow=true;
+    var fullwindow;
     var debug;
 
     // desktop or mobile
+
     if (screenfull.enabled && !fullwindow) 
         fullscreen = true;
     else 
         fullwindow = true;
 
     // assign handlers    
+
     var thumbs = document.getElementsByClassName('thumb');
+
     for (var i = 0; i < thumbs.length; i++) {
         ( function () {
             // ( closure ) -- retains state of local variables
@@ -31,8 +34,9 @@
             caption.addEventListener('click', function() {
                 index = j;
                 gallery = img;
-                this.previousElementSibling.style.display="block";
-                this.style.display="none";
+                var thisimgcontainer = this.previousElementSibling;
+                thisimgcontainer.style.display="block";
+                this.style.display="none"; 
                 if (fullscreen)
                     screenfull.request(thisimgcontainer);
                 else 
@@ -41,8 +45,10 @@
             controlsnext.addEventListener('click', next); 
             controlsprev.addEventListener('click', prev); 
             controlsclose.addEventListener('click', function() {                
-                this.parentElement.parentElement.style.display="none";
-                this.parentElement.parentElement.nextElementSibling.style.display="block";
+                var thisimgcontainer = this.parentElement.parentElement; 
+                var thiscaption = thisimgcontainer.nextElementSibling; 
+                thisimgcontainer.style.display="none";
+                thiscaption.style.display="block";
                 if (fullscreen)
                     screenfull.exit();
                 debuglog();
@@ -82,16 +88,45 @@
                     next();
                     break;
                 case 27: // esc
-                    //thiscaption.style.display="block";
-                    // console.log(thumbs);
-                    // thumbs.children[0].style.display="none";
-                    // screenfull.exit();
+                    // e.preventDefault();
+                    var thisimgcontainer = gallery.parentElement;
+                    var thiscaption = thisimgcontainer.nextElementSibling;
+                    thisimgcontainer.style.display="none";
+                    thiscaption.style.display="block";   
+                    /*
+                    // this is taken care of in event handler screenfull.raw.fullscreenchange
+                    if (fullscreen) {
+                        resetthumbnail();
+                        screenfull.exit();
+                    }
+                    */
                     debuglog();
                     break;
                 default: return; // exit this handler for other keys
             }
             e.preventDefault();
          }
+    }
+
+    if (screenfull.enabled) {
+        document.addEventListener(screenfull.raw.fullscreenchange, function() {
+            if (!screenfull.isFullscreen) {
+                resetthumbnail();
+            }
+        });
+    }
+
+    function resetthumbnail() {
+        imgcontainers = document.getElementsByClassName('img-container');
+        for (var i = imgcontainers.length-1; i >= 0; i--)
+            imgcontainers[i].style.display="none";
+
+        captions = document.getElementsByClassName('caption');
+        for (var i = captions.length-1; i >= 0; i--)
+            captions[i].style.display="block";
+
+        index = -1;
+        gallery = null;
     }
 
     function debuglog() {
@@ -107,34 +142,4 @@
             console.log("+");
         }
     }
-
-
-
-
-
-/*    
-    if (screenfull.enabled) {
-        document.addEventListener(screenfull.raw.fullscreenchange, function() {
-            if (!screenfull.isFullscreen) {
-                resetthumbnail();
-            }
-        });
-    }
-    
-    function resetthumbnail() {                
-        // set the image source back to original
-        gl.src = o_src;
-                    
-        // de-colourise
-        coloured = document.getElementsByClassName('colour');
-        for (var i = coloured.length-1; i >= 0; i--)
-            coloured[i].classList.remove("colour");
-        
-        // no image selected
-        index = -1;
-        gl = null;
-    }
-
-*/
-
 </script>
