@@ -101,9 +101,9 @@ figure {
 }
 
 .caption {
-    padding-top: 5px;
-    font-size: 7pt;
-    line-height: 8.5pt;
+    padding-top: 6pt;
+    font-size: 9pt;
+    line-height: 12pt;
 	text-align: left;
     cursor: pointer;
 }
@@ -198,13 +198,19 @@ figure {
     padding-bottom: 3em;
 }
 
-#exhibition-name,
 #artist-name,
 #main-list,
 #children,
 .children {
     text-align: center;
 }
+
+.exhibition-name {
+    text-align: center;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
 .exhibition-year {
     padding-bottom: 3em;
     text-align: center;

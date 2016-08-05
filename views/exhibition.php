@@ -6,7 +6,7 @@ $media_captions = array();
 $media_dims = array();
 ?>
 <section id="exhibition-detail">
-	<header id="exhibition-name"><? echo nl2br(trim($item['name1'])); ?></header>
+	<header class="exhibition-name"><? echo nl2br(trim($item['name1'])); ?></header>
 	<figure><?
 	$i = 0;
 	foreach($media as $m)

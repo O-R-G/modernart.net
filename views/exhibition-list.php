@@ -12,9 +12,9 @@ $children = $oo->children($uu->id);
 		    foreach($grandchildren as $gc)
 		    {
 		        $u = $url."/".$gc['url'];
-		        $tmp = trim(strip_tags($gc['name1'], '<i><b><br>'));
+		        $tmp = trim(strip_tags($gc['name1'], '<i><b><br></br>'));
 		        $name = nl2br($tmp);
-                ?><div class="exhibition">
+                ?><div class="exhibition exhibition-name">
                     <a href="<? echo $u; ?>"><? echo $name; ?></a>
                 </div><?
 		    }
