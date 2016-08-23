@@ -28,7 +28,6 @@ $media_dims = array();
                 <div class="controls close white">x</div>
                 <!-- <p id="orientation" class="controls centered white">Rotate device to determine orientation</p> -->
             </div>
-            <!-- <img src="<? echo $url; ?>" class="fullscreen bottom <? echo $wide_tall; ?>"> -->
             <img src="<? echo $url; ?>" class="centered <? echo $wide_tall; ?>">
 		</div>
 		<div class="caption">> <? echo $caption; ?></div>
@@ -57,10 +56,10 @@ else
 {
 	echo nl2br($body);
 }
-require_once("gallery.php")
 ?></section>
+<script type="text/javascript" src="/static/js/screenfull.js"></script>
+<script type="text/javascript" src="/static/js/gallery.js"></script>
 <script>
     var images = <? echo json_encode($media_urls); ?>;
     var dimensions = <? echo json_encode($media_dims); ?>;
-    // var fullwindow = <? echo $fullwindow; ?>; 
 </script>
