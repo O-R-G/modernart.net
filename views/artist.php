@@ -4,10 +4,12 @@ $media = $oo->media($uu->id);
 $media_urls = array();
 $media_captions = array();
 $media_dims = array();
+$body = $item['body'];
+$cv = $oo->children($uu->id)[0];
 ?>
 <section id="artist-detail">
-	<header id="artist-name"><? echo nl2br(trim($item['name1'])); ?></header>
-	<figure><?
+	<header id="artist-name" class="center"><? echo nl2br(trim($item['name1'])); ?></header>
+	<figure id="children"><?
 	$i = 0;
 	foreach($media as $m)
 	{
@@ -33,29 +35,19 @@ $media_dims = array();
 		<div class="caption">> <? echo $caption; ?></div>
 	</div><?
 	}
+    if($cv) {
+        $url = implode("/", $uu->urls);
+        $url = "/".$url."/".$cv['url'];
+        ?><div id="cv" class="clear">
+            <a href="<? echo $url; ?>" class="clear"><? echo $cv['name1']; ?></a>
+        </div><?
+    }
 	?></figure><?
-
-$body = $item['body'];
-$cv = $oo->children($uu->id)[0];
-
-if($cv)
-{
-    $url = implode("/", $uu->urls);
-    $url = "/".$url."/".$cv['url'];
-    ?><a href="<? echo $url; ?>"><? echo $cv['name1']; ?></a><?
-/*
-	$cbody = $cv['body'];
-	$cbody = trim($cbody);
-	$cbody = strip_tags($cbody, "<i><b><a>");
-	$cbody = nl2br($cbody);
-	echo "— <br /><br/>"; // can this be done in css?
-	echo $cbody;
-*/
-}
-else
-{
-	echo nl2br($body);
-}
+    if(!$cv) {
+        ?><div id="cv" class="clear"><? 
+        echo nl2br($body);
+        ?></div><?
+    }
 ?></section>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript" src="/static/js/gallery.js"></script>

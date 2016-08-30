@@ -124,13 +124,6 @@ a:active {
     padding-bottom: 3em;
 }
 
-#artist-name,
-#main-list,
-#children,
-.children {
-    text-align: center;
-}
-
 #exhibition-list .exhibition-year header,
 #exhibition-list .exhibition {
     padding-bottom: 1em;
@@ -194,6 +187,11 @@ a:active {
     font-family: menlo, monospace;
     font-size: 14px;
     line-height: 16px;
+}
+
+#cv {
+    display: block;
+    padding-top:20px;
 }
 
 #back {
@@ -367,6 +365,14 @@ a:active {
     /* margin is calculated based on parent width, so
     this auto-squares a div that contains it */
     margin-top: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+.clear {
+    clear: both;
 }
 
 .centered {

@@ -1,6 +1,6 @@
 <?
 $children = $oo->children($uu->id);
-?><div id="main-list" class="centre"><?
+?><div id="children" class="center"><?
 	foreach($children as $c)
 	{
 		$url = $uu->url."/".$c['url'];

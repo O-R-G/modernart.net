@@ -4,7 +4,7 @@ $n = count($children);
 
 ?>
 <div id="children">
-    <div class="children col"><?
+    <div class="children col center"><?
 	for ($i = 0; $i < ($n / 2); $i++)
 	{
 	    $c = $children[$i];
@@ -21,7 +21,7 @@ $n = count($children);
 		}
 	}
 ?></div>
-<div class="children col"><?
+<div class="children col center"><?
 	for ($i; $i < $n; $i++)
 	{
 	    $c = $children[$i];
