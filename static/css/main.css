@@ -2,6 +2,7 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
 }
 
 
@@ -91,6 +92,7 @@ a:active {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 700px;
 }
@@ -138,6 +140,7 @@ a:active {
     z-index: 5;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -385,6 +388,7 @@ a:active {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%,-50%);
 }
 
@@ -432,6 +436,7 @@ a:active {
     padding-bottom: 10%;
     -webkit-transform: translate(0, -50%);
     -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
 }
 
@@ -443,6 +448,7 @@ a:active {
     padding-bottom: 10%;
     -webkit-transform: translate(0, -50%);
     -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
 }
 
@@ -463,6 +469,7 @@ a:active {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -556,6 +563,7 @@ a:active {
         left:initial;
         -webkit-transform: initial;
         -moz-transform: initial;
+        -ms-transform: initial;
         transform: initial;
         width: initial;
     }
