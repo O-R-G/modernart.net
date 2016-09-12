@@ -29,6 +29,7 @@ x iOS swipe (see km logic)
 / artist / exhibition center captions block css
   check mobile compatible
   fix CV positioning
+  fix centering vertically v. scrolling
 + splash page (underline, #children)
 - clean up views! (combine artists and exhibitions, for ex)
 - safari css debug
