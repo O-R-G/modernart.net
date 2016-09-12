@@ -89,7 +89,7 @@ a:active {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
+    /* -webkit-transform: translate(-50%, -50%); */
     transform: translate(-50%, -50%);
     width: 700px;
 }
@@ -135,7 +135,7 @@ a:active {
     top: 50%;
     left: 50%;
     z-index: 5;
-    -webkit-transform: translate(-50%, -50%);
+    /* -webkit-transform: translate(-50%, -50%); */
     transform: translate(-50%, -50%);
 }
 
@@ -381,7 +381,7 @@ a:active {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
+    /* -webkit-transform: translate(-50%, -50%); */
     transform: translate(-50%,-50%);
 }
 
@@ -427,7 +427,7 @@ a:active {
     text-align: right;
     padding-top: 10%;
     padding-bottom: 10%;
-    -webkit-transform: translate(0, -50%);
+    /* -webkit-transform: translate(0, -50%); */
     transform: translate(0, -50%);
 }
 
@@ -437,7 +437,7 @@ a:active {
     text-align: left;
     padding-top: 10%;
     padding-bottom: 10%;
-    -webkit-transform: translate(0, -50%);
+    /* -webkit-transform: translate(0, -50%); */
     transform: translate(0, -50%);
 }
 
@@ -456,7 +456,7 @@ a:active {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
+    /* -webkit-transform: translate(-50%, -50%); */
     transform: translate(-50%, -50%);
 }
 
@@ -548,7 +548,7 @@ a:active {
         position: relative;
         top: initial;
         left:initial;
-        -webkit-transform: initial;
+        /* -webkit-transform: initial; */
         transform: initial;
         width: initial;
     }
