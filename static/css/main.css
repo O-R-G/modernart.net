@@ -95,16 +95,7 @@ a:active {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 700px;
-}
-
-#news-list {
-    /*
-    font-size: 14pt;
-    line-height: 19pt;
-    */
-}
-
-#main-list {
+    max-height: 90%;
 }
 
 #artist-detail,

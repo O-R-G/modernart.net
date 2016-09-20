@@ -25,12 +25,13 @@ x iOS swipe (see km logic)
 + exhibitions menu nav
 + exhibitions layout (same as artists.php?)
 + exhibitions back nav (rm extra step)
-/ iOS rotate screen device orientation
-/ artist / exhibition center captions block css
-  check mobile compatible
-  fix CV positioning
-  fix centering vertically v. scrolling
++ artist / exhibition center captions block css
 + splash page (underline, #children)
-- clean up views! (combine artists and exhibitions, for ex)
-- safari css debug
-- oz cross-browser debug
++ clean up views
++ safari css debug (v6.1.6+)
++ ie css debug (v9+)
++ firefox css debug (v48.0+)
++ oz cross-browser debug
+- google analytics
+- mobile css debug
+/ iOS rotate screen device orientation
