@@ -32,6 +32,10 @@ x iOS swipe (see km logic)
 + ie css debug (v9+)
 + firefox css debug (v48.0+)
 + oz cross-browser debug
-- google analytics
-- mobile css debug
+/ mobile css debug
+  exhibitions list
+/ debug fullwindow fixed appears relative to parent div (see gallery.js)
+  currently not working for "esc" but working for "x"
+- mobile no zoom img css
 / iOS rotate screen device orientation
+- google analytics

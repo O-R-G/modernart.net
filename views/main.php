@@ -8,8 +8,8 @@ $body = $item['body'];
 $cv = $oo->children($uu->id)[0];
 ?>
 <section id="artist-detail">
-	<header id="artist-name" class="center"><? echo nl2br(trim($item['name1'])); ?></header>
-	<figure id="children"><?
+	<header id="artist-name" class="centeralign"><? echo nl2br(trim($item['name1'])); ?></header>
+	<figure id="children" class="centered"><?
 	$i = 0;
 	foreach($media as $m)
 	{
@@ -33,7 +33,9 @@ $cv = $oo->children($uu->id)[0];
             <img src="<? echo $url; ?>" class="centered <? echo $wide_tall; ?>">
 		</div>
 		<div class="caption">> <? echo $caption; ?></div>
-	</div><?
+	</div>
+
+<?
 	}
     if($cv) {
         $url = implode("/", $uu->urls);
@@ -42,7 +44,8 @@ $cv = $oo->children($uu->id)[0];
             <a href="<? echo $url; ?>" class="clear"><? echo $cv['name1']; ?></a>
         </div><?
     }
-	?></figure><?
+	?></figure>
+    <?
     if(!$cv) {
         ?><div id="cv" class="clear"><? 
         echo nl2br($body);

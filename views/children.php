@@ -3,8 +3,8 @@ $children = $oo->children($uu->id);
 $n = count($children);
 
 ?>
-<div id="children">
-    <div class="children col center"><?
+<div id="children" class="centered centeralign">
+    <div class="col"><?
 	for ($i = 0; $i < ($n / 2); $i++)
 	{
 	    $c = $children[$i];
@@ -21,7 +21,7 @@ $n = count($children);
 		}
 	}
 ?></div>
-<div class="children col center"><?
+<div class="col"><?
 	for ($i; $i < $n; $i++)
 	{
 	    $c = $children[$i];

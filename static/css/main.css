@@ -88,30 +88,14 @@ a:active {
 
 #children {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     width: 700px;
     max-height: 90%;
 }
 
-#artist-detail,
-#exhibition-detail {
-    /*
-    font-size: 14px;
-    line-height: 18px;
-    */
-}
-
 #artist-detail header,
 #exhibition-detail header {
-    /*
-    font-size: 14pt;
-    line-height: 22pt;
-    */
+    font-size: initial;
+    line-height: initial;
 }
 
 #exhibition-detail,
@@ -125,14 +109,7 @@ a:active {
 }
 
 #splash-logo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 5;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 #splash-logo a {
@@ -365,7 +342,7 @@ a:active {
     margin-top: 100%;
 }
 
-.center {
+.centeralign {
     text-align: center;
 }
 
@@ -379,8 +356,8 @@ a:active {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%, -50%);    
+    transform: translate(-50%, -50%);
 }
 
 .bottom {
@@ -454,6 +431,7 @@ a:active {
     border:1px solid red;
 }
 
+/*
 .centre {
     position: absolute;
     top: 50%;
@@ -463,6 +441,7 @@ a:active {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+*/
 
 .half-size {
     width: 50vw;
@@ -534,6 +513,7 @@ a:active {
         margin: 0px;
         padding: 30px 0;
     }
+
     .thumb {
         width: 49%;
     }
@@ -551,13 +531,15 @@ a:active {
     #children {
         position: relative;
         top: initial;
-        left:initial;
+        left: initial;
         -webkit-transform: initial;
         -moz-transform: initial;
         -ms-transform: initial;
         transform: initial;
         width: initial;
+        padding: 1em 0 0 0;
     }
+
     .col {
         display: block;
         vertical-align: top;

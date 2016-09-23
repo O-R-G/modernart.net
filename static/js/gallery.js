@@ -1,14 +1,15 @@
 // requires screenfull.js
-//
-// css
+// requires html/css as:
 //  .thumb
-//      .img-container
+//    .img-container
 //      .square
-//          .controls
+//        .controls
 //      .img centered [wide][tall]
-//      .caption
+//    .caption
 
 var thumbs = [];
+var imgcontainers  = [];
+var captions = [];
 var imgs = [];
 var index;
 var o_src;
@@ -27,12 +28,14 @@ else
 // assign handlers    
 
 var thumbs = document.getElementsByClassName('thumb');
+var imgcontainers = document.getElementsByClassName('img-container');
+var captions = document.getElementsByClassName('caption');
 
 for (var i = 0; i < thumbs.length; i++) {
     ( function () {
         // ( closure ) -- retains state of local variables
-        var imgcontainer = thumbs[i].children[0];
-        var caption = thumbs[i].children[1];
+        var imgcontainer = imgcontainers[i];
+        var caption = captions[i];
         var img = imgcontainer.children[1];          
         var controlsnext = imgcontainer.children[0].children[0];
         var controlsprev = imgcontainer.children[0].children[1];
@@ -44,7 +47,15 @@ for (var i = 0; i < thumbs.length; i++) {
             gallery = img;
             var thisimgcontainer = this.previousElementSibling;
             thisimgcontainer.style.display="block";
-            this.style.display="none"; 
+            this.style.display="none";
+            
+            // currently in dev, working out fullwindow bug w/transform
+            // right now only getting rid of the offending "transform" css style
+            // which is in the parent div, but there is likely a better way to solve this
+            // http://stackoverflow.com/questions/21091958/css-fixed-child-element-positions-relative-to-parent-element-not-to-the-viewpo
+            // this also remains an issue in "esc" but not in "x" for resetting classname
+            this.parentElement.parentElement.className="";
+
             if (fullscreen) {
                 screenfull.request(thisimgcontainer);
             } else { 
@@ -56,9 +67,10 @@ for (var i = 0; i < thumbs.length; i++) {
         controlsprev.addEventListener('click', prev); 
         controlsclose.addEventListener('click', function() {                
             var thisimgcontainer = this.parentElement.parentElement; 
-            var thiscaption = thisimgcontainer.nextElementSibling; 
+            var thiscaption = thisimgcontainer.nextElementSibling;
             thisimgcontainer.style.display="none";
             thiscaption.style.display="block";
+            this.parentElement.parentElement.parentElement.parentElement.className="centered";
             if (fullscreen)
                 screenfull.exit();
             debuglog();
@@ -101,6 +113,8 @@ document.onkeydown = function(e) {
                 var thisimgcontainer = gallery.parentElement;
                 var thiscaption = thisimgcontainer.nextElementSibling;
                 thisimgcontainer.style.display="none";
+                // **fix** reset <figure> element to be centered
+                // thisimgcontainer.parentElement.parentElement.className="centered";
                 thiscaption.style.display="block";   
                 debuglog();
                 break;
@@ -124,10 +138,14 @@ function readdeviceorientation() {
     var thisimgcontainer = gallery.parentElement;
     if (Math.abs(window.orientation) === 90) {
         thisimgcontainer.style.display="block";
-        document.getElementById("orientation").innerHTML = "LANDSCAPE";
+        // document.getElementById("orientation").innerHTML = "LANDSCAPE";
     } else {
-        thisimgcontainer.style.display="none";
-        document.getElementById("orientation").innerHTML = "PORTRAIT";
+        // for the moment, show regular full window
+        // would like to instead prompt to rotate phone
+        // but perhaps for now this is best
+        // thisimgcontainer.style.display="none";
+        thisimgcontainer.style.display="block";
+        // document.getElementById("orientation").innerHTML = "PORTRAIT";
     }
 }
 
@@ -136,14 +154,10 @@ window.onorientationchange = readdeviceorientation;
 // utility
 
 function resetthumbnail() {
-    imgcontainers = document.getElementsByClassName('img-container');
     for (var i = imgcontainers.length-1; i >= 0; i--)
         imgcontainers[i].style.display="none";
-
-    captions = document.getElementsByClassName('caption');
     for (var i = captions.length-1; i >= 0; i--)
         captions[i].style.display="block";
-
     index = -1;
     gallery = null;
 }
