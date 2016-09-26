@@ -15,7 +15,7 @@ var index;
 var o_src;
 var gallery;
 var fullscreen;
-var fullwindow;
+var fullwindow = true;
 var debug;
 
 // desktop or mobile
@@ -48,14 +48,7 @@ for (var i = 0; i < thumbs.length; i++) {
             var thisimgcontainer = this.previousElementSibling;
             thisimgcontainer.style.display="block";
             this.style.display="none";
-            
-            // currently in dev, working out fullwindow bug w/transform
-            // right now only getting rid of the offending "transform" css style
-            // which is in the parent div, but there is likely a better way to solve this
-            // http://stackoverflow.com/questions/21091958/css-fixed-child-element-positions-relative-to-parent-element-not-to-the-viewpo
-            // this also remains an issue in "esc" but not in "x" for resetting classname
-            this.parentElement.parentElement.className="";
-
+            this.parentElement.parentElement.className="";  // rm parent "transform"
             if (fullscreen) {
                 screenfull.request(thisimgcontainer);
             } else { 
@@ -113,8 +106,7 @@ document.onkeydown = function(e) {
                 var thisimgcontainer = gallery.parentElement;
                 var thiscaption = thisimgcontainer.nextElementSibling;
                 thisimgcontainer.style.display="none";
-                // **fix** reset <figure> element to be centered
-                // thisimgcontainer.parentElement.parentElement.className="centered";
+                thisimgcontainer.parentElement.parentElement.className="centered";
                 thiscaption.style.display="block";   
                 debuglog();
                 break;

@@ -1,4 +1,4 @@
-* user: ec1v3qj pass: e2e2w1w1ec1
+m* user: ec1v3qj pass: e2e2w1w1ec1
 * user: main pass: main
 
 + type (14/16 pt)
@@ -32,10 +32,8 @@ x iOS swipe (see km logic)
 + ie css debug (v9+)
 + firefox css debug (v48.0+)
 + oz cross-browser debug
-/ mobile css debug
-  exhibitions list
-/ debug fullwindow fixed appears relative to parent div (see gallery.js)
-  currently not working for "esc" but working for "x"
-- mobile no zoom img css
-/ iOS rotate screen device orientation
++ debug fullwindow fixed appears relative to parent div (gallery.js)
+x iOS rotate screen device orientation
+/ mobile css debug edge cases, ipad etc.
 - google analytics
+- mobile no zoom img css
