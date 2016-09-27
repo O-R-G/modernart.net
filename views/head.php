@@ -62,7 +62,7 @@ if ($caps == null)
 	<head>
 		<title><? echo $title; ?></title>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<link rel='stylesheet' type='text/css' media='all' href='/static/css/main.css'>
 		<link rel="stylesheet" href="/static/css/hnr-medium.css">
         <!-- 

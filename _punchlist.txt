@@ -33,7 +33,7 @@ x iOS swipe (see km logic)
 + firefox css debug (v48.0+)
 + oz cross-browser debug
 + debug fullwindow fixed appears relative to parent div (gallery.js)
++ mobile no zoom img css
 x iOS rotate screen device orientation
 / mobile css debug edge cases, ipad etc.
 - google analytics
-- mobile no zoom img css
