@@ -36,4 +36,41 @@ x iOS swipe (see km logic)
 + mobile no zoom img css
 x iOS rotate screen device orientation
 / mobile css debug edge cases, ipad etc.
+* assume Chrome Version 56.0.2924.87 (64-bit), Safari: Version 10.0.1, 
+Firefox: 51.0.1
++ Linder all the landscape shots seem to be scaled off the page in 
+chrome, safari and firefox
++ Barry McGee images 3 and 4 in chrome, safari and firefox
++ Mark Flood image 9 (another drawing) in chrome, images 2, 3 and 9 in 
+chrome, safari and firefox
++ Shearer images 5 and 6 all browsers
++ Phillip Lai image 16 (Untitled - lightbulbs) same in chrome, safari 
+and firefox
++ David Noonan all the landscape images all browsers
++ Eva Rothschild image 4 (This and this and this) all browsers
++ Tim Gardner all the landscape images same in all browsers
++ Katy Moran image 1 and 10 same in all browsers
++ Yngve Holen image 1 (Vertical Seat) all browsers
++ Anna-Bella Papp nearly all images need reviewing except install 
+views, same in all browsers
++ Torey Thornton image 1, 5, 7, 8, 10 all browsers
++ Julien Nguyen image 1, 7, 8, 10, 11 all browswers
+
+/ Humphries images are quite slow to load and all of them are scaling 
+strangely all browsers
+/ Tim Stoner all the landscape images all browsers
+/ Julien Nguyen image 7 firefox only
+
+- In general in all browsers: When opening an image on an artist’s page 
+for the first time, it often takes a very long time to load, and when you 
+click ‘next’, it jumps to a close up or detail of a part of the previous 
+image. In safari: often the images get ‘stuck’ on a single shot, and you 
+can’t scroll forward, usually only during the first time the images of a 
+particular artist are opened
+- first image popped up does not match the caption, so for ex: 
+Yngve Holen VERTICALSEAT, 2016 aluminium 261 x 268 x 90 cm 102 3/4 x 105 1/2 x 35 3/8 ins (MA-HOLEY-00109)
+http://modernart.local/main/artists/yngve-holen
+
+- safari exit fullscreen shifts position of captions
+- browserstack.org testing
 - google analytics
