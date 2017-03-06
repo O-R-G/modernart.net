@@ -16,8 +16,8 @@ var index;
 var o_src;
 var gallery;
 var fullscreen;
-var fullwindow;
-var debug;
+var fullwindow = true;
+var debug = true;
 
 // window dimensions
 
@@ -54,7 +54,7 @@ for (var i = 0; i < thumbs.length; i++) {
         var controlsclose = imgcontainer.children[0].children[2];
         var j = i;
 
-	if (proportions[i] > viewproportion) 
+	if (proportions[i] > viewproportion + .1) 
 		img.className = "centered wide";
 	else
 		img.className = "centered tall";

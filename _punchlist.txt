@@ -55,22 +55,23 @@ and firefox
 views, same in all browsers
 + Torey Thornton image 1, 5, 7, 8, 10 all browsers
 + Julien Nguyen image 1, 7, 8, 10, 11 all browswers
-
-/ Humphries images are quite slow to load and all of them are scaling 
++ Tim Stoner all the landscape images all browsers
++ Humphries images are quite slow to load and all of them are scaling 
 strangely all browsers
-/ Tim Stoner all the landscape images all browsers
-/ Julien Nguyen image 7 firefox only
-
-- In general in all browsers: When opening an image on an artist’s page 
+/ humphries file sizes are almost twice as large as other artists
+/ In general in all browsers: When opening an image on an artist’s page 
 for the first time, it often takes a very long time to load, and when you 
 click ‘next’, it jumps to a close up or detail of a part of the previous 
 image. In safari: often the images get ‘stuck’ on a single shot, and you 
 can’t scroll forward, usually only during the first time the images of a 
 particular artist are opened
-- first image popped up does not match the caption, so for ex: 
-Yngve Holen VERTICALSEAT, 2016 aluminium 261 x 268 x 90 cm 102 3/4 x 105 1/2 x 35 3/8 ins (MA-HOLEY-00109)
+
+- ** debug ** first image popped up does not match the caption, so 
+for ex: Yngve Holen VERTICALSEAT, 2016 aluminium 261 x 268 x 90 cm 
+102 3/4 x 105 1/2 x 35 3/8 ins (MA-HOLEY-00109) 
 http://modernart.local/main/artists/yngve-holen
 
-- safari exit fullscreen shifts position of captions
+- ** debug ** safari exit fullscreen shifts position of captions
+
 - browserstack.org testing
 - google analytics
