@@ -1,9 +1,8 @@
 <?
 // collect media and captions
 $media = $oo->media($uu->id);
-$media_urls = array();
 $media_captions = array();
-$media_dims = array();
+$media_props = array();
 $body = $item['body'];
 $cv = $oo->children($uu->id)[0];
 ?>
@@ -17,10 +16,9 @@ $cv = $oo->children($uu->id)[0];
 		$caption = $m['caption'];
 		$media_urls[] = $url;
 		$media_captions[] = $caption;
-        $relative_url = "media/" . m_pad($m['id']).".".$m['type'];
-        $size = getimagesize($relative_url);
-        $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
-        $media_dims[] = $wide_tall;
+	        $relative_url = "media/" . m_pad($m['id']).".".$m['type'];
+	        $size = getimagesize($relative_url);
+	        $media_props[] = $size[0] / $size[1];
 	?>
 	<div class="thumb">
 		<div class="img-container">
@@ -30,7 +28,7 @@ $cv = $oo->children($uu->id)[0];
                 <div class="controls close white">x</div>
                 <!-- <p id="orientation" class="controls centered white">Rotate device to determine orientation</p> -->
             </div>
-            <img src="<? echo $url; ?>" class="centered <? echo $wide_tall; ?>">
+            <img src="<? echo $url; ?>">
 		</div>
 		<div class="caption">> <? echo $caption; ?></div>
 	</div>
@@ -52,9 +50,9 @@ $cv = $oo->children($uu->id)[0];
         ?></div><?
     }
 ?></section>
+<script>
+    // pass to gallery.js for setting wide or tall css class
+    var proportions = <? echo json_encode($media_props); ?>;
+</script>
 <script type="text/javascript" src="/static/js/screenfull.js"></script>
 <script type="text/javascript" src="/static/js/gallery.js"></script>
-<script>
-    var images = <? echo json_encode($media_urls); ?>;
-    var dimensions = <? echo json_encode($media_dims); ?>;
-</script>

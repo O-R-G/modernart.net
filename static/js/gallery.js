@@ -11,12 +11,24 @@ var thumbs = [];
 var imgcontainers  = [];
 var captions = [];
 var imgs = [];
+var widetall = [];
 var index;
 var o_src;
 var gallery;
 var fullscreen;
 var fullwindow;
 var debug;
+
+// window dimensions
+
+var vieww = window.innerWidth 
+	|| document.documentElement.clientWidth 
+	|| document.body.clientWidth;
+var viewh = window.innerHeight 
+	|| document.documentElement.clientHeight
+	|| document.body.clientHeight;
+var viewproportion = vieww / viewh;
+// var proportions[] passed from views/main.php
 
 // desktop or mobile
 
@@ -42,6 +54,11 @@ for (var i = 0; i < thumbs.length; i++) {
         var controlsclose = imgcontainer.children[0].children[2];
         var j = i;
 
+	if (proportions[i] > viewproportion) 
+		img.className = "centered wide";
+	else
+		img.className = "centered tall";
+	
         caption.addEventListener('click', function() {
             index = j;
             gallery = img;
@@ -157,6 +174,10 @@ function resetthumbnail() {
 function debuglog() {
     if (debug) {
         console.log("index = " + index + " / " + imgs.length);
+        console.log("viewproportion = " + viewproportion);   
+        console.log("proportions[index] = " + proportions[index]);
+	/*
+        console.log("index = " + index + " / " + imgs.length);
         console.log("thisimgcontainer.innerHTML = " + thisimgcontainer.innerHTML);   
         console.log("gallery = " + gallery);   
         console.log("gallery.src = " + gallery.src);   
@@ -164,6 +185,7 @@ function debuglog() {
         console.log("imgs[index] = " + imgs[index]);   
         console.log("imgs[index].src = " + imgs[index].src);   
         console.log("imgs[index].className = " + imgs[index].className);   
+	*/
         console.log("+");
     }
 }
