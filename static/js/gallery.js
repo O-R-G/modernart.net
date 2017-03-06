@@ -16,8 +16,8 @@ var index;
 var o_src;
 var gallery;
 var fullscreen;
-var fullwindow = true;
-var debug = true;
+var fullwindow;
+var debug;
 
 // window dimensions
 
