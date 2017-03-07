@@ -26,15 +26,14 @@ $cv = $oo->children($uu->id)[0];
                 <div class="controls next white">></div>
                 <div class="controls prev white"><</div>
                 <div class="controls close white">x</div>
-                <!-- <p id="orientation" class="controls centered white">Rotate device to determine orientation</p> -->
             </div>
             <img src="<? echo $url; ?>">
 		</div>
 		<div class="caption">> <? echo $caption; ?></div>
-	</div>
+	</div><?
 
-<?
 	}
+
     if($cv) {
         $url = implode("/", $uu->urls);
         $url = "/".$url."/".$cv['url'];

@@ -12,12 +12,13 @@ var imgcontainers  = [];
 var captions = [];
 var imgs = [];
 var widetall = [];
-var index;
 var o_src;
 var gallery;
+var galleryinitindex;
+var galleryinitsrc;
 var fullscreen;
-var fullwindow;
-var debug;
+var fullwindow = true;
+var debug = true;
 
 // window dimensions
 
@@ -29,6 +30,35 @@ var viewh = window.innerHeight
 	|| document.body.clientHeight;
 var viewproportion = vieww / viewh;
 // var proportions[] passed from views/main.php
+
+// index w/closure
+
+// (function()) indicates self-invoking function set counter = 0
+// privateindex is wrapped in a closure, init once, adjust many
+// index methods: set, adjust, value
+// see http://stackoverflow.com/questions/19317466/closures-javascript-help-to-understand-example
+
+var index = ( function() {
+    var privateinit = 0;
+    var privateindex = 0;
+    function changeBy(privatevalue) {
+        privateindex += privatevalue;
+    }
+    function setTo(privatevalue) {
+        privateindex = privatevalue;
+    }
+    return {
+        set: function(privatevalue) {
+            setTo(privatevalue);
+        },
+        adjust: function(privatevalue) {
+            changeBy(privatevalue);
+        },
+        value: function() {
+            return privateindex;
+        }
+    };
+})();
 
 // desktop or mobile
 
@@ -54,14 +84,14 @@ for (var i = 0; i < thumbs.length; i++) {
         var controlsclose = imgcontainer.children[0].children[2];
         var j = i;
 
-	if (proportions[i] > viewproportion + .1) 
-		img.className = "centered wide";
-	else
-		img.className = "centered tall";
-	
+	    if (proportions[i] > viewproportion + .1) 
+		    img.className = "centered wide";
+    	else
+	    	img.className = "centered tall";
+
         caption.addEventListener('click', function() {
-            index = j;
-            gallery = img;
+            index.set(j);
+            launch();
             var thisimgcontainer = this.previousElementSibling;
             thisimgcontainer.style.display="block";
             this.style.display="none";
@@ -79,8 +109,8 @@ for (var i = 0; i < thumbs.length; i++) {
             var thisimgcontainer = this.parentElement.parentElement; 
             var thiscaption = thisimgcontainer.nextElementSibling;
             thisimgcontainer.style.display="none";
-            thiscaption.style.display="block";
             this.parentElement.parentElement.parentElement.parentElement.className="centered";
+            thiscaption.style.display="block";
             if (fullscreen)
                 screenfull.exit();
             debuglog();
@@ -91,21 +121,34 @@ for (var i = 0; i < thumbs.length; i++) {
 
 // navigation 
 
+function launch() {
+    galleryinitindex = index.value();
+    galleryinitsrc = imgs[index.value()].src;
+    gallery = imgs[index.value()];
+    debuglog();
+}
+
 function next() {
-    index++;
-    if (index >= imgs.length)
-        index = 0;
-    gallery.src = imgs[index].src;
-    gallery.className = imgs[index].className;
+    index.adjust(1);
+    if (index.value() > imgs.length - 1)
+        index.set(0);
+    if (index.value() === galleryinitindex)
+        gallery.src = galleryinitsrc;
+    else 
+        gallery.src = imgs[index.value()].src;
+    gallery.className = imgs[index.value()].className;
     debuglog();
 }
 
 function prev() {
-    index--;
-    if (index < 0)
-        index = imgs.length - 1;
-    gallery.src = imgs[index].src;
-    gallery.className = imgs[index].className;
+    index.adjust(-1);
+    if (index.value() < 0)
+        index.set(imgs.length - 1);
+    if (index.value() === galleryinitindex)
+        gallery.src = galleryinitsrc;
+    else 
+        gallery.src = imgs[index.value()].src;
+    gallery.className = imgs[index.value()].className;
     debuglog();
 }
 
@@ -124,7 +167,9 @@ document.onkeydown = function(e) {
                 var thiscaption = thisimgcontainer.nextElementSibling;
                 thisimgcontainer.style.display="none";
                 thisimgcontainer.parentElement.parentElement.className="centered";
-                thiscaption.style.display="block";   
+                thiscaption.style.display="block";
+                if (fullscreen)
+                    screenfull.exit();
                 debuglog();
                 break;
             default: return; // exit this handler for other keys
@@ -167,25 +212,17 @@ function resetthumbnail() {
         imgcontainers[i].style.display="none";
     for (var i = captions.length-1; i >= 0; i--)
         captions[i].style.display="block";
-    index = -1;
     gallery = null;
 }
 
 function debuglog() {
     if (debug) {
-        console.log("index = " + index + " / " + imgs.length);
-        console.log("viewproportion = " + viewproportion);   
-        console.log("proportions[index] = " + proportions[index]);
-	/*
-        console.log("index = " + index + " / " + imgs.length);
-        console.log("thisimgcontainer.innerHTML = " + thisimgcontainer.innerHTML);   
-        console.log("gallery = " + gallery);   
-        console.log("gallery.src = " + gallery.src);   
-        console.log("gallery.className = " + gallery.className);   
-        console.log("imgs[index] = " + imgs[index]);   
-        console.log("imgs[index].src = " + imgs[index].src);   
-        console.log("imgs[index].className = " + imgs[index].className);   
-	*/
+        console.log("index = " + index.value() + " / " + (imgs.length - 1));
+        for (var i = 0; i < imgs.length; i++) {
+            console.log("imgs[" + i + "].src = " + imgs[i].src);
+        }
+        console.log("proportions[index.value()] = " + proportions[index.value()]);
+        console.log("gallery.src = " + gallery.src);
         console.log("+");
     }
 }

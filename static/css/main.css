@@ -280,7 +280,7 @@ a:active {
 
 .img-container {
     position: relative;  
-    display: none; 
+    display: none;
 }
 
 .img-container:-moz-full-screen {
