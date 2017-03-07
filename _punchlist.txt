@@ -65,13 +65,10 @@ click ‘next’, it jumps to a close up or detail of a part of the previous
 image. In safari: often the images get ‘stuck’ on a single shot, and you 
 can’t scroll forward, usually only during the first time the images of a 
 particular artist are opened
-
-- ** debug ** first image popped up does not match the caption, so 
++ ** debug ** first image popped up does not match the caption, so 
 for ex: Yngve Holen VERTICALSEAT, 2016 aluminium 261 x 268 x 90 cm 
 102 3/4 x 105 1/2 x 35 3/8 ins (MA-HOLEY-00109) 
 http://modernart.local/main/artists/yngve-holen
-
 - ** debug ** safari exit fullscreen shifts position of captions
-
 - browserstack.org testing
 - google analytics
