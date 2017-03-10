@@ -65,21 +65,19 @@ click ‘next’, it jumps to a close up or detail of a part of the previous
 image. In safari: often the images get ‘stuck’ on a single shot, and you 
 can’t scroll forward, usually only during the first time the images of a 
 particular artist are opened
-+ ** debug ** first image popped up does not match the caption, so 
-for ex: Yngve Holen VERTICALSEAT, 2016 aluminium 261 x 268 x 90 cm 
-102 3/4 x 105 1/2 x 35 3/8 ins (MA-HOLEY-00109) 
-http://modernart.local/main/artists/yngve-holen
-
++ first image popped up does not match the caption
 + open-records-generator submodule sort out -- see ON-RUN-GO/git/submodule.txt
 + utf-8 encoding in open-records-generator
 + artist: cv centered
 + exhibition: press release
 + artists captions position (css .thumb)
 + fix #children.narrow logic when exit fullscreen
-+ ignore link (using ":" character to make a dead link
++ ignore link (using ":" character to make a dead link)
+  works for artists, make it work for exhibitions
 - url encoding still little fussy with ":" in front or when editing
+  see github here for details 
+  https://github.com/reinfurt/open-records-generator/commit/f31433a5f5843cd430c5f32fd30611c2a3e3a61eo
 - ** debug ** safari exit fullscreen shifts position of captions
-
 - browserstack.org
 - google analytics
 

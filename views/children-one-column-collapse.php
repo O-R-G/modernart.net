@@ -11,9 +11,14 @@ $children = $oo->children($uu->id);
 		    <header><? echo $name; ?></header><?
 		    foreach($grandchildren as $gc)
 		    {
-		        $u = $url."/".$gc['url'];
 		        $tmp = trim(strip_tags($gc['name1'], '<i><b><br></br>'));
 		        $name = nl2br($tmp);
+                if (substr($name, 0, 1) == ":") $url = null;
+                $name = ltrim($name, ":");
+                if ($url) 
+    		        $u = $url."/".$gc['url'];
+                else 
+                    $u = null;
                 ?><div class="exhibition exhibition-name">
                     <a href="<? echo $u; ?>"><? echo $name; ?></a>
                 </div><?
