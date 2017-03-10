@@ -1,4 +1,4 @@
-m* user: ec1v3qj pass: e2e2w1w1ec1
+* user: ec1v3qj pass: e2e2w1w1ec1
 * user: main pass: main
 
 + type (14/16 pt)
@@ -69,6 +69,40 @@ particular artist are opened
 for ex: Yngve Holen VERTICALSEAT, 2016 aluminium 261 x 268 x 90 cm 
 102 3/4 x 105 1/2 x 35 3/8 ins (MA-HOLEY-00109) 
 http://modernart.local/main/artists/yngve-holen
+
++ open-records-generator submodule sort out -- see ON-RUN-GO/git/submodule.txt
++ utf-8 encoding in open-records-generator
++ artist: cv centered
++ exhibition: press release
++ artists captions position (css .thumb)
++ fix #children.narrow logic when exit fullscreen
+
+- ignore link
+
+  maybe best way to do this is to add a character to the name or else something in notes to search for?
+
+>> This one is more a bug/style/content combo:
+>> In many cases, we want to list an exhibition, but we may not wish to have
+any images etc on the site - particularly with the earlier shows. As every
+‘show’ listed is a link, it underlines when moused-over, and clicks-through
+to a new page. On the old site, we worked around this by pasting the main
+exhibition page url into the link for that entry, so the entry is a link but
+it just links back to itself - having the effect of making it not a link at
+all.
+>> 
+>> We can’t do the same work-around on the new site, as the org seems to
+generate the url in a different way, so it either goes to a weird place, or
+it looks like a mistake if we there’s a link to an empty page.
+>> 
+>> So, what we wanted to ask is if there was a way we could make an entry in
+that list not a link to another page. A check-box maybe in the ORG that just
+allows us to have an entry appear in the list, but to be selected to be not
+a link? eg: the show in 1998.
+
 - ** debug ** safari exit fullscreen shifts position of captions
-- browserstack.org testing
+
+
+- browserstack.org
 - google analytics
+
+

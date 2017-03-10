@@ -37,7 +37,7 @@ $cv = $oo->children($uu->id)[0];
     if($cv) {
         $url = implode("/", $uu->urls);
         $url = "/".$url."/".$cv['url'];
-        ?><div id="cv" class="clear">
+        ?><div id="cv" class="clear centeralign">
             <a href="<? echo $url; ?>" class="clear"><? echo $cv['name1']; ?></a>
         </div><?
     }

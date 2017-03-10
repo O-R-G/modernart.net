@@ -21,3 +21,4 @@ if ($back_urls[$count-2] == "exhibitions") {
 ?><div id="back">
     <a href="<? echo $url; ?>"><? echo nl2br($menu); ?></a>
 </div>
+
