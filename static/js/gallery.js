@@ -163,6 +163,7 @@ document.onkeydown = function(e) {
                 next();
                 break;
             case 27: // esc
+                // never fires bc screenfull.js catches esc event
                 var thisimgcontainer = gallery.parentElement;
                 var thiscaption = thisimgcontainer.nextElementSibling;
                 thisimgcontainer.style.display="none";
@@ -212,6 +213,7 @@ function resetthumbnail() {
         imgcontainers[i].style.display="none";
     for (var i = captions.length-1; i >= 0; i--)
         captions[i].style.display="block";
+    gallery.parentElement.parentElement.parentElement.className="centered";
     gallery = null;
 }
 

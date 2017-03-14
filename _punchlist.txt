@@ -74,11 +74,9 @@ particular artist are opened
 + fix #children.narrow logic when exit fullscreen
 + ignore link (using ":" character to make a dead link)
   works for artists, make it work for exhibitions
++ google analytics
++ ** debug ** safari exit fullscreen shifts position of captions
 - url encoding still little fussy with ":" in front or when editing
   see github here for details 
   https://github.com/reinfurt/open-records-generator/commit/f31433a5f5843cd430c5f32fd30611c2a3e3a61eo
-- ** debug ** safari exit fullscreen shifts position of captions
 - browserstack.org
-- google analytics
-
-
