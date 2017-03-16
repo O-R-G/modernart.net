@@ -68,7 +68,44 @@
 	<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" /> 
 	<meta http-equiv="Title" content="<?php echo $documentTitle; ?>" />
 	<meta name="keywords" content="Modern Art, Contemporary Art, Gallery, Stuart Shave, Artist, Exhibition, David Altmejd, Karla Black, Tom Burr, Mark Flood Tim Gardner, Lothar Hempel, Yngve Holen, Jacqueline Humphries, Ansel Krut, Phillip Lai, Paul Lee, Barry McGee, Jonathan Meese, Matthew Monahan, Katy Moran, David Noonan, Anna-Bella Papp, Eva Rothschild, Bojan Sarcevic, Lara Schnitger, Collier Schorr, Steven Shearer, Linder Sterling, Ricky Swallow, Tom of Finland, Richard Tuttle, London" />
-	<meta name="description" content="Stuart Shave/Modern Art, London. Art Gallery Representing David Altmejd, Karla Black, Tom Burr, Mark Flood, Tim Gardner, Lothar Hempel, Yngve Holen, Jacqueline Humphries, Ansel Krut, Phillip Lai, Paul Lee, Linder, Barry McGee, Jonathan Meese, Matthew Monahan, Katy Moran, David Noonan, Anna-Bella Papp, Eva Rothschild, Bojan Šarčević, Lara Schnitger, Collier Schorr, Steven Shearer, Ricky Swallow, Torey Thornton, Richard Tuttle. Modern Art, 4-8 Helmet Row, London EC1V 3QJ, UK. www.modernart.net" />
+	<meta name="description" content="Stuart Shave/Modern Art
+4-8 Helmet Row
+London EC1V 3QJ
+United Kingdom
+
+T. +44 (0) 20 7299 7950
+
+www.modernart.net
+
+
+Representing:
+
+David Altmejd
+Karla Black
+Nicolas Deshayes
+Mark Flood
+Tim Gardner
+Lothar Hempel
+Yngve Holen
+Jacqueline Humphries
+Sanya Kantarovsky
+Ansel Krut
+Phillip Lai
+Paul Lee
+Linder
+Barry McGee
+Jonathan Meese
+Katy Moran
+David Noonan
+Anna-Bella Papp
+Eva Rothschild
+Bojan Šarčević
+Collier Schorr
+Steven Shearer
+Tim Stoner
+Ricky Swallow
+Torey Thornton
+Richard Tuttle" />
 	<!--<meta name="description" content="Stuart Shave Modern Art is a contemporary art gallery in London, representing the work of David Altmejd, Karla Black, Tom Burr, Nigel Cooke, Barnaby Furnas, Tim Gardner, Lothar Hempel, Jacqueline Humphries, Ansel Krut, Phillip Lai, Paul Lee, Linder, Barry McGee, Jonathan Meese, Matthew Monahan, Katy Moran, David Noonan, Eva Rothschild, Bojan Šarčević, Lara Schnitger, Collier Schorr, Steven Shearer, Ricky Swallow, Richard Tuttle, Clare Woods." /-->
 
 	<?php if ($dev) { ?>
