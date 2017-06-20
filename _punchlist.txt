@@ -80,3 +80,4 @@ particular artist are opened
   see github here for details 
   https://github.com/reinfurt/open-records-generator/commit/f31433a5f5843cd430c5f32fd30611c2a3e3a61eo
 - browserstack.org
++ change .htpasswd credentials
