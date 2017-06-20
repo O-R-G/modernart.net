@@ -19,12 +19,11 @@ if($body)
         </form><?
     } else {
         // $to = "info@modernart.net";
-        $to = "reinfurt@o-r-g.com";
+        $to = "alex@modernart.net";
         $subject = "Mailing list subcription request";
         $body = "Please subscribe " . $message . ".";
         $headers = "From: subscribe@modernart.net";
-        // mail($to,$subject,$body,$headers);
-        die(mail($to,$subject,$body,$headers));
+        mail($to,$subject,$body,$headers);
         ?><br /><br /><br />Thanks.<?
     }
 ?></section><?
