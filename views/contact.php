@@ -18,11 +18,13 @@ if($body)
         <input name='subscribe' type='submit' value='Subscribe'>
         </form><?
     } else {
-        $to = "info@modernart.net";
+        // $to = "info@modernart.net";
+        $to = "reinfurt@o-r-g.com";
         $subject = "Mailing list subcription request";
         $body = "Please subscribe " . $message . ".";
         $headers = "From: subscribe@modernart.net";
-        mail($to,$subject,$body,$headers);
+        // mail($to,$subject,$body,$headers);
+        die(mail($to,$subject,$body,$headers));
         ?><br /><br /><br />Thanks.<?
     }
 ?></section><?
