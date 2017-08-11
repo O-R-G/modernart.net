@@ -18,8 +18,8 @@ if($body)
         <input name='subscribe' type='submit' value='Subscribe'>
         </form><?
     } else {
-        // $to = "info@modernart.net";
-        $to = "alex@modernart.net";
+        $to = "info@modernart.net";
+        // $to = "alex@modernart.net";
         $subject = "Mailing list subcription request";
         $body = "Please subscribe " . $message . ".";
         $headers = "From: subscribe@modernart.net";
