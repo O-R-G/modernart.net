@@ -12,6 +12,7 @@ $n = count($children);
 		$name = nl2br($tmp);
         if($tmp != $name) $ptags = true;
         if (substr($name, 0, 1) == ":") $url = null;
+        if (substr($name, 0, 1) == ".") $name = null;
         $name = ltrim($name, ":");
         ?><div><?
             echo ($ptags) ? "<p>" : ""; 
@@ -29,6 +30,7 @@ $n = count($children);
 		$name = nl2br($tmp);
         if($tmp != $name) $ptags = true;
         if (substr($name, 0, 1) == ":") $url = null;
+        if (substr($name, 0, 1) == ".") $name = null;
         $name = ltrim($name, ":");
         ?><div><?
             echo ($ptags) ? "<p>" : ""; 
