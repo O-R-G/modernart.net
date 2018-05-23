@@ -27,6 +27,8 @@ else
  		    require_once("views/children-one-column-collapse.php");
 		elseif($uri[1] == "contact" && count($uri) == 2)
 		    require_once("views/contact.php");
+		elseif($uri[2] == "privacy" && count($uri) == 3)
+		    require_once("views/privacy.php");
 		elseif(count($uri) == 1)
 		    require_once("views/children-one-column.php");
 		else

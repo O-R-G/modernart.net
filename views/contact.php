@@ -29,3 +29,12 @@ if($body)
 ?></section><?
 }
 ?>
+
+<!-- privacy policy -->
+
+<div id="privacy">
+    <a href="/main/contact/privacy">Privacy</a>
+</div>
+
+
+

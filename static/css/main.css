@@ -177,6 +177,17 @@ a:active {
 	padding: 20px;
 }
 
+#privacy {
+	position: fixed;
+	bottom: 0;
+	right: 5px;
+	padding: 20px;
+}
+
+#privacy a {
+	color: #CCC;
+}
+
 #arrow {
     width: 10px;
     vertical-align:baseline;
